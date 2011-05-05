@@ -428,8 +428,14 @@ var JRiver = {
 						{join: "s315", value: ("0"+Math.floor(duration/60)).slice(-2)+":"+("0"+(duration%60)).slice(-2)}]);
 					// Nice trick for number padding: http://www.codigomanso.com/en/2010/07/simple-javascript-formatting-zero-padding/
 
-					// Set current track flag in list
-					CF.listUpdate(nowPlayingList, [{index: CF.AllItems, d2: 0}, {index: playlistPos, d2: 1}]);
+					CF.listInfo(nowPlayingList, function(list, count, first, numVisible) {
+						// If the list contains enough items to show the currently playing item (might not be updated yet)
+						if (count > playlistPos) {
+							// Set current track flag in list
+							CF.listUpdate(nowPlayingList, [{index: CF.AllItems, d2: 0}, {index: playlistPos, d2: 1}]);
+						}
+					});
+					
 					break;
 			}
 		}

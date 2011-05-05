@@ -518,7 +518,7 @@
     <txt j="1" x="15" y="0" w="54" h="31" t="list_tracknum" wrap="False" l="0">00.</txt>
     <txt j="2" x="72" y="0" w="281" h="57" t="list_title_l" wrap="False" l="0">Text</txt>
     <txt j="3" x="15" y="30" w="57" h="27" t="track_duration" wrap="False" l="0">00:00</txt>
-    <btn j="2" x="55" y="2" w="16" h="16" t="checkbox" flip="None" sim="0" l="0" s="1">
+    <btn j="2" x="52" y="7" w="16" h="16" t="checkbox" flip="None" sim="0" l="0" s="1">
       <inactive s="0">
       </inactive>
       <active s="0">

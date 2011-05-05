@@ -46,7 +46,6 @@ var MenuManager = {
 	videoChangedReceived: function(join, info) {
 		// Automatically hide the video once it has finished playing.
 		if (info.finished) {
-			CF.log(debugProcessMessage(info,3));
 			MenuManager.animateMenuIn();
 		}
 	},
@@ -54,7 +53,6 @@ var MenuManager = {
 	hideIntroVideo: function() {
 		CF.unwatch(CF.MoviePlaybackStateChangedEvent, "s9999");
 		if (MenuManager.videoChangedReceived !== undefined) {
-			MenuManager.log("delete video event function");
 			delete MenuManager.videoChangedReceived;
 		}
 		// Stop video playback
