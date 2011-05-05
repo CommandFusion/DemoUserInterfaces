@@ -9,10 +9,23 @@ var MenuManager = {
 
 	TOTAL_ITEMS:				5,
 	MENU_START_JOIN:			10001,
-	SOUND_JOIN:					20000,
+	SOUND_START_JOIN:					20000,
 
 	setup: function () {
 		MenuManager.log("MenuManager Setup Started.");
+		
+		MenuManager.hideMenu();
+
+		// Watch video status event for intro vid
+		CF.watch(CF.MoviePlaybackStateChangedEvent, "s9999", MenuManager.videoChangedReceived);
+
+		// Watch page flips, used to know when we are going back to home menu to animate the menu back in
+		CF.watch(CF.PageFlipEvent, MenuManager.onPageFlip);
+
+		MenuManager.log("MenuManager Setup Complete.");
+	},
+
+	hideMenu: function() {
 		var items = [];
 		// Setup each menu items starting state
 		for (var i = MenuManager.MENU_START_JOIN; i<=MenuManager.TOTAL_ITEMS + MenuManager.MENU_START_JOIN; i++) {
@@ -21,30 +34,37 @@ var MenuManager = {
 			items.push({join: "s"+(i+100), opacity: 0.0, scale: 2.0});	// text image
 		}
 		CF.setProperties(items); // Actually hide the items
+	},
 
-		// Watch video event for intro vid
-		CF.watch(CF.MoviePlaybackStateChangedEvent, "s9999", MenuManager.videoChangedReceived);
-
-		MenuManager.log("MenuManager Setup Complete.");
+	onPageFlip: function(from, to, orientation) {
+		if (to == "Home") {
+			// Start menu animation if flipping to the home page
+			MenuManager.animateMenuIn();
+		}
 	},
 
 	videoChangedReceived: function(join, info) {
 		// Automatically hide the video once it has finished playing.
-		CF.log(debugProcessMessage(info,3));
 		if (info.finished) {
+			CF.log(debugProcessMessage(info,3));
 			MenuManager.animateMenuIn();
 		}
 	},
 
 	hideIntroVideo: function() {
-		// Hide the video
-		CF.setProperties({join: "s9999", opacity: 0.0}, 0.0, 0.3);
+		CF.unwatch(CF.MoviePlaybackStateChangedEvent, "s9999");
+		if (MenuManager.videoChangedReceived !== undefined) {
+			MenuManager.log("delete video event function");
+			delete MenuManager.videoChangedReceived;
+		}
 		// Stop video playback
 		CF.setJoin("d9999", 1);
+		// Hide the video
+		CF.setProperties({join: "s9999", opacity: 0.0}, 0.0, 0.3);
 	},
 
 	animateMenuIn: function () {
-		MenuManager.setup();
+		MenuManager.hideMenu();
 		MenuManager.hideIntroVideo();
 		// Show each menu item, one by one
 		MenuManager.animateItemIn(0);
@@ -53,7 +73,7 @@ var MenuManager = {
 	// Start animating a menu item onto screen
 	animateItemIn: function (item) {
 		// Play sound
-		CF.setJoin("d"+(MenuManager.SOUND_JOIN+item+1), 1);
+		CF.setJoin("d"+(MenuManager.SOUND_START_JOIN+item+1), 1);
 		var i = item; // Save reference for setTimeout access because we need to increment it before setTimeout could access it
 		// Animate the button image, then repeat to the next menu item after 200ms if more items exist
 		CF.setProperties({join: "d"+(item+MenuManager.MENU_START_JOIN), opacity: 1.0, scale: 1.25}, 0.0, 0.15, CF.AnimationCurveEaseOut, function () {
@@ -111,7 +131,7 @@ var MenuManager = {
 			}
 		});
 		// Play sound
-		CF.setJoin("d"+MenuManager.SOUND_JOIN, 1);
+		CF.setJoin("d"+MenuManager.SOUND_START_JOIN, 1);
 	},
 
 	// Only allow logging calls when CF is in debug mode - better performance in release mode this way

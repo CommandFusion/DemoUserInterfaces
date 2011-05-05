@@ -130,6 +130,7 @@ var JRiver = {
 			CF.setProperties({join:"d"+(JRiver.joinArtistList-1), opacity:1.0, scale:1.25}, 0.0, 0.15, CF.AnimationCurveEaseOut, function() {
 				CF.setProperties({join:"d"+(JRiver.joinArtistList-1), scale:0.5, opacity:0.0}, 0.0, 0.15, CF.AnimationCurveEaseIn);
 			});
+			JRiver.getVolume();
 			JRiver.getArtists(1);
 		} else {
 			// Connection lost
@@ -407,7 +408,7 @@ var JRiver = {
 					break;
 				case "RNOWPLAYING": // Now playing data
 					//CF.log(matchedString);
-					// <zoneNum>|<zoneName>|<playbackState>|<position>|<duration>|<artist>|<album>|<trackname>|<tracknum>
+					// <zoneNum>|<zoneName>|<playbackState>|<position>|<duration>|<artist>|<album>|<trackname>|<tracknum>|<playlistPos>
 					var zoneNum = dataArray[0];
 					var zone = dataArray[1];
 					var state = dataArray[2];
@@ -417,11 +418,18 @@ var JRiver = {
 					var album = dataArray[6];
 					var trackName = dataArray[7];
 					var trackNumber = dataArray[8];
-					JRiver.log("duration: " + duration + ", position: " + position + ", slider: " + Math.round((65535/duration)*position));
+					var playlistPos = dataArray[9];
+					var sliderPos = 0;
+					if (duration > 0) {
+						sliderPos = Math.round((65535/duration)*position);
+					}
 					CF.setJoins([{join: "s310", value: JRiver.coverArtURL+"?getcurrentart"}, {join: "s311", value: trackName}, {join: "s312", value: artist}, {join: "s313", value: album},
-						{join: "a310", value: Math.round((65535/duration)*position)}, {join: "s314", value: ("0"+Math.max(0,Math.floor(position/60))).slice(-2)+":"+("0"+Math.max(0,position%60)).slice(-2)},
+						{join: "a310", value: sliderPos}, {join: "s314", value: ("0"+Math.max(0,Math.floor(position/60))).slice(-2)+":"+("0"+Math.max(0,position%60)).slice(-2)},
 						{join: "s315", value: ("0"+Math.floor(duration/60)).slice(-2)+":"+("0"+(duration%60)).slice(-2)}]);
 					// Nice trick for number padding: http://www.codigomanso.com/en/2010/07/simple-javascript-formatting-zero-padding/
+
+					// Set current track flag in list
+					CF.listUpdate(nowPlayingList, [{index: playlistPos, d2: 1}]);
 					break;
 			}
 		}
@@ -638,8 +646,14 @@ var JRiver = {
 	prev: function () {
 		JRiver.sendMsg("TNAV","prev");
 	},
+	getVolume: function() {
+		JRiver.sendMsg("TVOLGET");
+	},
 	setVolume: function(level) {
 		JRiver.sendMsg("TVOL", level);
+	},
+	scrubTrack: function(pos) {
+		JRiver.sendMsg("TSCRUB", pos);
 	},
 	// Send a correctly build command to JRiver
 	sendMsg: function(command, data) {

@@ -27,15 +27,16 @@
     </devices>
   </properties>
   <systems>
-    <system name="JRiver" ip="27.32.176.111" port="8022" alwayson="1" heartbeatRx="" heartbeatTx="" heartbeatMode="0" eom="\xF5\xF5" connectionStatus="1" disconnectionStatus="0">
+    <system name="JRiver" ip="27.32.176.111" port="8022" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="1" disconnectionStatus="0">
       <cmd name="Slider Volume" js="JRiver.setVolume(data)" jsSendsCommand="True">[sliderval]</cmd>
+      <cmd name="Slider Track Pos" js="JRiver.scrubTrack(data)" jsSendsCommand="True">[sliderval]</cmd>
       <fb name="Incoming Data" regex="(?ms)\xF3(.*?)\xF4(.*?)\xF5\xF5" />
     </system>
-    <system name="Loopback" ip="127.0.0.1" port="102" protocol="udp" alwayson="1" heartbeatRx="" heartbeatTx="" heartbeatMode="0" eom="" connectionStatus="0" disconnectionStatus="0" startupCmd="ShowStatusBar">
+    <system name="Loopback" ip="127.0.0.1" port="102" protocol="udp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0" startupCmd="ShowStatusBar">
       <cmd name="ShowStatusBar" target="d17931" value="1">1</cmd>
       <cmd name="SetupMainMenu" js="MenuManager.animateMenuIn()" jsSendsCommand="False" target="s2222" value="TEST">1</cmd>
     </system>
-    <system name="Denon" ip="192.168.0.70" port="5000" alwayson="1" heartbeatRx="" heartbeatTx="" heartbeatMode="0" eom="\x0D" connectionStatus="0" disconnectionStatus="0" startupMacro="Denon Startup">
+    <system name="Denon" ip="192.168.0.70" port="5000" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\x0D" connectionStatus="0" disconnectionStatus="0" startupMacro="Denon Startup">
       <cmd name="Z2 Vol Up">Z2UP\x0D</cmd>
       <cmd name="Z2 Vol Down">Z2DOWN\x0D</cmd>
       <cmd name="Z2 Source Radio">Z2TUNER\x0D</cmd>
@@ -485,30 +486,6 @@
   <subpage name="List_AlbumTitle" w="388" h="40">
     <txt j="1" x="0" y="0" w="388" h="40" t="albumname" wrap="False" l="0">Album Name</txt>
   </subpage>
-  <subpage name="List_ZoneItem" w="388" h="138">
-    <btn j="1" x="0" y="0" w="388" h="136" t="" flip="None" sim="1" l="0" s="1">
-      <actions>
-        <action>
-          <press delay="0" hold="0" repeat="0" js="JRiver.selectZoneList(list,listIndex,join)" />
-          <press delay="0" hold="1000" repeat="0" js="JRiver.selectZoneListGroups(list,listIndex,join)" />
-        </action>
-      </actions>
-      <inactive s="0">
-      </inactive>
-      <active s="0">
-      </active>
-    </btn>
-    <txt j="1" x="0" y="0" w="377" h="39" t="zone_title_b" wrap="False" l="0">Zone Name</txt>
-    <txt j="2" x="83" y="30" w="305" h="31" t="zone_name" wrap="False" l="0">Artist</txt>
-    <txt j="0" x="0" y="30" w="77" h="31" t="zone_title" wrap="False" l="0">Artist:</txt>
-    <txt j="3" x="83" y="56" w="305" h="31" t="zone_name" wrap="False" l="0">Album</txt>
-    <txt j="0" x="0" y="56" w="77" h="31" t="zone_title" wrap="False" l="0">Album:</txt>
-    <txt j="4" x="83" y="80" w="305" h="31" t="zone_name" wrap="False" l="0">Track</txt>
-    <txt j="0" x="0" y="80" w="77" h="31" t="zone_title" wrap="False" l="0">Track:</txt>
-    <gauge j="1" x="94" y="105" w="200" h="33" t="vol_bar" l="0" />
-    <txt j="5" x="0" y="103" w="77" h="31" t="albumname" wrap="False" l="0">00:00</txt>
-    <txt j="6" x="300" y="103" w="77" h="31" t="albumname" wrap="False" l="0">00:00</txt>
-  </subpage>
   <subpage name="BottomBar_Zones" w="1024" h="71" t="bottom_bar_bg">
     <btn j="21" x="367" y="19" w="91" h="44" t="bottom_btn_L" flip="None" sim="1" l="0" s="1" js="JRiver.clearCurrentZonePlaylist()">
       <inactive s="0">Clear</inactive>
@@ -541,6 +518,12 @@
     <txt j="1" x="15" y="0" w="54" h="31" t="list_tracknum" wrap="False" l="0">00.</txt>
     <txt j="2" x="72" y="0" w="281" h="57" t="list_title_l" wrap="False" l="0">Text</txt>
     <txt j="3" x="15" y="30" w="57" h="27" t="track_duration" wrap="False" l="0">00:00</txt>
+    <btn j="2" x="55" y="2" w="16" h="16" t="checkbox" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
   </subpage>
   <subpage name="Radio" w="300" h="624" t="Radio">
     <btn j="0" x="65" y="286" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Radio TripleJ">
@@ -715,7 +698,7 @@ Mode</txt>
     <img x="0" y="0" w="365" h="624" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_R_bg.png</img>
     <list j="304" x="0" y="211" w="365" h="413" headerSub="" titleSub="" contentSub="List_ZonePlaylistItem" footerSub="" orientation="v" l="0" swipedelete="0" />
     <img x="7" y="0" w="358" h="41" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">img_nowPlaying.png</img>
-    <img x="6" y="164" w="358" h="47" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">img_currentPlaylist.png</img>
+    <img x="7" y="164" w="358" h="47" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">img_currentPlaylist.png</img>
     <img x="20" y="54" w="100" h="101" j="310" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">nowplaying_art_bg.png</img>
     <img x="20" y="54" w="100" h="101" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">nowplaying_art_overlay.png</img>
     <txt j="311" x="126" y="53" w="238" h="24" t="nowplaying" wrap="False" l="0">Track title</txt>
@@ -723,7 +706,7 @@ Mode</txt>
     <txt j="313" x="127" y="104" w="238" h="24" t="nowplaying_lighter" wrap="False" l="0">Album</txt>
     <txt j="314" x="125" y="131" w="38" h="24" t="nowplaying_lighter" wrap="False" l="0">00:00</txt>
     <txt j="315" x="321" y="131" w="38" h="24" t="nowplaying_lighter" wrap="False" l="0">00:00</txt>
-    <slider j="310" d="0" x="168" y="130" w="145" h="33" min="0" max="100" decimals="0" unit="decimal" t="vol_bar" sim="0" l="0" />
+    <slider j="310" d="0" x="168" y="130" w="145" h="33" min="0" max="65535" decimals="0" dragCmd="Slider Track Pos" releaseCmd="Slider Track Pos" unit="decimal" t="vol_bar" sim="0" l="0" />
   </subpage>
   <subpage name="Zone_Popup" w="304" h="244" t="popdown_bg">
     <list j="303" x="19" y="0" w="266" h="185" headerSub="" titleSub="" contentSub="Zones_Item" footerSub="" orientation="v" l="0" swipedelete="0" />
