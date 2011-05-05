@@ -1,0 +1,609 @@
+<gui>
+  <properties>
+    <project>JRiver</project>
+    <designer>GuiLink</designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="Jarrod's iPhone">693CBC248292EB74D39DF7B0415B25CA</device>
+      <device name="Jarrod's iTouch">A1FDD44DB1F7CCDAA389BD22C9A92466</device>
+      <device name="Jarrod's iPhone 3G">3D0F1EA73558BA41AAE0105C51EDB533</device>
+      <device name="CommandFusion iTouch 3rd Gen">9C9309EA6867A4C87FEB1BC0E8A1A20C</device>
+      <device name="CommandFusion iPad">7FA41088AB80BA09CF10FA579B95C51C</device>
+      <device name="Lisa's iPhone">0D19F0E73C0A5334F0E468234AFEA2BB</device>
+      <device name="SP iPad">F9D64E2B02DC5FA0AE220B3D20A66115</device>
+      <device name="GuiLink iPad">7AE2743F5FB3D11EDAA5A6A2A6A90C04</device>
+      <device name="RFC iPad">B6F88BE7D54D6E8A10EB726C3655FF84</device>
+      <device name="Development iPad #2">F23E70BC8C90C29C94610D9B35F95A88</device>
+      <device name="CommandFusion iPhone 4">5AE0AE1AD7C838CFAE3BA26D23ED0712</device>
+      <device name="CommandFusion Archos5">D5652759DCC69DEC2503149E48959E55</device>
+      <device name="CommandFusion Black iPad2">4A10D1837F75AF1FC608D8C964A47900</device>
+    </devices>
+  </properties>
+  <systems>
+    <system name="JRiver" ip="27.32.176.111" port="8022" alwayson="1" heartbeatRx="" heartbeatTx="" heartbeatMode="0" eom="\xF5\xF5" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Artists_GetRow3">\xF3TGETLIST\xF4allartists|3\xF5\xF5</cmd>
+      <cmd name="Artist_GetTracks">\xF3TGETLIST\xF4tracks|[albumartist]|[album]\xF5\xF5</cmd>
+      <cmd name="Artists_GetRow1">\xF3TGETLIST\xF4allartists\xF5\xF5</cmd>
+      <cmd name="Transport PlayPause">\xF3TNAV\xF4playpause\xF5\xF5</cmd>
+      <cmd name="Transport Next">\xF3TNAV\xF4next\xF5\xF5</cmd>
+      <cmd name="Transport Prev">\xF3TNAV\xF4prev\xF5\xF5</cmd>
+      <cmd name="Track_Select">\xF3[trackcmd]\xF4track|[albumartist]|[trackalbum]|[tracknum]\xF5\xF5</cmd>
+      <cmd name="Zones_GetRows">\xF3TGETLIST\xF4zones\xF5\xF5</cmd>
+      <cmd name="Zones_Select">\xF3TSETZONE\xF4[zonenum]\xF5\xF5</cmd>
+      <cmd name="Zones_GetActive">\xF3TGETZONE\xF4\xF5\xF5</cmd>
+      <cmd name="Transport Vol Level">\xF3TVOL\xF4[sliderval]\xF5\xF5</cmd>
+      <cmd name="Zone_Playlist_GetRow1">\xF3TGETLIST\xF4zoneplaylist|[zonenum]\xF5\xF5</cmd>
+      <fb name="Zones_Active" regex="\xF3RACTIVEZONE\xF4(.*?)\xF5\xF5">
+        <group index="1" name="ZoneNum" datatype="s" target="s1" />
+        <onmatch target="e0" token="[activezone]" value="$ZoneNum$" />
+      </fb>
+      <fb name="Playback_StateChanged" regex="\xF3RPLAYSTATE\xF4(\d*?)\xF5\xF5">
+        <group index="1" name="" datatype="a" target="d3" transform="if(value==2,1,0)" onVal="2" />
+      </fb>
+      <fb name="Playback_Vol" regex="\xF3RVOL\xF4(\d*?)\xF5\xF5">
+        <group index="1" name="" datatype="a" target="a1" min="0" max="100" onVal="2" />
+      </fb>
+      <fb name="Incoming Data" regex="(?ms)\xF3(.*?)\xF4(.*?)\xF5\xF5" />
+    </system>
+    <system name="Loopback" ip="127.0.0.1" port="10208" protocol="udp" alwayson="1" heartbeatRx="" heartbeatTx="" heartbeatMode="0" eom="" connectionStatus="0" disconnectionStatus="0" startupMacro="StartupMacro">
+      <cmd name="View Zones">view=zones</cmd>
+      <cmd name="View Artists">view=artists</cmd>
+      <cmd name="Check Artists">getartists=[artistsloaded]</cmd>
+      <cmd name="ShowStatusBar" target="d17931" value="1">1</cmd>
+      <cmd name="Mode Play">mode=play</cmd>
+      <cmd name="Mode Queue">mode=queue</cmd>
+      <cmd name="SetMode" target="d11" value="1">1</cmd>
+      <cmd name="RepeatTest">repeat=[@a1000]</cmd>
+      <fb name="View" regex="view=(zones)?(artists)?">
+        <group index="1" name="" datatype="d" target="d1" onVal="zones" />
+        <group index="2" name="" datatype="d" target="d2" onVal="artists" />
+      </fb>
+      <fb name="Get Artists" regex="getartists=(0)">
+        <onmatch target="e0" cmd="Artists_GetRow1" />
+      </fb>
+      <fb name="Mode" regex="mode=(play)?(queue)?">
+        <group index="1" name="" datatype="d" target="d11" onVal="play" />
+        <group index="2" name="" datatype="d" target="d12" onVal="queue" />
+      </fb>
+      <fb name="Mode Play FB" regex="mode=(play)">
+        <onmatch target="e0" token="[trackcmd]" value="TPLAY" />
+      </fb>
+      <fb name="Mode Queue FB" regex="mode=(queue)">
+        <onmatch target="e0" token="[trackcmd]" value="TADD" />
+      </fb>
+      <fb name="RepeatTestFB" regex="repeat=(.*)">
+        <group index="1" name="data" datatype="a" target="a1000" transform="value+1" />
+        <onmatch target="s1000" value="{{[@a1000]}}" />
+        <onmatch target="s111" value="tv_$data$.png" />
+      </fb>
+    </system>
+    <system name="Denon" ip="192.168.0.70" port="5000" alwayson="1" heartbeatRx="" heartbeatTx="" heartbeatMode="0" eom="\x0D" connectionStatus="0" disconnectionStatus="0" startupMacro="Denon Startup">
+      <cmd name="Z2 Vol Up">Z2UP\x0D</cmd>
+      <cmd name="Z2 Vol Down">Z2DOWN\x0D</cmd>
+      <cmd name="Z2 Source Radio">Z2TUNER\x0D</cmd>
+      <cmd name="Z2 Source PC">Z2CD\x0D</cmd>
+      <cmd name="Z2 Source iPod">Z2IPOD\x0D</cmd>
+      <cmd name="Z2 Vol MUTE">Z2MU[Z2MUTE]\x0D</cmd>
+      <cmd name="Z2 On">Z2ON\x0D</cmd>
+      <cmd name="Z2 Off">Z2OFF\x0D</cmd>
+      <cmd name="Z2 Get Vol">Z2?\x0D</cmd>
+      <cmd name="Z2 Get Mute">Z2MU?\x0D</cmd>
+      <cmd name="Z2 Source AUX">Z2V.AUX\x0D</cmd>
+      <cmd name="Radio TripleJ">TFAN010750\x0D</cmd>
+      <cmd name="Radio TripleM">TFAN010510\x0D</cmd>
+      <cmd name="Radio Fox">TFAN010190\x0D</cmd>
+      <cmd name="Radio Nova">TFAN010030\x0D</cmd>
+      <cmd name="Radio Gold">TFAN010430\x0D</cmd>
+      <cmd name="Radio KRock">TFAN009550\x0D</cmd>
+      <cmd name="Radio Tune Up">TFANUP\x0D</cmd>
+      <cmd name="Radio Tune Down">TFANDOWN\x0D</cmd>
+      <cmd name="Radio Tune AM">TMANAM\x0D</cmd>
+      <cmd name="Radio Tune FM">TMANFM\x0D</cmd>
+      <cmd name="Radio GET Tune">TFAN?\x0D</cmd>
+      <cmd name="Radio GET Band">TMAN?\x0D</cmd>
+      <fb name="Z2 Mute On" regex="Z2MU(ON)\x0D">
+        <onmatch target="e0" token="[Z2MUTE]" value="OFF" />
+        <onmatch target="d333" value="1" />
+      </fb>
+      <fb name="Z2 Mute Off" regex="Z2MU(OFF)\x0D">
+        <onmatch target="e0" token="[Z2MUTE]" value="ON" />
+        <onmatch target="d333" value="0" />
+      </fb>
+      <fb name="Radio Band AM" regex="TMAN(AM)">
+        <onmatch target="d113" value="1" />
+        <onmatch target="d112" value="0" />
+      </fb>
+      <fb name="Radio Tuner" regex="TFAN(\d*)\x0D">
+        <group index="1" name="" datatype="a" target="s111" transform="value/100::%.2f" />
+      </fb>
+      <fb name="Radio Band FM" regex="TMAN(FM)">
+        <onmatch target="d112" value="1" />
+        <onmatch target="d113" value="0" />
+      </fb>
+    </system>
+  </systems>
+  <macros>
+    <macro name="Denon Startup">
+      <command delay="0">Z2 Get Mute</command>
+      <command delay="250">Z2 Get Vol</command>
+      <command delay="500">Radio GET Band</command>
+      <command delay="750">Radio GET Tune</command>
+    </macro>
+    <macro name="StartupMacro">
+      <command delay="0">ShowStatusBar</command>
+      <command delay="0">SetMode</command>
+    </macro>
+  </macros>
+  <themes>
+    <theme type="background" name=".bg_landscape"><![CDATA[ background-image: url(bg_landscape.png); background-repeat: no-repeat;]]></theme>
+    <theme type="background" name=".top_bar_bg"><![CDATA[ background-image: url(top_bar_bg.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".transport_pause[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_pause_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_pause[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_pause_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_play[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_play_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_play[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_play_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_prev[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_prev_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_prev[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_prev_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_skip[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_skip_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_skip[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_skip_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_home[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_home_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_home[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_home_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".zone_name"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 20px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".zone_btn_L[state='0']"><![CDATA[padding: 0px 0px 0px 8px; background-image: url(zone_btn_L_off.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".zone_btn_L[state='1']"><![CDATA[padding: 0px 0px 0px 8px; background-image: url(zone_btn_L_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".zone_btn_R[state='0']"><![CDATA[padding: 0px 5px 0px 0px; background-image: url(zone_btn_R_off.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".zone_btn_R[state='1']"><![CDATA[padding: 0px 8px 0px 0px; background-image: url(zone_btn_R_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="gauge" name=".vol_bar[state='0']"><![CDATA[ background-image: url(vol_bar_off.png);]]></theme>
+    <theme type="gauge" name=".vol_bar[state='1']"><![CDATA[ background-image: url(vol_bar_on.png);]]></theme>
+    <theme type="background" name=".list_title"><![CDATA[ background-image: url(list_title.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".list_content[state='0']"><![CDATA[padding: 0px 0px 0px 10px; background-image: url(list_content_off.png); text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Arial'; font-weight: normal; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".list_content[state='1']"><![CDATA[padding: 0px 0px 0px 10px; background-image: url(list_content_on.png); text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Arial'; font-weight: normal; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".list_title_l"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".transport_playpause[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_play_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".transport_playpause[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(transport_pause_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".list_tracknum"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 30px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".list_album[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(album_bg.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".list_album[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(album_bg.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".albumname"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 20px; font-family: 'Futura'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".bottom_bar_bg"><![CDATA[ background-image: url(bottom_bar_bg.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".bottom_btn_L[state='0']"><![CDATA[padding: 0px 0px 0px 8px; background-image: url(bottom_btn_L_off.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn_L[state='1']"><![CDATA[padding: 0px 0px 0px 8px; background-image: url(bottom_btn_L_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn_R[state='0']"><![CDATA[padding: 0px 8px 0px 0px; background-image: url(bottom_btn_R_off.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn_R[state='1']"><![CDATA[padding: 0px 8px 0px 0px; background-image: url(bottom_btn_R_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn_M[state='0']"><![CDATA[padding: 0px 2px 0px 2px; -webkit-border-image: url(bottom_btn_M_off.png) 0 2 0 2; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn_M[state='1']"><![CDATA[padding: 0px 2px 0px 2px; -webkit-border-image: url(bottom_btn_M_on.png) 0 2 0 2; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn[state='0']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_off.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn[state='1']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_on.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".zone_title"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 20px; font-family: 'Futura'; text-align: right; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".zone_title_b"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 22px; font-family: 'Futura'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".list_title_c"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Futura'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".list_content_copy[state='0']"><![CDATA[padding: 0px 0px 0px 10px; background-image: url(list_content_off.png); text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Arial'; font-weight: normal; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".list_content_copy[state='1']"><![CDATA[padding: 0px 0px 0px 10px; background-image: url(list_content_on.png); text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Arial'; font-weight: normal; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="background" name=".Radio"><![CDATA[background-color: #000040;]]></theme>
+    <theme type="button" name=".bottom_btn_bare[state='0']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_bare_off.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".bottom_btn_bare[state='1']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_bare_on.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".small_l"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 14px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".popup_bg"><![CDATA[ background-image: url(popup_bg.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".close[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_close_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".close[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_close_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".grey_btn[state='0']"><![CDATA[padding: 0px 10px 2px 4px; -webkit-border-image: url(btn_plaingrey_off.png) 0 10 2 4; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 24px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: right; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".grey_btn[state='1']"><![CDATA[padding: 0px 10px 2px 4px; -webkit-border-image: url(btn_plaingrey_on.png) 0 10 2 4; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 24px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: right; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".checkbox[state='0']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".checkbox[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(TaskComplete.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".track_duration"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: #A0A0A0; font-size: 16px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".blank[state='0']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".blank[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <tokens>
+    <token name="[artistsloaded]" value="0" />
+    <token name="[trackcmd]" value="TPLAY" />
+    <token name="[activezone]" value="0" />
+    <token name="[Z2MUTE]" value="ON" />
+  </tokens>
+  <scripts>
+    <script name="JRiver.js" />
+    <script name="airlive.js" />
+  </scripts>
+  <page name="Library" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <btn j="0" x="512" y="167" w="172" h="44" t="bottom_btn" flip="Zones" sim="1" l="0" s="1">
+        <inactive s="0">Page Flip</inactive>
+        <active s="0">Page Flip</active>
+      </btn>
+      <btn j="0" x="85" y="167" w="245" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="RepeatTest" repeatdelay="250">
+        <inactive s="0">Repeat Command</inactive>
+        <active s="0">Repeat Command</active>
+      </btn>
+      <txt j="1000" x="89" y="98" w="239" h="50" t="zone_name" wrap="False" l="0">Repeat Data:</txt>
+      <gauge j="1000" x="73" y="48" w="200" h="33" t="vol_bar" l="0" />
+      <img x="545" y="42" w="96" h="68" j="111" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" />
+      <video x="142" y="289" w="473" h="407" j="0" play="0" stop="0" url="rtsp://192.168.0.10:5554/iviewer" bgcolor="" format="mpeg4" auth_user="" auth_password="" auth_realm="" auth_host="" auth_method="" auth_proxy="" autoplay="1" showcontrols="1" />
+    </portrait>
+    <landscape t="bg_landscape">
+      <subpage name="List_Albums" x="318" y="82" j="301" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="List_Tracks" x="706" y="82" j="302" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="List_Artists" x="0" y="82" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <img x="0" y="0" w="1024" h="19" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">status_bar_bg.png</img>
+      <subpage name="TopBar" x="0" y="10" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="1" />
+      <subpage name="SelectModePopup_Albums" x="375" y="472" j="3010" transition1="moveIn" subtype1="fromBottom" time1="0.5" ease1="easeOut" transition2="moveIn" subtype2="fromBottom" time2="0.5" ease2="easeOut" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="BottomBar" x="0" y="697" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="1" />
+      <subpage name="SelectMode_Albums" x="379" y="715" j="301" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+    </landscape>
+  </page>
+  <page name="Zones" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <txt j="1000" x="89" y="98" w="239" h="50" t="zone_name" wrap="False" l="0">Repeat Data:</txt>
+      <video x="72" y="319" w="640" h="480" j="0" play="0" stop="0" url="http://27.32.176.111:8100/video.cgi" bgcolor="#0000FF" format="mjpeg" auth_user="demo" auth_password="demo" auth_realm="" auth_host="" auth_method="basic" auth_proxy="" autoplay="1" showcontrols="1" />
+      <btn j="0" x="535" y="204" w="172" h="44" t="bottom_btn" flip="Library" sim="1" l="0" s="1">
+        <inactive s="0">Page Flip</inactive>
+        <active s="0">Page Flip</active>
+      </btn>
+      <img x="72" y="319" w="640" h="480" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">
+        <gesture name="New Gesture" type="swipe" direction="left" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;left&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="right" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;right&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="up" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;up&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="down" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;down&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="up" touches="2">
+          <action phase="begin" js="AirLive.sendMsg({&quot;rtilt&quot;: &quot;10.0&quot;})" />
+        </gesture>
+        <gesture name="Panning" type="rotate">
+          <action phase="change" js="AirLive.rotate(gesture)" />
+          <action phase="end" js="AirLive.rotateEnd(gesture)" />
+        </gesture>
+        <gesture name="New Gesture" type="tap" taps="2" touches="1">
+          <action phase="begin" js="AirLive.centerImage(gesture)" />
+        </gesture>
+      </img>
+    </portrait>
+    <landscape t="bg_landscape">
+      <subpage name="List_ZonePlaylist" x="388" y="82" j="101" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="List_Zones" x="0" y="82" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <img x="0" y="0" w="1024" h="19" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">status_bar_bg.png</img>
+      <subpage name="TopBar" x="0" y="10" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="0" />
+      <subpage name="Volume" x="437" y="36" j="0" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="BottomBar_Zones" x="0" y="697" j="0" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <btn j="0" x="835" y="406" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Z2 Vol Up" repeatdelay="200">
+        <inactive s="0">Volume Up</inactive>
+        <active s="0">Volume Up</active>
+      </btn>
+      <btn j="0" x="835" y="456" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Z2 Vol Down" repeatdelay="200">
+        <inactive s="0">Volume Down</inactive>
+        <active s="0">Volume Down</active>
+      </btn>
+      <btn j="102" x="835" y="166" w="171" h="44" t="bottom_btn" flip="None" sim="2" l="0" s="1" cmd="Z2 Source Radio">
+        <inactive s="0">Radio</inactive>
+        <active s="0">Radio</active>
+      </btn>
+      <btn j="0" x="835" y="216" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Z2 Source PC">
+        <inactive s="0">Media Server</inactive>
+        <active s="0">Media Server</active>
+      </btn>
+      <txt j="0" x="840" y="125" w="160" h="38" t="list_title_c" wrap="False" l="0">Source</txt>
+      <txt j="333" x="840" y="365" w="160" h="38" t="list_title_c" wrap="False" l="0">Volume</txt>
+      <txt j="0" x="838" y="95" w="164" h="38" t="list_title_c" wrap="False" l="0">Outdoors (Zone 2)</txt>
+      <btn j="0" x="835" y="266" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Z2 Source iPod">
+        <inactive s="0">iPod USB</inactive>
+        <active s="0">iPod USB</active>
+      </btn>
+      <btn j="333" x="835" y="506" w="171" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="Z2 Vol MUTE">
+        <inactive s="0">Mute</inactive>
+        <active s="0">Mute</active>
+      </btn>
+      <btn j="0" x="835" y="583" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Z2 On">
+        <inactive s="0">Zone On</inactive>
+        <active s="0">Zone On</active>
+      </btn>
+      <btn j="0" x="835" y="633" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Z2 Off">
+        <inactive s="0">Zone Off</inactive>
+        <active s="0">Zone Off</active>
+      </btn>
+      <btn j="0" x="835" y="316" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Z2 Source AUX">
+        <inactive s="0">AUX (Front)</inactive>
+        <active s="0">AUX (Front)</active>
+      </btn>
+      <subpage name="Radio" x="724" y="83" j="102" transition1="moveIn" subtype1="fromRight" time1="0.5" ease1="" transition2="moveIn" subtype2="fromRight" time2="0.5" ease2="" clickthrough="0" topmost="0" v="0" l="1" />
+    </landscape>
+  </page>
+  <page name="Cache" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <img x="157" y="300" w="96" h="68" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">tv_1.png</img>
+      <img x="157" y="374" w="96" h="68" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">tv_2.png</img>
+      <img x="258" y="304" w="96" h="68" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">tv_3.png</img>
+    </portrait>
+    <landscape />
+  </page>
+  <subpage name="TopBar" w="1024" h="82" t="top_bar_bg">
+    <btn j="3" x="786" y="13" w="54" h="56" t="transport_playpause" flip="None" sim="0" l="0" s="1" cmd="Transport PlayPause">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="0" x="730" y="19" w="43" h="45" t="transport_prev" flip="None" sim="1" l="0" s="1" cmd="Transport Prev">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="0" x="857" y="19" w="43" h="45" t="transport_skip" flip="None" sim="1" l="0" s="1" cmd="Transport Next">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="0" x="960" y="13" w="54" h="56" t="btn_home" flip="None" sim="1" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <img x="14" y="18" w="355" h="46" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">zone_bg.png</img>
+    <txt j="1" x="23" y="19" w="163" h="39" t="zone_name" wrap="False" l="0">Current Zone</txt>
+    <btn j="1" x="188" y="18" w="89" h="42" t="zone_btn_L" flip="Zones" sim="0" l="0" s="1" js="JRiver.getZones(1)">
+      <inactive s="0">Zones</inactive>
+      <active s="0">Zones</active>
+    </btn>
+    <btn j="2" x="277" y="18" w="89" h="42" t="zone_btn_R" flip="Library" sim="0" l="0" s="1" js="JRiver.getArtists(1)">
+      <inactive s="0">Library</inactive>
+      <active s="0">Library</active>
+    </btn>
+    <txt j="0" x="457" y="10" w="189" h="23" t="list_title_c" wrap="False" l="0">Volume</txt>
+    <slider j="1" d="0" x="452" y="33" w="200" h="33" min="0" max="100" decimals="0" dragCmd="Transport Vol Level" releaseCmd="Transport Vol Level" unit="decimal" t="vol_bar" sim="1" l="0">
+      <indicator state="0" offsetX="0" offsetY="1" x="0" y="0" w="0" h="0" t="">vol_bar_slider.png</indicator>
+      <indicator state="1" offsetX="0" offsetY="1" x="0" y="0" w="0" h="0" t="">vol_bar_slider.png</indicator>
+    </slider>
+  </subpage>
+  <subpage name="Volume" w="210" h="30" />
+  <subpage name="List_ArtistTitle" w="318" h="31" t="list_title">
+    <txt j="1" x="15" y="2" w="293" h="27" t="list_title_l" wrap="False" l="0">Title</txt>
+  </subpage>
+  <subpage name="List_ArtistItem" w="318" h="57">
+    <btn j="1" x="0" y="0" w="318" h="57" t="list_content" flip="None" sim="1" l="0" s="1" js="JRiver.selectArtistList(list, listIndex, join, 1)">
+      <inactive s="1">   List Content</inactive>
+      <active s="1">   List Content</active>
+    </btn>
+  </subpage>
+  <subpage name="List_TrackItem" w="318" h="57">
+    <btn j="1" x="0" y="0" w="318" h="57" t="list_content" flip="None" sim="1" l="0" s="1" js="JRiver.selectAlbumTrack(list, listIndex, join)">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <txt j="1" x="3" y="0" w="54" h="31" t="list_tracknum" wrap="False" l="0">00.</txt>
+    <txt j="2" x="60" y="0" w="257" h="57" t="list_title_l" wrap="False" l="0">Text</txt>
+    <txt j="3" x="3" y="30" w="57" h="27" t="track_duration" wrap="False" l="0">00:00</txt>
+  </subpage>
+  <subpage name="List_AlbumItem" w="388" h="138">
+    <btn j="1" x="0" y="0" w="388" h="138" t="list_album" flip="None" sim="1" l="0" s="1" js="JRiver.selectAlbumList(list, listIndex, join, 1)">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <img x="2" y="3" w="130" h="130" j="0" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">album_cover_bg.png</img>
+    <txt j="1" x="134" y="11" w="248" h="67" t="zone_name" wrap="False" l="0">Album Name</txt>
+    <txt j="3" x="134" y="91" w="248" h="38" t="zone_name" wrap="False" l="0">Year</txt>
+    <img x="7" y="8" w="120" h="120" j="2" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
+  </subpage>
+  <subpage name="BottomBar" w="1024" h="71" t="bottom_bar_bg" />
+  <subpage name="List_AlbumTitle" w="388" h="40">
+    <txt j="1" x="0" y="0" w="388" h="40" t="albumname" wrap="False" l="0">Album Name</txt>
+  </subpage>
+  <subpage name="List_ZoneItem" w="388" h="138">
+    <btn j="1" x="0" y="0" w="388" h="136" t="list_album" flip="None" sim="1" l="0" s="1">
+      <actions>
+        <action>
+          <press delay="0" hold="0" repeat="0" js="JRiver.selectZoneList(list,listIndex,join)" />
+          <press delay="0" hold="1000" repeat="0" js="JRiver.selectZoneListGroups(list,listIndex,join)" />
+        </action>
+      </actions>
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <txt j="1" x="0" y="0" w="377" h="39" t="zone_title_b" wrap="False" l="0">Zone Name</txt>
+    <txt j="2" x="83" y="30" w="305" h="31" t="zone_name" wrap="False" l="0">Artist</txt>
+    <txt j="0" x="0" y="30" w="77" h="31" t="zone_title" wrap="False" l="0">Artist:</txt>
+    <txt j="3" x="83" y="56" w="305" h="31" t="zone_name" wrap="False" l="0">Album</txt>
+    <txt j="0" x="0" y="56" w="77" h="31" t="zone_title" wrap="False" l="0">Album:</txt>
+    <txt j="4" x="83" y="80" w="305" h="31" t="zone_name" wrap="False" l="0">Track</txt>
+    <txt j="0" x="0" y="80" w="77" h="31" t="zone_title" wrap="False" l="0">Track:</txt>
+    <gauge j="1" x="94" y="105" w="200" h="33" t="vol_bar" l="0" />
+    <txt j="5" x="0" y="103" w="77" h="31" t="albumname" wrap="False" l="0">00:00</txt>
+    <txt j="6" x="300" y="103" w="77" h="31" t="albumname" wrap="False" l="0">00:00</txt>
+  </subpage>
+  <subpage name="BottomBar_Zones" w="1024" h="71" t="bottom_bar_bg">
+    <btn j="21" x="367" y="19" w="91" h="44" t="bottom_btn_L" flip="None" sim="1" l="0" s="1" js="JRiver.clearCurrentZonePlaylist()">
+      <inactive s="0">Clear</inactive>
+      <active s="0">Clear</active>
+    </btn>
+    <btn j="22" x="458" y="19" w="91" h="44" t="bottom_btn_M" flip="None" sim="0" l="0" s="1" js="JRiver.changeZoneAction(JRiver.ActionDelete)">
+      <inactive s="0">Delete</inactive>
+      <active s="0">Delete</active>
+    </btn>
+    <btn j="0" x="105" y="19" w="161" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1">
+      <inactive s="0">Zone Groups</inactive>
+      <active s="0">Zone Groups</active>
+    </btn>
+    <btn j="24" x="649" y="19" w="91" h="44" t="bottom_btn_R" flip="None" sim="0" l="0" s="1" js="JRiver.changeZoneAction(JRiver.ActionPlay)">
+      <inactive s="0">Play</inactive>
+      <active s="0">Play</active>
+    </btn>
+    <btn j="23" x="549" y="19" w="100" h="44" t="bottom_btn_M" flip="None" sim="0" l="0" s="1" js="JRiver.changeZoneAction(JRiver.ActionPlayNext)">
+      <inactive s="0">Play Next</inactive>
+      <active s="0">Play Next</active>
+    </btn>
+  </subpage>
+  <subpage name="List_ZonePlaylistItem" w="318" h="57">
+    <btn j="1" x="0" y="0" w="318" h="57" t="list_content" flip="None" sim="1" l="0" s="1" js="JRiver.jumpToTrack()">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <txt j="1" x="3" y="0" w="54" h="31" t="list_tracknum" wrap="False" l="0">00.</txt>
+    <txt j="2" x="60" y="0" w="257" h="57" t="list_title_l" wrap="False" l="0">Text</txt>
+    <txt j="3" x="3" y="25" w="57" h="31" t="list_title_l" wrap="False" l="0">00:00</txt>
+  </subpage>
+  <subpage name="Radio" w="300" h="624" t="Radio">
+    <btn j="0" x="65" y="286" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Radio TripleJ">
+      <inactive s="0">Triple J</inactive>
+      <active s="0">Triple J</active>
+    </btn>
+    <txt j="0" x="76" y="119" w="160" h="38" t="list_title_c" wrap="False" l="0">Tune</txt>
+    <btn j="0" x="65" y="336" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Radio TripleM">
+      <inactive s="0">Triple M</inactive>
+      <active s="0">Triple M</active>
+    </btn>
+    <btn j="0" x="65" y="386" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Radio Fox">
+      <inactive s="0">Fox</inactive>
+      <active s="0">Fox</active>
+    </btn>
+    <txt j="0" x="76" y="5" w="160" h="38" t="list_title_c" wrap="False" l="0">Radio</txt>
+    <btn j="112" x="59" y="63" w="91" h="44" t="bottom_btn_L" flip="None" sim="0" l="0" s="1" cmd="Radio Tune FM">
+      <inactive s="0">FM</inactive>
+      <active s="0">FM</active>
+    </btn>
+    <btn j="113" x="150" y="63" w="91" h="44" t="bottom_btn_R" flip="None" sim="0" l="0" s="1" cmd="Radio Tune AM">
+      <inactive s="0">AM</inactive>
+      <active s="0">AM</active>
+    </btn>
+    <btn j="0" x="59" y="183" w="91" h="44" t="bottom_btn_L" flip="None" sim="1" l="0" s="1" cmd="Radio Tune Down">
+      <inactive s="0">&lt;&lt;</inactive>
+      <active s="0">&lt;&lt;</active>
+    </btn>
+    <btn j="0" x="150" y="183" w="91" h="44" t="bottom_btn_R" flip="None" sim="1" l="0" s="1" cmd="Radio Tune Up">
+      <inactive s="0">&gt;&gt;</inactive>
+      <active s="0">&gt;&gt;</active>
+    </btn>
+    <txt j="111" x="76" y="143" w="160" h="38" t="list_title_c" wrap="False" l="0">0000.00</txt>
+    <btn j="0" x="65" y="436" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Radio Nova">
+      <inactive s="0">Nova</inactive>
+      <active s="0">Nova</active>
+    </btn>
+    <btn j="0" x="65" y="486" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Radio Gold">
+      <inactive s="0">Gold</inactive>
+      <active s="0">Gold</active>
+    </btn>
+    <btn j="0" x="65" y="536" w="171" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" cmd="Radio KRock">
+      <inactive s="0">K-Rock</inactive>
+      <active s="0">K-Rock</active>
+    </btn>
+    <btn j="102" x="200" y="7" w="100" h="44" t="bottom_btn" flip="None" sim="2" l="0" s="1">
+      <inactive s="0">CLOSE</inactive>
+      <active s="0">CLOSE</active>
+    </btn>
+  </subpage>
+  <subpage name="SelectMode_Albums" w="265" h="45">
+    <img x="2" y="1" w="21" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_L.png</img>
+    <img x="23" y="1" w="48" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_M.png</img>
+    <img x="245" y="1" w="20" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_R.png</img>
+    <img x="92" y="1" w="153" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_M.png</img>
+    <img x="71" y="1" w="21" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_L.png</img>
+    <btn j="3010" x="207" y="1" w="58" h="44" t="bottom_btn_bare" flip="Library" sim="2" l="0" s="1">
+      <inactive s="0">
+        <img x="16" y="0" w="26" h="44">icon_arrowUp.png</img>
+      </inactive>
+      <active s="0">
+        <img x="16" y="0" w="26" h="44">icon_arrowUp.png</img>
+      </active>
+    </btn>
+    <txt j="3010" x="85" y="2" w="118" h="39" t="zone_name" wrap="False" l="0">Browse</txt>
+    <txt j="0" x="18" y="3" w="56" h="39" t="small_l" wrap="False" l="0">Album
+Mode</txt>
+    <btn j="3010" x="5" y="2" w="207" h="40" t="blank" flip="None" sim="2" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+  </subpage>
+  <subpage name="SelectModePopup_Albums" w="274" h="234" t="popup_bg">
+    <btn j="3010" x="206" y="15" w="49" h="39" t="close" flip="None" sim="2" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="3011" x="27" y="65" w="220" h="39" t="grey_btn" flip="None" sim="0" l="0" s="1" js="JRiver.changeAlbumAction(JRiver.ActionBrowse)">
+      <inactive s="0">Browse Only</inactive>
+      <active s="0">Browse Only</active>
+    </btn>
+    <btn j="3012" x="27" y="107" w="220" h="39" t="grey_btn" flip="None" sim="0" l="0" s="1" js="JRiver.changeAlbumAction(JRiver.ActionPlay)">
+      <inactive s="0">Play Album</inactive>
+      <active s="0">Play Album</active>
+    </btn>
+    <btn j="3013" x="27" y="149" w="220" h="39" t="grey_btn" flip="None" sim="0" l="0" s="1" js="JRiver.changeAlbumAction(JRiver.ActionEnqueue)">
+      <inactive s="0">Enqueue Album</inactive>
+      <active s="0">Enqueue Album</active>
+    </btn>
+    <btn j="3014" x="27" y="191" w="220" h="39" t="grey_btn" flip="None" sim="0" l="0" s="1" js="JRiver.changeAlbumAction(JRiver.ActionClearPlay)">
+      <inactive s="0">Clear &amp; Play</inactive>
+      <active s="0">Clear &amp; Play</active>
+    </btn>
+    <btn j="3011" x="36" y="75" w="16" h="16" t="checkbox" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="3012" x="36" y="117" w="16" h="16" t="checkbox" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="3013" x="36" y="160" w="16" h="16" t="checkbox" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="3014" x="36" y="202" w="16" h="16" t="checkbox" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+  </subpage>
+  <subpage name="List_Albums" w="388" h="686">
+    <list j="301" x="0" y="0" w="388" h="624" headerSub="" titleSub="List_AlbumTitle" contentSub="List_AlbumItem" footerSub="" orientation="v" l="0" swipedelete="0" />
+  </subpage>
+  <subpage name="List_Tracks" w="318" h="686">
+    <img x="0" y="0" w="318" h="686" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_R_bg.png</img>
+    <list j="302" x="0" y="0" w="318" h="624" headerSub="" titleSub="List_ArtistTitle" contentSub="List_TrackItem" footerSub="" orientation="v" l="0" swipedelete="0" />
+    <img x="0" y="0" w="318" h="686" j="0" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_R_vignett.png</img>
+  </subpage>
+  <subpage name="List_Artists" w="318" h="686">
+    <img x="0" y="0" w="318" h="686" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_L_bg.png</img>
+    <list j="300" x="0" y="0" w="318" h="624" headerSub="" titleSub="List_ArtistTitle" contentSub="List_ArtistItem" footerSub="" orientation="v" l="0" swipedelete="0" />
+    <img x="0" y="0" w="318" h="686" j="0" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_L_vignett.png</img>
+    <img x="68" y="212" w="181" h="181" j="300" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">loading.png</img>
+  </subpage>
+  <subpage name="List_Zones" w="388" h="686">
+    <img x="0" y="0" w="388" h="686" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_L_bg.png</img>
+    <list j="303" x="0" y="0" w="388" h="624" headerSub="" titleSub="" contentSub="List_ZoneItem" footerSub="" orientation="v" l="0" swipedelete="0" />
+    <img x="0" y="0" w="388" h="686" j="0" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_L_vignett.png</img>
+  </subpage>
+  <subpage name="List_ZonePlaylist" w="318" h="686">
+    <img x="0" y="0" w="318" h="686" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_R_bg.png</img>
+    <list j="304" x="0" y="0" w="318" h="624" headerSub="" titleSub="List_ArtistTitle" contentSub="List_ZonePlaylistItem" footerSub="" orientation="v" l="0" swipedelete="0" />
+    <img x="0" y="0" w="318" h="686" j="0" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_R_vignett.png</img>
+  </subpage>
+</gui>
