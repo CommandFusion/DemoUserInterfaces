@@ -429,7 +429,7 @@ var JRiver = {
 					// Nice trick for number padding: http://www.codigomanso.com/en/2010/07/simple-javascript-formatting-zero-padding/
 
 					// Set current track flag in list
-					CF.listUpdate(nowPlayingList, [{index: playlistPos, d2: 1}]);
+					CF.listUpdate(nowPlayingList, [{index: CF.AllItems, d2: 0}, {index: playlistPos, d2: 1}]);
 					break;
 			}
 		}
