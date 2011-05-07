@@ -1,0 +1,10 @@
+<xml>
+  <cbusXmlFile value="C:\Work\GuiLink\Products\CommandFusion\GitHub\DemoUserInterfaces\CEDIA 2011\CFCEDIA.xml" />
+  <xmlNodeChecked value=",app_254_56,grp_254_56_0,grp_254_56_1,grp_254_56_2,grp_254_56_3,grp_254_56_4,grp_254_56_6,grp_254_56_17," />
+  <xmlNodeMixed value=",proj,net_254," />
+  <baseJoin56 value="10000" />
+  <baseJoin202 value="11000" />
+  <levelDisplayType value="0" />
+  <showUi value="True" />
+  <selectedSystem value="CBUS" />
+</xml>

@@ -125,6 +125,7 @@ var MenuManager = {
 		CF.setProperties([{join: "s"+(item+100), opacity: 0.0, scale: 0.2},{join: "s"+item, opacity: 0.0, scale: 0.2},{join: "d"+item, opacity: 0.0, scale: 0.2}], 0.0, 0.15, CF.AnimationCurveEaseIn, function() {
 			// Flip to the correct page
 			if (pageName !== undefined) {
+				setTimeout(function() {MenuManager.hideMenu();}, 200);
 				CF.flipToPage(pageName);
 			}
 		});

@@ -84,6 +84,8 @@ var JRiver = {
 	// to ensure that we even capture carriage returns and line breaks.
 	feedbackRegex:			/\xF3([\s\S]*?)\xF4([\s\S]*?)\xF5\xF5/g,
 	coverArtURL:			null,
+	artistsListItems:		0,
+	artistLetterIndexes:	[],
 
 	setup: function() {
 		JRiver.log("JRiver Setup Started.");
@@ -189,10 +191,15 @@ var JRiver = {
 						// Clear the list
 						CF.listRemove(artistList);
 						JRiver.newListContent = [];
+						JRiver.artistLetterIndexes = [];
+						JRiver.artistsListItems = 0;
 					} else if (dataArray[0] == "title") { // Row of title data
 						//JRiver.log("JRIVER: Artist List Title");
 						// Example data format: title|<artistLetter>
 						JRiver.newListContent.push({title: true, s1: dataArray[1]});
+						// Get the title index for letter scrolling
+						JRiver.artistLetterIndexes.push({letter: dataArray[1], index: JRiver.artistsListItems});
+						JRiver.artistsListItems++;
 					} else if (dataArray[0] == "item") { // Row or rows of list data (depending on perRow grabbed from list start message)
 						//JRiver.log("JRIVER: Artist List Item");
 						// Example data format: item|<itemNum>|<artist>|<totalAlbums>
@@ -201,6 +208,7 @@ var JRiver = {
 							var artist = dataArray[(i*2)+2];
 							//JRiver.newListContent.push({s1: {value: artist, tokens: {"[artist]": artist}}});
 							JRiver.newListContent.push({s1: artist});
+							JRiver.artistsListItems++;
 						}
 					} else if (dataArray[0] == "end") { // List end message
 						//JRiver.log("JRIVER: Artist List End - " + JRiver.newListContent.length);
@@ -537,7 +545,7 @@ var JRiver = {
 				break;
 		}
 	},
-	changeAlbumAction: function(action) {
+	changeAlbumAction: function (action) {
 		// Save the state
 		JRiver.defaultAlbumAction = action;
 		// Update the state indicator buttons
@@ -556,6 +564,31 @@ var JRiver = {
 			CF.setJoin("s"+(JRiver.joinArtistList+1)+"0", "Enqueue");
 		} else if (action==JRiver.ActionClearPlay) {
 			CF.setJoin("s"+(JRiver.joinArtistList+1)+"0", "Clear & Play");
+		}
+	},
+	// Scroll the artist list to a specific item index for a letter.
+	// letterNum = 0-26 (where 0 = #, 1 = a, 2 = b, ... 26 = z)
+	scrollToArtistLetter: function (letterNum) {
+		// Invert the letterNum (due to slider top being highest value, yet smallest letter)
+		letterNum = 26 - letterNum;
+		var artistList = "l" + JRiver.joinArtistList;
+		// check that the artist index contains an entry for the chosen letter
+		var indexLength = JRiver.artistLetterIndexes.length;
+		for (var i = 0; i<indexLength; i++) {
+			var chr = null;
+			if (letterNum == 0) {
+				chr = "#";
+			} else {
+				// Convert the letter number to the Unicode character it represents
+				chr = String.fromCharCode(parseInt(letterNum) + 64); // A = 65
+			}
+			if (JRiver.artistLetterIndexes[i].letter == chr) {
+				CF.listInfo(artistList, function(j, count, first, numVisible) {
+					JRiver.log("scroll "+artistList+": "+chr+", "+JRiver.artistLetterIndexes[i].index+", count: "+count);
+					CF.listScroll(artistList, JRiver.artistLetterIndexes[i].index, CF.TopPosition, true);
+				});
+				break;
+			}
 		}
 	},
 

@@ -30,6 +30,7 @@
     <system name="JRiver" ip="27.32.176.111" port="8022" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="1" disconnectionStatus="0">
       <cmd name="Slider Volume" js="JRiver.setVolume(data)" jsSendsCommand="True">[sliderval]</cmd>
       <cmd name="Slider Track Pos" js="JRiver.scrubTrack(data)" jsSendsCommand="True">[sliderval]</cmd>
+      <cmd name="Artist Letter Scroll" js="JRiver.scrollToArtistLetter(data)" jsSendsCommand="True">[sliderval]</cmd>
       <fb name="Incoming Data" regex="(?ms)\xF3(.*?)\xF4(.*?)\xF5\xF5" />
     </system>
     <system name="Loopback" ip="127.0.0.1" port="102" protocol="udp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0" startupCmd="ShowStatusBar">
@@ -80,6 +81,27 @@
         <onmatch target="d113" value="0" />
       </fb>
     </system>
+    <system name="broadcast" ip="255.255.255.255" port="2048" protocol="udp" alwayson="1" accept="1" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <fb name="cbus broadcast traffic" regex="cbus:..:..:..;" />
+    </system>
+    <system name="CBUS" ip="192.168.0.100" port="10210" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\x0D" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="[ramp] Group 0 (cbus56) (js)" js="cbus.ramp(56,0);" jsSendsCommand="False">.</cmd>
+      <cmd name="[toggle] Group 0 (cbus56) (js)" js="cbus.toggle(56,0);" jsSendsCommand="False">.</cmd>
+      <cmd name="[ramp] Left (cbus56) (js)" js="cbus.ramp(56,1);" jsSendsCommand="False">.</cmd>
+      <cmd name="[toggle] Left (cbus56) (js)" js="cbus.toggle(56,1);" jsSendsCommand="False">.</cmd>
+      <cmd name="[ramp] Group 2 (cbus56) (js)" js="cbus.ramp(56,2);" jsSendsCommand="False">.</cmd>
+      <cmd name="[toggle] Group 2 (cbus56) (js)" js="cbus.toggle(56,2);" jsSendsCommand="False">.</cmd>
+      <cmd name="[ramp] Right (cbus56) (js)" js="cbus.ramp(56,3);" jsSendsCommand="False">.</cmd>
+      <cmd name="[toggle] Right (cbus56) (js)" js="cbus.toggle(56,3);" jsSendsCommand="False">.</cmd>
+      <cmd name="[ramp] Center (cbus56) (js)" js="cbus.ramp(56,4);" jsSendsCommand="False">.</cmd>
+      <cmd name="[toggle] Center (cbus56) (js)" js="cbus.toggle(56,4);" jsSendsCommand="False">.</cmd>
+      <cmd name="[ramp] Group 6 (cbus56) (js)" js="cbus.ramp(56,6);" jsSendsCommand="False">.</cmd>
+      <cmd name="[toggle] Group 6 (cbus56) (js)" js="cbus.toggle(56,6);" jsSendsCommand="False">.</cmd>
+      <cmd name="[ramp] Group 17 (cbus56) (js)" js="cbus.ramp(56,17);" jsSendsCommand="False">.</cmd>
+      <cmd name="[toggle] Group 17 (cbus56) (js)" js="cbus.toggle(56,17);" jsSendsCommand="False">.</cmd>
+      <cmd name="[level] Grp0_31 (cbus56)">\05FF00730738004A\x0D</cmd>
+      <fb name="cbus network traffic" regex=".*" />
+    </system>
   </systems>
   <macros>
     <macro name="Denon Startup">
@@ -92,14 +114,6 @@
       <command delay="0">ShowStatusBar</command>
     </macro>
   </macros>
-  <sounds>
-    <sound name="swoosh" j="20000" loop="0" releasestop="0">swoosh.mp3</sound>
-    <sound name="plop1" j="20001" loop="0" releasestop="0">pop1.mp3</sound>
-    <sound name="plop2" j="20002" loop="0" releasestop="0">pop1.mp3</sound>
-    <sound name="plop3" j="20003" loop="0" releasestop="0">pop1.mp3</sound>
-    <sound name="plop4" j="20004" loop="0" releasestop="0">pop1.mp3</sound>
-    <sound name="plop5" j="20005" loop="0" releasestop="0">pop1.mp3</sound>
-  </sounds>
   <themes>
     <theme type="background" name=".bg_landscape"><![CDATA[ background-image: url(bg_landscape.png); background-repeat: no-repeat;]]></theme>
     <theme type="background" name=".top_bar_bg"><![CDATA[ background-image: url(top_bar_bg.png); background-repeat: no-repeat;]]></theme>
@@ -171,6 +185,8 @@
     <theme type="text" name=".nowplaying"><![CDATA[ text-shadow: rgba(255,255,255,0.78) 1px 1px 1px; color: Black; font-size: 12px; font-family: 'Verdana'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="text" name=".nowplaying_lighter"><![CDATA[ text-shadow: rgba(255,255,255,0.78) 1px 1px 1px; color: #666666; font-size: 12px; font-family: 'Verdana'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="text" name=".nowplaying_nonbold"><![CDATA[ text-shadow: rgba(255,255,255,0.78) 1px 1px 1px; color: #373737; font-size: 12px; font-family: 'Verdana'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".letters[state='0']"><![CDATA[ background-image: url(letter_bg.png);]]></theme>
+    <theme type="gauge" name=".letters[state='1']"><![CDATA[]]></theme>
   </themes>
   <tokens>
     <token name="[artistsloaded]" value="0" />
@@ -182,6 +198,7 @@
     <script name="JRiver.js" />
     <script name="airlive.js" />
     <script name="MenuManager.js" />
+    <script name="cbus.js" />
   </scripts>
   <page name="Music_Library" j="0" transition="None" subtype="None" time="0" ease="">
     <portrait t="portrait" />
@@ -342,7 +359,7 @@
         <actions>
           <action>
             <press delay="0" hold="0" repeat="0" js="MenuManager.pressItem(join)" />
-            <release delay="0" js="MenuManager.releaseItem(join)" />
+            <release delay="0" js="MenuManager.releaseItem(join, &quot;Lighting&quot;)" />
           </action>
         </actions>
         <inactive s="0">
@@ -356,7 +373,7 @@
         <actions>
           <action>
             <press delay="0" hold="0" repeat="0" js="MenuManager.pressItem(join)" />
-            <release delay="0" js="MenuManager.releaseItem(join)" />
+            <release delay="0" js="MenuManager.releaseItem(join, &quot;Security&quot;)" />
           </action>
         </actions>
         <inactive s="0">
@@ -366,6 +383,55 @@
       </btn>
       <img x="526" y="411" w="227" h="259" j="10005" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">menu_security.png</img>
       <img x="526" y="599" w="227" h="71" j="10105" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">menu_security_text.png</img>
+    </landscape>
+  </page>
+  <page name="Security" j="0" transition="" subtype="" time="0" ease="">
+    <portrait />
+    <landscape t="landscape">
+      <video x="192" y="183" w="640" h="483" j="0" play="0" stop="0" url="http://27.32.176.111:8100/video.cgi" bgcolor="#0000FF" format="mjpeg" auth_user="demo" auth_password="demo" auth_realm="" auth_host="" auth_method="basic" auth_proxy="" autoplay="1" showcontrols="1" />
+      <img x="192" y="183" w="640" h="483" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">
+        <gesture name="New Gesture" type="swipe" direction="left" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;left&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="right" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;right&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="up" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;up&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="down" touches="1">
+          <action phase="begin" js="AirLive.move(&quot;down&quot;)" />
+        </gesture>
+        <gesture name="New Gesture" type="swipe" direction="up" touches="2">
+          <action phase="begin" js="AirLive.sendMsg({&quot;rtilt&quot;: &quot;10.0&quot;})" />
+        </gesture>
+        <gesture name="Panning" type="rotate">
+          <action phase="change" js="AirLive.rotate(gesture)" />
+          <action phase="end" js="AirLive.rotateEnd(gesture)" />
+        </gesture>
+        <gesture name="New Gesture" type="tap" taps="2" touches="1">
+          <action phase="begin" js="AirLive.centerImage(gesture)" />
+        </gesture>
+      </img>
+      <subpage name="TopBar_Security" x="0" y="10" j="0" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="1" />
+    </landscape>
+  </page>
+  <page name="Lighting" j="0" transition="" subtype="" time="0" ease="">
+    <portrait />
+    <landscape t="landscape">
+      <btn j="10001" x="218" y="173" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Left (cbus56) (js)">
+        <inactive s="0">LEFT</inactive>
+        <active s="0">LEFT</active>
+      </btn>
+      <btn j="10004" x="218" y="223" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Center (cbus56) (js)">
+        <inactive s="0">CENTER</inactive>
+        <active s="0">CENTER</active>
+      </btn>
+      <btn j="10003" x="218" y="273" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Right (cbus56) (js)">
+        <inactive s="0">RIGHT</inactive>
+        <active s="0">RIGHT</active>
+      </btn>
+      <subpage name="TopBar_Security" x="0" y="10" j="0" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="1" />
     </landscape>
   </page>
   <subpage name="TopBar_Music" w="1024" h="82" t="top_bar_bg">
@@ -676,6 +742,14 @@ Mode</txt>
       <active s="0">Cancel</active>
     </btn>
   </subpage>
+  <subpage name="TopBar_Security" w="1024" h="82" t="top_bar_bg">
+    <btn j="0" x="10" y="13" w="54" h="56" t="btn_home" flip="Home" sim="1" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+  </subpage>
   <subpage name="List_Albums" w="355" h="290">
     <img x="0" y="0" w="355" h="290" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_A_bg.png</img>
     <list j="301" x="0" y="41" w="348" h="249" headerSub="" titleSub="" contentSub="List_AlbumItem" footerSub="" orientation="v" l="0" swipedelete="0" />
@@ -693,6 +767,7 @@ Mode</txt>
     <img x="0" y="0" w="318" h="42" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">img_artists.png</img>
     <input j="0" s="350" x="155" y="13" w="150" h="20" pass="0" autoFocus="0" f="0" t="search" l="0">
     </input>
+    <slider j="302" d="0" x="281" y="50" w="21" h="567" min="0" max="26" decimals="0" dragCmd="Artist Letter Scroll" releaseCmd="Artist Letter Scroll" unit="decimal" t="letters" sim="1" l="0" />
   </subpage>
   <subpage name="List_ZonePlaylist" w="365" h="624">
     <img x="0" y="0" w="365" h="624" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_R_bg.png</img>
