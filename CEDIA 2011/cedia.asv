@@ -102,6 +102,7 @@
       <cmd name="[level] Grp0_31 (cbus56)">\05FF00730738004A\x0D</cmd>
       <fb name="cbus network traffic" regex=".*" />
     </system>
+    <system name="MP" ip="192.168.0.10" port="8024" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0" />
   </systems>
   <macros>
     <macro name="Denon Startup">
@@ -114,6 +115,14 @@
       <command delay="0">ShowStatusBar</command>
     </macro>
   </macros>
+  <sounds>
+    <sound name="swoosh" j="20000" loop="0" releasestop="0">swoosh.mp3</sound>
+    <sound name="plop1" j="20001" loop="0" releasestop="0">pop1.mp3</sound>
+    <sound name="plop2" j="20002" loop="0" releasestop="0">pop1.mp3</sound>
+    <sound name="plop3" j="20003" loop="0" releasestop="0">pop1.mp3</sound>
+    <sound name="plop4" j="20004" loop="0" releasestop="0">pop1.mp3</sound>
+    <sound name="plop5" j="20005" loop="0" releasestop="0">pop1.mp3</sound>
+  </sounds>
   <themes>
     <theme type="background" name=".bg_landscape"><![CDATA[ background-image: url(bg_landscape.png); background-repeat: no-repeat;]]></theme>
     <theme type="background" name=".top_bar_bg"><![CDATA[ background-image: url(top_bar_bg.png); background-repeat: no-repeat;]]></theme>
@@ -199,6 +208,7 @@
     <script name="airlive.js" />
     <script name="MenuManager.js" />
     <script name="cbus.js" />
+    <script name="MediaPortal.js" />
   </scripts>
   <page name="Music_Library" j="0" transition="None" subtype="None" time="0" ease="">
     <portrait t="portrait" />
@@ -317,7 +327,7 @@
         <actions>
           <action>
             <press delay="0" hold="0" repeat="0" js="MenuManager.pressItem(join)" />
-            <release delay="0" js="MenuManager.releaseItem(join)" />
+            <release delay="0" js="MenuManager.releaseItem(join, &quot;Movies&quot;)" />
           </action>
         </actions>
         <inactive s="0">
@@ -419,19 +429,34 @@
   <page name="Lighting" j="0" transition="" subtype="" time="0" ease="">
     <portrait />
     <landscape t="landscape">
-      <btn j="10001" x="218" y="173" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Left (cbus56) (js)">
+      <timer j="4000" interval="30000">
+        <command>[level] Grp0_31 (cbus56)</command>
+      </timer>
+      <btn j="4001" x="218" y="173" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Left (cbus56) (js)">
         <inactive s="0">LEFT</inactive>
         <active s="0">LEFT</active>
       </btn>
-      <btn j="10004" x="218" y="223" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Center (cbus56) (js)">
+      <btn j="4004" x="218" y="223" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Center (cbus56) (js)">
         <inactive s="0">CENTER</inactive>
         <active s="0">CENTER</active>
       </btn>
-      <btn j="10003" x="218" y="273" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Right (cbus56) (js)">
+      <btn j="4003" x="218" y="273" w="163" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="1" cmd="[toggle] Right (cbus56) (js)">
         <inactive s="0">RIGHT</inactive>
         <active s="0">RIGHT</active>
       </btn>
       <subpage name="TopBar_Security" x="0" y="10" j="0" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="1" />
+    </landscape>
+  </page>
+  <page name="Movies" j="0" transition="" subtype="" time="0" ease="">
+    <portrait />
+    <landscape t="landscape">
+      <img x="0" y="82" w="1024" h="329" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">movies_fanart_bg.png</img>
+      <img x="0" y="411" w="1024" h="295" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">movies_list_bg.png</img>
+      <list j="1000" x="0" y="411" w="1024" h="295" headerSub="" titleSub="" contentSub="Movies_ListItem" footerSub="" orientation="h" l="0" swipedelete="0" />
+      <subpage name="BottomBar_Movies" x="0" y="697" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="0" />
+      <img x="0" y="82" w="589" h="329" j="1001" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="1" clearOnURLChange="0">movies_fanart.png</img>
+      <img x="578" y="82" w="446" h="338" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">movies_info_bg.png</img>
+      <subpage name="TopBar_Movies" x="0" y="10" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="1" />
     </landscape>
   </page>
   <subpage name="TopBar_Music" w="1024" h="82" t="top_bar_bg">
@@ -750,6 +775,22 @@ Mode</txt>
       </active>
     </btn>
   </subpage>
+  <subpage name="TopBar_Movies" w="1024" h="82" t="top_bar_bg">
+    <btn j="0" x="10" y="13" w="54" h="56" t="btn_home" flip="Home" sim="1" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="2100" x="473" y="19" w="101" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="0" js="JRiver.playPause()">
+      <inactive s="0">
+        <img x="27" y="0" w="43" h="42">transport_play.png</img>
+      </inactive>
+      <active s="0">
+        <img x="28" y="0" w="43" h="42">transport_pause.png</img>
+      </active>
+    </btn>
+  </subpage>
   <subpage name="List_Albums" w="355" h="290">
     <img x="0" y="0" w="355" h="290" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_A_bg.png</img>
     <list j="301" x="0" y="41" w="348" h="249" headerSub="" titleSub="" contentSub="List_AlbumItem" footerSub="" orientation="v" l="0" swipedelete="0" />
@@ -786,5 +827,27 @@ Mode</txt>
   <subpage name="Zone_Popup" w="304" h="244" t="popdown_bg">
     <list j="303" x="19" y="0" w="266" h="185" headerSub="" titleSub="" contentSub="Zones_Item" footerSub="" orientation="v" l="0" swipedelete="0" />
     <img x="0" y="0" w="304" h="244" j="0" clickthrough="1" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">popdown_overlay.png</img>
+  </subpage>
+  <subpage name="BottomBar_Movies" w="1024" h="71" t="bottom_bar_bg">
+    <btn j="0" x="766" y="18" w="221" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" js="MP.getMovies(2)">
+      <inactive s="0">Refresh Movies</inactive>
+      <active s="0">Refresh Movies</active>
+    </btn>
+  </subpage>
+  <subpage name="Movies_ListItem" w="97" h="295">
+    <img x="7" y="8" w="90" h="136" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
+    <img x="7" y="151" w="90" h="136" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
+    <btn j="1" x="7" y="8" w="90" h="136" t="blank" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="2" x="7" y="151" w="90" h="136" t="blank" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
   </subpage>
 </gui>

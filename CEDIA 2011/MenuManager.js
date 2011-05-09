@@ -9,7 +9,7 @@ var MenuManager = {
 
 	TOTAL_ITEMS:				5,
 	MENU_START_JOIN:			10001,
-	SOUND_START_JOIN:					20000,
+	SOUND_START_JOIN:			20000,
 
 	setup: function () {
 		MenuManager.log("MenuManager Setup Started.");
