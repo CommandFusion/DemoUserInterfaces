@@ -154,13 +154,16 @@ var MP = {
 					} else if (dataArray[0] == "item") { // Row or rows of list data (depending on perRow grabbed from list start message)
 						MP.log("MP: Movie List Item");
 						// item|<index>|<ID>|<title>|<year>[|repeat for each movie in perRow]
+						var nextItem = {s1: "", s2: "", d1: {tokens: {"[id]": ""}}, d2: {tokens: {"[id]": ""}}};
 						for (var i = 0; i < MP.perRow; i++) {
 							// Push the item into the list array, along with a token for [artist]
 							var id = dataArray[(i*2)+2];
 							//MP.newListContent.push({s1: {value: artist, tokens: {"[artist]": artist}}});
-							MP.newListContent.push({s1: MP.coverArtURL+"?getmoviethumb&id="+id});
-							MP.moviesListItems++;
+							nextItem["s"+(i+1)] = MP.coverArtURL+"?getmoviethumb&id="+id;
+							nextItem["d"+(i+1)].tokens["[id]"] = id;
 						}
+						MP.newListContent.push(nextItem);
+						MP.moviesListItems++;
 					} else if (dataArray[0] == "end") { // List end message
 						//MP.log("MP: Artist List End - " + MP.newListContent.length);
 						end = true;
