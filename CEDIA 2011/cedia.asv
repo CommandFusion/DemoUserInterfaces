@@ -102,7 +102,7 @@
       <cmd name="[level] Grp0_31 (cbus56)">\05FF00730738004A\x0D</cmd>
       <fb name="cbus network traffic" regex=".*" />
     </system>
-    <system name="MP" ip="192.168.0.10" port="8024" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="0" disconnectionStatus="0">
+    <system name="MP" ip="27.32.176.111" port="8024" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="0" disconnectionStatus="0">
       <cmd name="MP Slider Volume" js="MP.setVolume(data)" jsSendsCommand="True">[sliderval]</cmd>
       <fb name="MP Incoming Data" regex="(?ms)\xF3(.*?)\xF4(.*?)\xF5\xF5" />
     </system>
@@ -469,7 +469,7 @@
       <txt j="1002" x="591" y="84" w="428" h="87" t="MovieTitle" wrap="True" l="0">Title Of Movie Goes Here</txt>
       <txt j="1003" x="591" y="169" w="428" h="34" t="track_duration" wrap="False" l="0">Year, Runtime, Rating</txt>
       <txt j="1004" x="591" y="199" w="428" h="47" t="MovieTagline" wrap="False" l="0">Tagline</txt>
-      <list j="1001" x="591" y="247" w="431" h="164" headerSub="Movie Plot" titleSub="" contentSub="" footerSub="" orientation="v" l="0" swipedelete="0" />
+      <list j="1001" x="591" y="247" w="431" h="164" headerSub="" titleSub="" contentSub="" footerSub="" orientation="v" l="0" swipedelete="0" />
       <btn j="0" x="214" y="166" w="162" h="162" t="movie_play" flip="None" sim="1" l="0" s="1" js="MP.playMovie()">
         <inactive s="0">
         </inactive>
@@ -864,6 +864,9 @@ Mode</txt>
       </active>
     </btn>
   </subpage>
+  <subpage name="MoviePlot" w="431" h="300">
+    <txt j="1005" x="0" y="0" w="431" h="300" t="MoviePlot" wrap="True" l="0">Plot</txt>
+  </subpage>
   <subpage name="List_Albums" w="355" h="290">
     <img x="0" y="0" w="355" h="290" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_A_bg.png</img>
     <list j="301" x="0" y="41" w="348" h="249" headerSub="" titleSub="" contentSub="List_AlbumItem" footerSub="" orientation="v" l="0" swipedelete="0" />
@@ -900,8 +903,5 @@ Mode</txt>
   <subpage name="Zone_Popup" w="304" h="244" t="popdown_bg">
     <list j="303" x="19" y="0" w="266" h="185" headerSub="" titleSub="" contentSub="Zones_Item" footerSub="" orientation="v" l="0" swipedelete="0" />
     <img x="0" y="0" w="304" h="244" j="0" clickthrough="1" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">popdown_overlay.png</img>
-  </subpage>
-  <subpage name="Movie Plot" w="431" h="300">
-    <txt j="1005" x="0" y="0" w="431" h="300" t="MoviePlot" wrap="True" l="0">Plot</txt>
   </subpage>
 </gui>

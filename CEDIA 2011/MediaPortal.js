@@ -48,7 +48,6 @@ var MP = {
 	coverArtURL:			null,
 	moviesListItems:		0,
 	moviesLetterIndexes:	[],
-	movieIDs:				[],
 	currentMovieID:			0,
 	fanartAnimating:		null,
 
@@ -148,7 +147,6 @@ var MP = {
 						MP.newListContent = [];
 						MP.moviesLetterIndexes = [];
 						MP.movisListItems = 0;
-						MP.movieIDs = [];
 					} else if (dataArray[0] == "title") { // Row of title data
 						//MP.log("MP: Movie List Title");
 						// Example data format: title|<artistLetter>
@@ -164,9 +162,10 @@ var MP = {
 							// Push the item into the list array, along with a token for [artist]
 							var id = dataArray[(i*5)+2];
 							//MP.newListContent.push({s1: {value: artist, tokens: {"[artist]": artist}}});
-							nextItem["s"+(i+1)] = MP.coverArtURL+"?getmoviethumb&id="+id;
-							nextItem["d"+(i+1)].tokens["[id]"] = id;
-							MP.movieIDs.push(id);
+							if (id != undefined) {
+								nextItem["s"+(i+1)] = MP.coverArtURL+"?getmoviethumb&id="+id;
+								nextItem["d"+(i+1)].tokens["[id]"] = id;
+							}
 						}
 						MP.newListContent.push(nextItem);
 						MP.moviesListItems++;
@@ -229,9 +228,8 @@ var MP = {
 		//MP.currentMovieID = MP.movieIDs[(listIndex*2)+parseInt(join.substr(1))-1];
 		//MP.sendMsg("TGETMOVIE", MP.currentMovieID);
 		CF.getJoin(list+":"+listIndex+":"+join, function (j,v,t) {
-			var id = t["[id]"];
-			CF.log(id);
-			MP.sendMsg("TGETMOVIE", id);
+			MP.currentMovieID = t["[id]"];
+			MP.sendMsg("TGETMOVIE", MP.currentMovieID);
 		});
 
 		if (MP.fanartAnimating == null) {
