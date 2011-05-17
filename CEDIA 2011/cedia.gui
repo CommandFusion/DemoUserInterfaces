@@ -102,7 +102,10 @@
       <cmd name="[level] Grp0_31 (cbus56)">\05FF00730738004A\x0D</cmd>
       <fb name="cbus network traffic" regex=".*" />
     </system>
-    <system name="MP" ip="192.168.0.10" port="8024" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0" />
+    <system name="MP" ip="27.32.176.111" port="8024" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="MP Slider Volume" js="MP.setVolume(data)" jsSendsCommand="True">[sliderval]</cmd>
+      <fb name="MP Incoming Data" regex="(?ms)\xF3(.*?)\xF4(.*?)\xF5\xF5" />
+    </system>
   </systems>
   <macros>
     <macro name="Denon Startup">
@@ -196,6 +199,12 @@
     <theme type="text" name=".nowplaying_nonbold"><![CDATA[ text-shadow: rgba(255,255,255,0.78) 1px 1px 1px; color: #373737; font-size: 12px; font-family: 'Verdana'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="gauge" name=".letters[state='0']"><![CDATA[ background-image: url(letter_bg.png);]]></theme>
     <theme type="gauge" name=".letters[state='1']"><![CDATA[]]></theme>
+    <theme type="text" name=".MovieTitle"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 33px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".MoviePlot"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 14px; font-family: 'Futura'; text-align: left; vertical-align: top; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".MovieTagline"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 16px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".movie_play[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(movie_play_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".movie_play[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(movie_play_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="input" name=".search_movies"><![CDATA[ border-width: 0px; color: White; font-size: 18px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
   </themes>
   <tokens>
     <token name="[artistsloaded]" value="0" />
@@ -451,12 +460,22 @@
     <portrait />
     <landscape t="landscape">
       <img x="0" y="82" w="1024" h="329" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">movies_fanart_bg.png</img>
+      <img x="0" y="82" w="589" h="329" j="1001" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="1" clearOnURLChange="0">movies_fanart.png</img>
       <img x="0" y="411" w="1024" h="295" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">movies_list_bg.png</img>
       <list j="1000" x="0" y="411" w="1024" h="295" headerSub="" titleSub="" contentSub="Movies_ListItem" footerSub="" orientation="h" l="0" swipedelete="0" />
       <subpage name="BottomBar_Movies" x="0" y="697" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="0" />
-      <img x="0" y="82" w="589" h="329" j="1001" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="1" clearOnURLChange="0">movies_fanart.png</img>
       <img x="578" y="82" w="446" h="338" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">movies_info_bg.png</img>
       <subpage name="TopBar_Movies" x="0" y="10" j="0" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="1" />
+      <txt j="1002" x="591" y="84" w="428" h="87" t="MovieTitle" wrap="True" l="0">Title Of Movie Goes Here</txt>
+      <txt j="1003" x="591" y="169" w="428" h="34" t="track_duration" wrap="False" l="0">Year, Runtime, Rating</txt>
+      <txt j="1004" x="591" y="199" w="428" h="47" t="MovieTagline" wrap="False" l="0">Tagline</txt>
+      <list j="1001" x="591" y="247" w="431" h="164" headerSub="Movie Plot" titleSub="" contentSub="" footerSub="" orientation="v" l="0" swipedelete="0" />
+      <btn j="0" x="214" y="166" w="162" h="162" t="movie_play" flip="None" sim="1" l="0" s="1" js="MP.playMovie()">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
     </landscape>
   </page>
   <subpage name="TopBar_Music" w="1024" h="82" t="top_bar_bg">
@@ -782,12 +801,66 @@ Mode</txt>
       <active s="0">
       </active>
     </btn>
-    <btn j="2100" x="473" y="19" w="101" h="44" t="bottom_btn" flip="None" sim="0" l="0" s="0" js="JRiver.playPause()">
+    <btn j="0" x="382" y="19" w="91" h="44" t="bottom_btn_L" flip="None" sim="1" l="0" s="1" js="MP.rew()" repeatdelay="200">
+      <inactive s="0">
+        <img x="25" y="0" w="43" h="42">transport_rew.png</img>
+      </inactive>
+      <active s="0">
+        <img x="25" y="0" w="43" h="42">transport_rew.png</img>
+      </active>
+    </btn>
+    <btn j="1001" x="473" y="19" w="101" h="44" t="bottom_btn_M" flip="None" sim="0" l="0" s="0" js="MP.playPause()">
       <inactive s="0">
         <img x="27" y="0" w="43" h="42">transport_play.png</img>
       </inactive>
       <active s="0">
         <img x="28" y="0" w="43" h="42">transport_pause.png</img>
+      </active>
+    </btn>
+    <btn j="0" x="574" y="19" w="91" h="44" t="bottom_btn_R" flip="None" sim="1" l="0" s="1" js="MP.fwd()" repeatdelay="200">
+      <inactive s="0">
+        <img x="20" y="0" w="43" h="42">transport_fwd.png</img>
+      </inactive>
+      <active s="0">
+        <img x="20" y="0" w="43" h="42">transport_fwd.png</img>
+      </active>
+    </btn>
+    <txt j="0" x="127" y="10" w="189" h="23" t="list_title_c" wrap="False" l="0">Volume</txt>
+    <slider j="1000" d="0" x="122" y="33" w="200" h="33" min="0" max="100" decimals="0" pressCmd="MP Slider Volume" dragCmd="MP Slider Volume" releaseCmd="MP Slider Volume" unit="decimal" t="vol_bar" sim="1" l="0">
+      <indicator state="0" offsetX="0" offsetY="1" x="0" y="0" w="0" h="0" t="">vol_bar_slider.png</indicator>
+      <indicator state="1" offsetX="0" offsetY="1" x="0" y="0" w="0" h="0" t="">vol_bar_slider.png</indicator>
+    </slider>
+    <txt j="1010" x="725" y="29" w="48" h="24" t="small_l" wrap="False" l="0">00:00</txt>
+    <txt j="1011" x="929" y="29" w="48" h="24" t="small_l" wrap="False" l="0">00:00</txt>
+    <slider j="1001" d="0" x="773" y="27" w="145" h="33" min="0" max="65535" decimals="0" dragCmd="Slider Track Pos" releaseCmd="Slider Track Pos" unit="decimal" t="vol_bar" sim="0" l="0" />
+  </subpage>
+  <subpage name="BottomBar_Movies" w="1024" h="71" t="bottom_bar_bg">
+    <btn j="0" x="766" y="18" w="221" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" js="MP.getMovies(2)">
+      <inactive s="0">Refresh Movies</inactive>
+      <active s="0">Refresh Movies</active>
+    </btn>
+    <img x="14" y="19" w="21" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_L.png</img>
+    <img x="35" y="19" w="48" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_M.png</img>
+    <img x="257" y="19" w="20" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_R.png</img>
+    <img x="104" y="19" w="153" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_M.png</img>
+    <img x="83" y="19" w="21" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_L.png</img>
+    <txt j="0" x="30" y="21" w="56" h="39" t="small_l" wrap="False" l="0">Search</txt>
+    <input j="0" s="1000" x="98" y="25" w="166" h="34" pass="0" autoFocus="0" f="0" t="search_movies" l="0">
+    </input>
+  </subpage>
+  <subpage name="Movies_ListItem" w="97" h="295">
+    <img x="7" y="8" w="90" h="136" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
+    <img x="7" y="151" w="90" h="136" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
+    <btn j="1" x="7" y="8" w="90" h="136" t="blank" flip="None" sim="0" l="0" s="1" js="MP.selectMovie(list, listIndex, join)">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
+    <btn j="2" x="7" y="151" w="90" h="136" t="blank" flip="None" sim="0" l="0" s="1" js="MP.selectMovie(list, listIndex, join)">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
       </active>
     </btn>
   </subpage>
@@ -828,26 +901,7 @@ Mode</txt>
     <list j="303" x="19" y="0" w="266" h="185" headerSub="" titleSub="" contentSub="Zones_Item" footerSub="" orientation="v" l="0" swipedelete="0" />
     <img x="0" y="0" w="304" h="244" j="0" clickthrough="1" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">popdown_overlay.png</img>
   </subpage>
-  <subpage name="BottomBar_Movies" w="1024" h="71" t="bottom_bar_bg">
-    <btn j="0" x="766" y="18" w="221" h="44" t="bottom_btn" flip="None" sim="1" l="0" s="1" js="MP.getMovies(2)">
-      <inactive s="0">Refresh Movies</inactive>
-      <active s="0">Refresh Movies</active>
-    </btn>
-  </subpage>
-  <subpage name="Movies_ListItem" w="97" h="295">
-    <img x="7" y="8" w="90" h="136" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
-    <img x="7" y="151" w="90" h="136" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
-    <btn j="1" x="7" y="8" w="90" h="136" t="blank" flip="None" sim="0" l="0" s="1">
-      <inactive s="0">
-      </inactive>
-      <active s="0">
-      </active>
-    </btn>
-    <btn j="2" x="7" y="151" w="90" h="136" t="blank" flip="None" sim="0" l="0" s="1">
-      <inactive s="0">
-      </inactive>
-      <active s="0">
-      </active>
-    </btn>
+  <subpage name="Movie Plot" w="431" h="300">
+    <txt j="1005" x="0" y="0" w="431" h="300" t="MoviePlot" wrap="True" l="0">Plot</txt>
   </subpage>
 </gui>

@@ -343,7 +343,7 @@ var JRiver = {
 					}
 					break;
 				// ZONE LIST BUILDING ===============================
-				case "RLISTZONES": // Returning a list of Album Tracks
+				case "RLISTZONES": // Returning a list of Zones
 					var end = false;
 					// Now check if the message is the list start message
 					if (dataArray[0] == "start") {
