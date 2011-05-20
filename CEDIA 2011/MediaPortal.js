@@ -1,11 +1,19 @@
 /* MediaPortal Script for CommandFusion
-=========================================================================
+===============================================================================
+ _____                                           _______         _             
+/  __ \                                         | |  ___|       (_)            
+| /  \/ ___  _ __ ___  _ __ ___   __ _ _ __   __| | |_ _   _ ___ _  ___  _ __  
+| |    / _ \| '_ ` _ \| '_ ` _ \ / _` | '_ \ / _` |  _| | | / __| |/ _ \| '_ \ 
+| \__/\ (_) | | | | | | | | | | | (_| | | | | (_| | | | |_| \__ \ | (_) | | | |
+ \____/\___/|_| |_| |_|_| |_| |_|\__,_|_| |_|\__,_\_|  \__,_|___/_|\___/|_| |_|
 
-AUTHOR: Jarrod Bell, CommandFusion
-CONTACT: support@commandfusion.com
-URL: www.commandfusion.com/scripting/examples/MP
-VERSION: v0.0.1
-LAST MODIFIED: 8 May 2011
+===============================================================================
+
+AUTHOR:		Jarrod Bell, CommandFusion
+CONTACT:	support@commandfusion.com
+URL:		https://github.com/CommandFusion/MediaPortal
+VERSION:	v0.0.2
+LAST MOD:	18 May 2011
 
 =========================================================================
 HELP:

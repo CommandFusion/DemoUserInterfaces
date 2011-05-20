@@ -454,6 +454,7 @@
         <active s="0">RIGHT</active>
       </btn>
       <subpage name="TopBar_Security" x="0" y="10" j="0" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="1" />
+      <gauge j="0" x="418" y="164" w="76" h="185" t="vol_bar" l="0" />
     </landscape>
   </page>
   <page name="Movies" j="0" transition="" subtype="" time="0" ease="">
