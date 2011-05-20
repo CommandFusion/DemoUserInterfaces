@@ -74,9 +74,6 @@ var MP = {
 		// Watch all incoming data through a single feedback item
 		CF.watch(CF.FeedbackMatchedEvent, "MP", "MP Incoming Data", MP.incomingData);
 
-		// Ensure loading image is hidden
-		CF.setProperties({join: "s"+MP.joinTVList, opacity:0.0, scale:0.5});
-
 		// Get the MP system IP address and port for use in all cover art calls
 		MP.coverArtURL = "http://"+CF.systems["MP"].address+":"+(CF.systems["MP"].port+1)+"/"; // ?getalbumart
 
@@ -180,10 +177,6 @@ var MP = {
 					} else if (dataArray[0] == "end") { // List end message
 						//MP.log("MP: Movies List End");
 						end = true;
-						// Hide "list loading" indicator image
-						CF.setProperties({join:"s"+MP.joinMovieList, opacity:1.0, scale:1.25}, 0.0, 0.15, CF.AnimationCurveEaseOut, function() {
-							CF.setProperties({join:"s"+MP.joinMovieList, scale:0.5, opacity:0.0}, 0.0, 0.15, CF.AnimationCurveEaseIn);
-						});
 					}
 
 					// Add to the list in chunks of 50 items

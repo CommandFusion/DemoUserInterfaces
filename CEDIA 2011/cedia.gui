@@ -470,7 +470,7 @@
       <txt j="1002" x="591" y="84" w="428" h="87" t="MovieTitle" wrap="True" l="0">Title Of Movie Goes Here</txt>
       <txt j="1003" x="591" y="169" w="428" h="34" t="track_duration" wrap="False" l="0">Year, Runtime, Rating</txt>
       <txt j="1004" x="591" y="199" w="428" h="47" t="MovieTagline" wrap="False" l="0">Tagline</txt>
-      <list j="1001" x="591" y="247" w="431" h="164" headerSub="" titleSub="" contentSub="" footerSub="" orientation="v" l="0" swipedelete="0" />
+      <list j="1001" x="591" y="247" w="431" h="164" headerSub="MoviePlot" titleSub="" contentSub="" footerSub="" orientation="v" l="0" swipedelete="0" />
       <btn j="0" x="214" y="166" w="162" h="162" t="movie_play" flip="None" sim="1" l="0" s="1" js="MP.playMovie()">
         <inactive s="0">
         </inactive>
@@ -846,8 +846,7 @@ Mode</txt>
     <img x="104" y="19" w="153" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_M.png</img>
     <img x="83" y="19" w="21" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_L.png</img>
     <txt j="0" x="30" y="21" w="56" h="39" t="small_l" wrap="False" l="0">Search</txt>
-    <input j="0" s="1000" x="98" y="25" w="166" h="34" pass="0" autoFocus="0" f="0" t="search_movies" l="0">
-    </input>
+    <input j="0" s="1000" x="98" y="25" w="166" h="34" pass="0" autoFocus="0" f="0" t="search_movies" l="0">test</input>
   </subpage>
   <subpage name="Movies_ListItem" w="97" h="295">
     <img x="7" y="8" w="90" h="136" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
