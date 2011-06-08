@@ -1,0 +1,102 @@
+<gui>
+  <properties>
+    <project>ListTest</project>
+    <designer>Florent Pillet / CommandFusion</designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="localhost" port="0" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="0" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="HListDidScroll" js="onListDidScroll(JSON.parse(data));" jsSendsCommand="True" target="a5" value="{{min(65535, 65535*([top] / max(1, [count] - [visible])))}}">{"list":"[join]","top":[top],"visible":[visible],"count":[count]}</cmd>
+      <cmd name="DoScrollList" js="onDoScrollList(&quot;l1&quot;, parseInt(data));" jsSendsCommand="True">[sliderval]</cmd>
+      <cmd name="VListDidScroll" js="onListDidScroll(JSON.parse(data));" jsSendsCommand="True">{"list":"[join]","top":[top],"visible":[visible],"count":[count]}</cmd>
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".landscape"><![CDATA[ background-image: url(bg_landscape.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".Large_L"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px -1px 1px; color: White; font-size: 34px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Large_C"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px -1px 1px; color: White; font-size: 34px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Large_R"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px -1px 1px; color: White; font-size: 34px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Title_L"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px -1px 1px; color: White; font-size: 24px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Title_C"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px -1px 1px; color: White; font-size: 24px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Title_R"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px -1px 1px; color: White; font-size: 24px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Red_C"><![CDATA[ color: Red; font-size: 22px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".horizontal[state='0']"><![CDATA[ background-image: url(gauge_track_off.png);]]></theme>
+    <theme type="gauge" name=".horizontal[state='1']"><![CDATA[]]></theme>
+    <theme type="text" name=".Medium_L"><![CDATA[ color: White; font-size: 20px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Large_C_copy"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px -1px 1px; color: White; font-size: 34px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Small_C"><![CDATA[ color: White; font-size: 14px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".Black_Background"><![CDATA[background-color: #000000;]]></theme>
+    <theme type="input" name=".Property_Field"><![CDATA[ background-color: White; border-width: 1px; border-color: #8080FF; color: #000000; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn_sqr_sml[state='0']"><![CDATA[padding: 0px 0px 9px 0px; background-image: url(btn_sqr_sml_off.png); color: Black; font-size: 16px; font-family: 'Lucida Sans'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sqr_sml[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_sqr_sml_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="background" name=".Properties_Subpage"><![CDATA[background-color: #808080;]]></theme>
+    <theme type="text" name=".Medium_Bold_L"><![CDATA[ color: White; font-size: 22px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="list" name=".list_000000"><![CDATA[background-color: #000000;]]></theme>
+    <theme type="list" name=".list_000000"><![CDATA[background-color: #000000;]]></theme>
+  </themes>
+  <scripts>
+    <script name="animatedlists.js" />
+  </scripts>
+  <page name="Main" j="0" transition="None" subtype="None" time="0" ease="" start="1">
+    <portrait />
+    <landscape t="landscape">
+      <list j="1" x="0" y="19" w="1024" h="130" t="list_000000" headerSub="" titleSub="" contentSub="ListItem" footerSub="" orientation="h" l="0" swipedelete="0" scrollCmd="HListDidScroll" scrollInterval="50" listEndCmd="HListDidScroll" listEndOffset="0" />
+      <txt j="0" x="28" y="223" w="121" h="29" t="Medium_L" wrap="False" l="0"># items:</txt>
+      <txt j="0" x="28" y="256" w="121" h="29" t="Medium_L" wrap="False" l="0">top row:</txt>
+      <txt j="0" x="28" y="290" w="123" h="29" t="Medium_L" wrap="False" l="0">num visible:</txt>
+      <txt j="2" x="160" y="223" w="121" h="29" t="Medium_L" wrap="False" l="0">0</txt>
+      <txt j="3" x="160" y="256" w="121" h="29" t="Medium_L" wrap="False" l="0">-</txt>
+      <txt j="4" x="160" y="290" w="121" h="29" t="Medium_L" wrap="False" l="0">-</txt>
+      <list j="10" x="860" y="165" w="164" h="603" t="list_000000" headerSub="" titleSub="" contentSub="ListItem_V" footerSub="" orientation="v" l="0" swipedelete="0" scrollCmd="VListDidScroll" scrollInterval="50" listEndCmd="VListDidScroll" listEndOffset="0" />
+      <txt j="0" x="644" y="638" w="121" h="29" t="Medium_L" wrap="False" l="0"># items:</txt>
+      <txt j="0" x="644" y="671" w="121" h="29" t="Medium_L" wrap="False" l="0">top row:</txt>
+      <txt j="0" x="644" y="705" w="123" h="29" t="Medium_L" wrap="False" l="0">num visible:</txt>
+      <txt j="12" x="776" y="638" w="65" h="29" t="Medium_L" wrap="False" l="0">0</txt>
+      <txt j="13" x="776" y="671" w="66" h="29" t="Medium_L" wrap="False" l="0">-</txt>
+      <txt j="14" x="776" y="705" w="66" h="29" t="Medium_L" wrap="False" l="0">-</txt>
+      <slider j="5" d="0" x="393" y="231" w="300" h="13" min="0" max="100" decimals="0" pressCmd="DoScrollList" dragCmd="DoScrollList" unit="decimal" t="horizontal" sim="1" l="0">
+        <indicator state="0" offsetX="0" offsetY="2" x="0" y="0" w="0" h="0" t="">slider_thumb.png</indicator>
+        <indicator state="1" offsetX="0" offsetY="0" zoom="200" />
+      </slider>
+      <txt j="0" x="383" y="190" w="320" h="24" t="Small_C" wrap="False" l="0">Tap and drag cursor to scroll the list above</txt>
+      <txt j="0" x="25" y="400" w="669" h="168" t="Medium_L" wrap="False" l="0">• Horizontal and vertical lists with external images
+• Filling a list with JavaScript
+• Updating a slider from current list position using a command
+• Interacting with the list from JavaScript code
+• Animating list items using JavaScript code
+• Updating images using a refresh interval</txt>
+      <btn j="0" x="12" y="658" w="144" h="51" t="btn_sqr_sml" flip="None" sim="0" l="0" s="1" js="doListAnimation1();">
+        <inactive s="0">List Effect 1</inactive>
+        <active s="0">List Effect 1</active>
+      </btn>
+      <btn j="0" x="165" y="658" w="144" h="51" t="btn_sqr_sml" flip="None" sim="0" l="0" s="1" js="doListAnimation2();">
+        <inactive s="0">List Effect 2</inactive>
+        <active s="0">List Effect 2</active>
+      </btn>
+      <btn j="0" x="318" y="658" w="144" h="51" t="btn_sqr_sml" flip="None" sim="0" l="0" s="1" js="doListAnimation3();">
+        <inactive s="0">List Effect 3</inactive>
+        <active s="0">List Effect 3</active>
+      </btn>
+      <txt j="0" x="28" y="190" w="253" h="29" t="Medium_Bold_L" wrap="False" l="0">Top list info:</txt>
+      <txt j="0" x="644" y="605" w="196" h="29" t="Medium_Bold_L" wrap="False" l="0">Right list info:</txt>
+      <txt j="0" x="28" y="362" w="605" h="29" t="Medium_Bold_L" wrap="False" l="0">This GUI demonstrates:</txt>
+      <txt j="0" x="28" y="605" w="522" h="29" t="Medium_Bold_L" wrap="False" l="0">Try these JavaScript animations:</txt>
+    </landscape>
+  </page>
+  <subpage name="ListItem" w="128" h="130" t="Black_Background">
+    <img x="4" y="5" w="120" h="120" j="1" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
+    <txt j="2" x="0" y="98" w="128" h="32" t="Large_C" wrap="False" l="0">100</txt>
+    <txt j="3" x="0" y="0" w="128" h="32" t="Large_C" wrap="False" l="0">
+    </txt>
+  </subpage>
+  <subpage name="ListItem_V" w="164" h="164" t="Black_Background">
+    <img x="5" y="6" w="154" h="154" j="1" clickthrough="1" refresh="20000" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
+    <txt j="2" x="1" y="1" w="152" h="35" t="Title_R" wrap="False" l="0">100</txt>
+  </subpage>
+</gui>
