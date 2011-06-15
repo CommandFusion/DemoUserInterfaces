@@ -1,0 +1,90 @@
+<gui>
+  <properties>
+    <project>Animated Icon Example</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="Development iPod Touch">C4ACC12854DFA6AC87B83C665DF9DC1E</device>
+    </devices>
+  </properties>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bground.jpg); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".btn_up[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-up-i.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_up[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-up-a.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_down[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-down-i.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_down[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-down-a.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_lrg[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-toggle-i.png); color: White; font-size: 14px; font-family: 'Tahoma'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_lrg[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-toggle-a.png); color: White; font-size: 14px; font-family: 'Technic'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sm[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-sm-i.png); color: White; font-size: 14px; font-family: 'Tahoma'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sm[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-sm-a.png); color: White; font-size: 14px; font-family: 'Tahoma'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="AnimIcon.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <img x="10" y="71" w="300" h="300" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-01.png</img>
+      <btn j="0" x="164" y="435" w="72" h="36" t="btn_sm" flip="None" sim="1" l="0" s="1" js="Anim1.startAnim(1, false)">
+        <inactive s="0">ON</inactive>
+        <active s="0">ON</active>
+      </btn>
+      <btn j="0" x="82" y="435" w="72" h="36" t="btn_sm" flip="None" sim="1" l="0" s="1" js="Anim1.startAnim(-1, false)">
+        <inactive s="0">OFF</inactive>
+        <active s="0">OFF</active>
+      </btn>
+      <btn j="1" x="83" y="392" w="154" h="35" t="btn_lrg" flip="None" sim="2" l="0" s="1">
+        <inactive s="0">LOOP</inactive>
+        <active s="0">LOOP</active>
+      </btn>
+      <btn j="0" x="245" y="403" w="65" h="68" t="btn_up" flip="None" sim="1" l="0" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" js="Anim1.startAnim(1, false)" />
+            <release delay="0" js="Anim1.stopAnim()" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="9" y="403" w="65" h="68" t="btn_down" flip="None" sim="1" l="0" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" js="Anim1.startAnim(-1, false)" />
+            <release delay="0" js="Anim1.stopAnim()" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <img x="0" y="0" w="320" h="48" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">top-bar.png</img>
+    </portrait>
+    <landscape />
+  </page>
+  <page name="Cache" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-01.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-02.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-03.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-04.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-05.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-06.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-07.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-08.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-09.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-10.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-11.png</img>
+      <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-12.png</img>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
