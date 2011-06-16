@@ -23,6 +23,22 @@
     <theme type="button" name=".btn_lrg[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-toggle-a.png); color: White; font-size: 14px; font-family: 'Technic'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
     <theme type="button" name=".btn_sm[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-sm-i.png); color: White; font-size: 14px; font-family: 'Tahoma'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
     <theme type="button" name=".btn_sm[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn-sm-a.png); color: White; font-size: 14px; font-family: 'Tahoma'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".unviversal_c3_logo[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(universal-c3-logo.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".unviversal_c3_logo[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(universal-c3-logo.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_back[state='0']"><![CDATA[padding: 0px 0px 0px 20px; background-image: url(website-btn-back-i.png); color: White; font-size: 12px; font-family: 'Arial'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_back[state='1']"><![CDATA[padding: 0px 0px 0px 20px; background-image: url(website-btn-back-a.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_stop[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-stop-i.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_stop[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-stop-a.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_refresh[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-refresh-i.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_refresh[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-refresh-a.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_arrow_back[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-arrow-back-i.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_arrow_back[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-arrow-back-a.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_arrow_forward[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-arrow-forward-i.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".website_arrow_forward[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(website-btn-arrow-forward-a.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".Universal"><![CDATA[ color: #DBDBDB; font-size: 11px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Universal_copy"><![CDATA[ color: #DBDBDB; font-size: 11px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn_blank[state='0']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_blank[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
   </themes>
   <scripts>
     <script name="AnimIcon.js" />
@@ -67,6 +83,18 @@
         </active>
       </btn>
       <img x="0" y="0" w="320" h="48" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">top-bar.png</img>
+      <btn j="0" x="0" y="0" w="320" h="50" t="btn_blank" flip="Website" sim="1" l="0" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" js="Anim1.startAnim(-1, false)" />
+            <release delay="0" js="Anim1.stopAnim()" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
     </portrait>
     <landscape />
   </page>
@@ -86,5 +114,50 @@
       <img x="0" y="80" w="320" h="400" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-12.png</img>
     </portrait>
     <landscape />
+  </page>
+  <page name="Website" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <gesture name="New Gesture" type="tap" taps="2" touches="2">
+        <action phase="begin" />
+      </gesture>
+      <web x="0" y="50" w="320" h="380" j="0" title="0" back="96" forward="98" refresh="99" stop="97" url="http://www.customcodecrafters.com" />
+      <img x="0" y="422" w="320" h="58" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">website-basebar.png</img>
+      <btn j="0" x="6" y="435" w="93" h="38" t="website_back" flip="Startup" sim="1" l="0" s="1">
+        <inactive s="0">   Back
+   To Demo</inactive>
+        <active s="0">   Back
+   To Demo</active>
+      </btn>
+      <btn j="97" x="124" y="435" w="43" h="38" t="website_stop" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="99" x="173" y="435" w="43" h="38" t="website_refresh" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="96" x="222" y="435" w="43" h="38" t="website_arrow_back" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="98" x="271" y="435" w="43" h="38" t="website_arrow_forward" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <img x="0" y="0" w="320" h="48" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">top-bar.png</img>
+    </portrait>
+    <landscape>
+      <gesture name="New Gesture" type="tap" taps="2" touches="2">
+        <action phase="begin" />
+      </gesture>
+    </landscape>
   </page>
 </gui>

@@ -43,6 +43,7 @@ var AnimIcon = function(params) {
 		totalFrames:	0,							// REQUIRED
 		fps:			5,							// REQUIRED
 		join:			0,							// REQUIRED
+		digitalJoin:	0,							// OPTIONAL
 		direction:		1,							// OPTIONAL
 		loop:			true,						// OPTIONAL
 		bounce:			false,						// OPTIONAL
@@ -68,7 +69,7 @@ var AnimIcon = function(params) {
 		self.direction = direction;
 
 		// Stop any existing animation going on
-		self.stopAnim();
+		self.stopAnim(true);
 
 		// Start the animation
 		self.interval = setInterval(function() {
@@ -108,14 +109,30 @@ var AnimIcon = function(params) {
 					self.currentFrame = 1;
 				}
 				clearInterval(self.interval);
+				// Set the digital join of this animation low because it has finished animating
+				if (self.digitalJoin > 0) {
+					CF.getJoin("d"+self.digitalJoin, function(j,v) {
+						if (v == 1) {
+							CF.setJoin("d"+self.digitalJoin, 0);
+						}
+					});
+				}
 			}
 		}, 1000/self.fps);
 	};
 
-	self.stopAnim = function() {
+	self.stopAnim = function(clearJoin) {
 		// Stop any existing animation going on
 		if (self.interval !== null) {
 			clearInterval(self.interval);
+		}
+		// Set the digital join of this animation low because it has finished animating
+		if (self.digitalJoin > 0 && clearJoin != true) {
+			CF.getJoin("d"+self.digitalJoin, function(j,v) {
+				if (v == 1) {
+					CF.setJoin("d"+self.digitalJoin, 0);
+				}
+			});
 		}
 	};
 
@@ -150,8 +167,8 @@ var AnimIcon = function(params) {
 	self.loop = params.loop;
 	self.bounce = params.bounce;
 
-
 	if (params.digitalJoin !== undefined) {
+		self.digitalJoin = params.digitalJoin;
 		CF.watch(CF.JoinChangeEvent, "d"+params.digitalJoin, self.digitalJoinTrigger);
 	}
 
