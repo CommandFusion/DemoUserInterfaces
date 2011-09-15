@@ -27,6 +27,11 @@ This example shows how you can use advanced button actions and a little JavaScri
 The button can be used to fire one command on short press, and a different command on long press.  
 If the long press is triggered, then the short command won't be. This is accomplished by triggering the short press on release, and cancelling it if the long press is triggered first.
 
+### [MultiModeManager](DemoUserInterfaces/tree/master/MultiModeManager)
+This example shows how you can use JavaScript to emulate the MultiMode feature of Crestron touch panels.
+See the JavaScript file for instructions on how to use this JavaScript module.  
+Note that this requires iViewer v4.0.6 or higher.
+
 ### [Subpage Logic](DemoUserInterfaces/tree/master/SubpageLogic)
 This project shows a few ways that subpages can be controlled on the client side, without interaction with any backend server or device.  
 This is accomplished by using loopback prograaming (a system defined using the loopback address of 127.0.0.1).

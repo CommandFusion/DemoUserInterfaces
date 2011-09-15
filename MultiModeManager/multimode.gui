@@ -1,0 +1,210 @@
+<gui>
+  <properties>
+    <project>Multi Mode Manager</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="button" name=".btn_rect_0[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #5D5D5D; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_0[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Gray; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_1[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Red; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_1[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Gray; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_2[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8000; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_2[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Gray; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_3[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Yellow; color: Black; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_3[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Gray; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_4[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Lime; color: Black; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rect_4[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Gray; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".Text"><![CDATA[ color: White; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".blue"><![CDATA[background-color: #213D5F;]]></theme>
+    <theme type="button" name=".btn_rnd_0[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #4E4E4E; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_0[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=61); -moz-opacity:0.61; opacity: 0.61; background-color: #4E4E4E; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_1[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Red; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_1[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=61); -moz-opacity:0.61; opacity: 0.61; background-color: #4E4E4E; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_2[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8000; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_2[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=61); -moz-opacity:0.61; opacity: 0.61; background-color: #4E4E4E; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_3[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Yellow; color: Black; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_3[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=61); -moz-opacity:0.61; opacity: 0.61; background-color: #4E4E4E; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_4[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Lime; color: Black; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_rnd_4[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(mask_rnd.png);  filter: Alpha(Opacity=61); -moz-opacity:0.61; opacity: 0.61; background-color: #4E4E4E; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom[state='0']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_off.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom[state='1']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_on.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="multimode.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait />
+    <landscape t="blue">
+      <btn j="1" x="87" y="80" w="110" h="70" t="btn_rect_0" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Button 1</inactive>
+        <active s="0">Button 1</active>
+      </btn>
+      <btn j="2" x="87" y="160" w="110" h="70" t="btn_rect_0" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Button 2</inactive>
+        <active s="0">Button 2</active>
+      </btn>
+      <btn j="3" x="87" y="240" w="110" h="70" t="btn_rect_0" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Button 3</inactive>
+        <active s="0">Button 3</active>
+      </btn>
+      <btn j="11" x="322" y="370" w="100" h="100" t="btn_rnd_0" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Button 11</inactive>
+        <active s="0">Button 11</active>
+      </btn>
+      <btn j="12" x="322" y="490" w="100" h="100" t="btn_rnd_0" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Button 12</inactive>
+        <active s="0">Button 12</active>
+      </btn>
+      <btn j="13" x="322" y="620" w="100" h="100" t="btn_rnd_0" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Button 13</inactive>
+        <active s="0">Button 13</active>
+      </btn>
+      <txt j="0" x="608" y="25" w="353" h="52" t="Text" wrap="True" l="0">Test Buttons to simulate analog join changes:</txt>
+      <btn j="0" x="672" y="119" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a1&quot;, 1);">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="0" x="732" y="119" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a1&quot;, 2);">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="0" x="792" y="119" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a1&quot;, 3);">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="0" x="852" y="119" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a1&quot;, 4);">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="0" x="612" y="119" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a1&quot;, 0);">
+        <inactive s="0">0</inactive>
+        <active s="0">0</active>
+      </btn>
+      <txt j="0" x="611" y="91" w="353" h="28" t="Text" wrap="True" l="0">Set Analog Join 1 to value:</txt>
+      <btn j="0" x="672" y="199" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a2&quot;, 1);">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="0" x="732" y="199" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a2&quot;, 2);">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="0" x="792" y="199" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a2&quot;, 3);">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="0" x="852" y="199" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a2&quot;, 4);">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="0" x="612" y="199" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a2&quot;, 0);">
+        <inactive s="0">0</inactive>
+        <active s="0">0</active>
+      </btn>
+      <txt j="0" x="611" y="171" w="353" h="28" t="Text" wrap="True" l="0">Set Analog Join 2  to value:</txt>
+      <btn j="0" x="672" y="279" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a3&quot;, 1);">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="0" x="732" y="279" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a3&quot;, 2);">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="0" x="792" y="279" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a3&quot;, 3);">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="0" x="852" y="279" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a3&quot;, 4);">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="0" x="612" y="279" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a3&quot;, 0);">
+        <inactive s="0">0</inactive>
+        <active s="0">0</active>
+      </btn>
+      <txt j="0" x="611" y="251" w="353" h="28" t="Text" wrap="True" l="0">Set Analog Join 3  to value:</txt>
+      <btn j="0" x="672" y="479" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a11&quot;, 1);">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="0" x="732" y="479" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a11&quot;, 2);">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="0" x="792" y="479" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a11&quot;, 3);">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="0" x="852" y="479" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a11&quot;, 4);">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="0" x="612" y="479" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a11&quot;, 0);">
+        <inactive s="0">0</inactive>
+        <active s="0">0</active>
+      </btn>
+      <txt j="0" x="611" y="451" w="353" h="28" t="Text" wrap="True" l="0">Set Analog Join 11 to value:</txt>
+      <btn j="0" x="672" y="559" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a12&quot;, 1);">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="0" x="732" y="559" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a12&quot;, 2);">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="0" x="792" y="559" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a12&quot;, 3);">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="0" x="852" y="559" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a12&quot;, 4);">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="0" x="612" y="559" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a12&quot;, 0);">
+        <inactive s="0">0</inactive>
+        <active s="0">0</active>
+      </btn>
+      <txt j="0" x="611" y="531" w="353" h="28" t="Text" wrap="True" l="0">Set Analog Join 12  to value:</txt>
+      <btn j="0" x="672" y="639" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a13&quot;, 1);">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="0" x="732" y="639" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a13&quot;, 2);">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="0" x="792" y="639" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a13&quot;, 3);">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="0" x="852" y="639" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a13&quot;, 4);">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="0" x="612" y="639" w="49" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" js="CF.setJoin(&quot;a13&quot;, 0);">
+        <inactive s="0">0</inactive>
+        <active s="0">0</active>
+      </btn>
+      <txt j="0" x="611" y="611" w="353" h="28" t="Text" wrap="True" l="0">Set Analog Join 13  to value:</txt>
+    </landscape>
+  </page>
+  <page name="CachePage" j="0" transition="" subtype="" time="0" ease="">
+    <portrait />
+    <landscape>
+      <gauge j="1" x="25" y="67" w="154" h="25" t="" l="0" />
+      <txt j="0" x="24" y="21" w="846" h="37" t="Text" wrap="True" l="0">Analog objects just here so that we can watch the analog join changes in the JavaScript.</txt>
+      <gauge j="2" x="25" y="97" w="154" h="25" t="" l="0" />
+      <gauge j="3" x="25" y="127" w="154" h="25" t="" l="0" />
+      <gauge j="11" x="205" y="67" w="154" h="25" t="" l="0" />
+      <gauge j="12" x="205" y="97" w="154" h="25" t="" l="0" />
+      <gauge j="13" x="205" y="127" w="154" h="25" t="" l="0" />
+    </landscape>
+  </page>
+</gui>
