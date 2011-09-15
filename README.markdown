@@ -11,7 +11,7 @@ The animation frames are provided by [Custom Code Crafters](http://www.customcod
 This example shows how each item in a list can be animated using the CF.setProperties JavaScript method.  
 It also shows how you can scroll a list into specific positions via a slider, along with list properties that are available.
 
-### CEDIA 2011
+### [CEDIA 2011](tree/master/CEDIA%202011)
 This is the GUI that was on display at the CEDIA 2011 tradeshow in Sydney, Australia.  
 It includes basic JRiver Media Center control, as well as CBus, Dynalite, AirLive IP Camera and Media Portal.  
 There is also a video intro showing how video assets could be used in your own GUIs (video files, not streams).
