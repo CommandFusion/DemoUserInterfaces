@@ -701,7 +701,7 @@ var JRiver = {
 	},
 	// Send a correctly build command to JRiver
 	sendMsg: function(command, data) {
-		CF.send("JRiver", "\xF3"+command+"\xF4"+(Array.isArray(data)?data.join("|"):data)+"\xF5\xF5");
+		CF.send("JRiver", "\xF3"+command+"\xF4"+(Array.isArray(data)?data.join("|"):(data!==undefined?data:''))+"\xF5\xF5");
 	},
 	// Only allow logging calls when CF is in debug mode - better performance in release mode this way
 	log: function(msg) {

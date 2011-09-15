@@ -27,10 +27,10 @@
     </devices>
   </properties>
   <systems>
-    <system name="JRiver" ip="27.32.176.111" port="8022" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="1" disconnectionStatus="0">
-      <cmd name="Slider Volume" js="JRiver.setVolume(data)" jsSendsCommand="True">[sliderval]</cmd>
-      <cmd name="Slider Track Pos" js="JRiver.scrubTrack(data)" jsSendsCommand="True">[sliderval]</cmd>
-      <cmd name="Artist Letter Scroll" js="JRiver.scrollToArtistLetter(data)" jsSendsCommand="True">[sliderval]</cmd>
+    <system name="JRiver" ip="192.168.0.10" port="8022" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="1" disconnectionStatus="0">
+      <cmd name="Slider Track Pos" js="JRiver.scrubTrack(data)" jsSendsCommand="True" folder="Slider Commands">[sliderval]</cmd>
+      <cmd name="Slider Volume" js="JRiver.setVolume(data)" jsSendsCommand="True" folder="Slider Commands">[sliderval]</cmd>
+      <cmd name="Artist Letter Scroll" js="JRiver.scrollToArtistLetter(data)" jsSendsCommand="True" folder="Slider Commands">[sliderval]</cmd>
       <fb name="Incoming Data" regex="(?ms)\xF3(.*?)\xF4(.*?)\xF5\xF5" />
     </system>
     <system name="Loopback" ip="127.0.0.1" port="102" protocol="udp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0" startupCmd="ShowStatusBar">
@@ -102,8 +102,9 @@
       <cmd name="[level] Grp0_31 (cbus56)">\05FF00730738004A\x0D</cmd>
       <fb name="cbus network traffic" regex=".*" />
     </system>
-    <system name="MP" ip="27.32.176.111" port="8024" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="0" disconnectionStatus="0">
+    <system name="MP" ip="192.168.0.10" port="8024" protocol="tcp" alwayson="1" accept="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="\xF5\xF5" connectionStatus="0" disconnectionStatus="0">
       <cmd name="MP Slider Volume" js="MP.setVolume(data)" jsSendsCommand="True">[sliderval]</cmd>
+      <cmd name="Search Movies" js="MP.searchMovies(data, 2)" jsSendsCommand="True">[inputval]</cmd>
       <fb name="MP Incoming Data" regex="(?ms)\xF3(.*?)\xF4(.*?)\xF5\xF5" />
     </system>
   </systems>
@@ -477,6 +478,7 @@
         <active s="0">
         </active>
       </btn>
+      <subpage name="Movies_SearchError" x="0" y="411" j="1020" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="1" v="1" l="1" />
     </landscape>
   </page>
   <subpage name="TopBar_Music" w="1024" h="82" t="top_bar_bg">
@@ -762,6 +764,12 @@ Mode</txt>
       <inactive s="0">Main Menu</inactive>
       <active s="0">Main Menu</active>
     </btn>
+    <btn j="0" x="53" y="22" w="31" h="31" t="btn_home" flip="None" sim="0" l="0" s="1">
+      <inactive s="0">
+      </inactive>
+      <active s="0">
+      </active>
+    </btn>
   </subpage>
   <subpage name="Zones_Item" w="266" h="41">
     <btn j="1" x="5" y="2" w="256" h="39" t="grey_center" flip="None" sim="0" l="0" s="1" js="JRiver.setActiveZone(listIndex)">
@@ -846,7 +854,8 @@ Mode</txt>
     <img x="104" y="19" w="153" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_M.png</img>
     <img x="83" y="19" w="21" h="44" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">bottom_textarea_dark_L.png</img>
     <txt j="0" x="30" y="21" w="56" h="39" t="small_l" wrap="False" l="0">Search</txt>
-    <input j="0" s="1000" x="98" y="25" w="166" h="34" pass="0" autoFocus="0" f="0" t="search_movies" l="0">test</input>
+    <input j="0" s="1000" x="98" y="25" w="166" h="34" pass="0" autoFocus="0" f="0" t="search_movies" command="Search Movies" l="0">
+    </input>
   </subpage>
   <subpage name="Movies_ListItem" w="97" h="295">
     <img x="7" y="8" w="90" h="136" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="0" />
@@ -866,6 +875,15 @@ Mode</txt>
   </subpage>
   <subpage name="MoviePlot" w="431" h="300">
     <txt j="1005" x="0" y="0" w="431" h="300" t="MoviePlot" wrap="True" l="0">Plot</txt>
+  </subpage>
+  <subpage name="Movies_SearchError" w="1024" h="295">
+    <img x="0" y="0" w="1024" h="295" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">movies_search_error_bg.png</img>
+    <txt j="1020" x="232" y="100" w="561" h="95" t="list_title_c" wrap="True" l="0">
+    </txt>
+    <btn j="1020" x="427" y="192" w="170" h="44" t="bottom_btn" flip="None" sim="2" l="0" s="1">
+      <inactive s="0">OK</inactive>
+      <active s="0">OK</active>
+    </btn>
   </subpage>
   <subpage name="List_Albums" w="355" h="290">
     <img x="0" y="0" w="355" h="290" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">list_A_bg.png</img>

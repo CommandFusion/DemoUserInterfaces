@@ -6,6 +6,10 @@
       <portrait width="320" height="480" />
       <landscape width="480" height="320" />
     </size>
+    <controlsystem connectionStatus="0" disconnectionStatus="0">
+      <hostname>192.168.0.10</hostname>
+      <commandPort>8020</commandPort>
+    </controlsystem>
     <imagefolder>
     </imagefolder>
     <debug loaderrors="0" connectionerrors="0" />
@@ -117,8 +121,8 @@
   </page>
   <page name="Website" j="0" transition="None" subtype="None" time="0" ease="">
     <portrait t="portrait">
-      <gesture name="New Gesture" type="tap" taps="2" touches="2">
-        <action phase="begin" />
+      <gesture name="New Gesture" type="swipe" direction="left" touches="1">
+        <action phase="begin" j="d10" value="1" />
       </gesture>
       <web x="0" y="50" w="320" h="380" j="0" title="0" back="96" forward="98" refresh="99" stop="97" url="http://www.customcodecrafters.com" />
       <img x="0" y="422" w="320" h="58" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">website-basebar.png</img>

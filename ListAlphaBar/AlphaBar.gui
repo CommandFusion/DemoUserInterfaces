@@ -1,0 +1,172 @@
+<gui>
+  <properties>
+    <project>AlphaBar</project>
+    <designer>
+    </designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="tcp" alwayson="1" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="AlphaSlider" js="AlphaBar.slideTo(100, data, &quot;s1&quot;)" jsSendsCommand="True">[sliderval]</cmd>
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".jag"><![CDATA[ background-image: url(Background6.jpg); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".List_Letter[state='0']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 14px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".List_Letter[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".AlphaBar_List_Item"><![CDATA[ color: White; font-size: 20px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".setup[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=41); -moz-opacity:0.41; opacity: 0.41; background-color: #000000; color: White; font-size: 14px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".setup[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #000000; color: White; font-size: 14px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="gauge" name=".alphaslider[state='0']"><![CDATA[ background-image: url(letter_bg.png);]]></theme>
+    <theme type="gauge" name=".alphaslider[state='1']"><![CDATA[]]></theme>
+    <theme type="text" name=".info"><![CDATA[ color: Black; font-size: 18px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".notes"><![CDATA[ color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="ListAlphaBar.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait />
+    <landscape t="jag">
+      <img x="457" y="35" w="400" h="700" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">opaque.png</img>
+      <img x="412" y="35" w="41" h="700" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">opaque.png</img>
+      <list j="100" x="457" y="35" w="400" h="700" headerSub="" titleSub="" contentSub="List_Item" footerSub="" orientation="v" l="1" swipedelete="0" />
+      <btn j="0" x="422" y="64" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;A&quot;);">
+        <inactive s="0">A</inactive>
+        <active s="0">A</active>
+      </btn>
+      <btn j="0" x="422" y="90" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;B&quot;);">
+        <inactive s="0">B</inactive>
+        <active s="0">B</active>
+      </btn>
+      <btn j="0" x="422" y="116" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;C&quot;);">
+        <inactive s="0">C</inactive>
+        <active s="0">C</active>
+      </btn>
+      <btn j="0" x="422" y="141" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;D&quot;);">
+        <inactive s="0">D</inactive>
+        <active s="0">D</active>
+      </btn>
+      <btn j="0" x="422" y="167" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;E&quot;);">
+        <inactive s="0">E</inactive>
+        <active s="0">E</active>
+      </btn>
+      <btn j="0" x="422" y="193" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;F&quot;);">
+        <inactive s="0">F</inactive>
+        <active s="0">F</active>
+      </btn>
+      <btn j="0" x="422" y="219" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;G&quot;);">
+        <inactive s="0">G</inactive>
+        <active s="0">G</active>
+      </btn>
+      <btn j="0" x="422" y="271" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;I&quot;);">
+        <inactive s="0">I</inactive>
+        <active s="0">I</active>
+      </btn>
+      <btn j="0" x="422" y="245" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;H&quot;);">
+        <inactive s="0">H</inactive>
+        <active s="0">H</active>
+      </btn>
+      <btn j="0" x="422" y="296" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;J&quot;);">
+        <inactive s="0">J</inactive>
+        <active s="0">J</active>
+      </btn>
+      <btn j="0" x="422" y="322" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;K&quot;);">
+        <inactive s="0">K</inactive>
+        <active s="0">K</active>
+      </btn>
+      <btn j="0" x="422" y="348" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;L&quot;);">
+        <inactive s="0">L</inactive>
+        <active s="0">L</active>
+      </btn>
+      <btn j="0" x="422" y="374" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;M&quot;);">
+        <inactive s="0">M</inactive>
+        <active s="0">M</active>
+      </btn>
+      <btn j="0" x="422" y="400" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;N&quot;);">
+        <inactive s="0">N</inactive>
+        <active s="0">N</active>
+      </btn>
+      <btn j="0" x="422" y="426" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;O&quot;);">
+        <inactive s="0">O</inactive>
+        <active s="0">O</active>
+      </btn>
+      <btn j="0" x="422" y="452" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;P&quot;);">
+        <inactive s="0">P</inactive>
+        <active s="0">P</active>
+      </btn>
+      <btn j="0" x="422" y="503" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;R&quot;);">
+        <inactive s="0">R</inactive>
+        <active s="0">R</active>
+      </btn>
+      <btn j="0" x="422" y="477" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;Q&quot;);">
+        <inactive s="0">Q</inactive>
+        <active s="0">Q</active>
+      </btn>
+      <btn j="0" x="422" y="555" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;T&quot;);">
+        <inactive s="0">T</inactive>
+        <active s="0">T</active>
+      </btn>
+      <btn j="0" x="422" y="529" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;S&quot;);">
+        <inactive s="0">S</inactive>
+        <active s="0">S</active>
+      </btn>
+      <btn j="0" x="422" y="581" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;U&quot;);">
+        <inactive s="0">U</inactive>
+        <active s="0">U</active>
+      </btn>
+      <btn j="0" x="422" y="632" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;W&quot;);">
+        <inactive s="0">W</inactive>
+        <active s="0">W</active>
+      </btn>
+      <btn j="0" x="422" y="607" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;V&quot;);">
+        <inactive s="0">V</inactive>
+        <active s="0">V</active>
+      </btn>
+      <btn j="0" x="422" y="684" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;Y&quot;);">
+        <inactive s="0">Y</inactive>
+        <active s="0">Y</active>
+      </btn>
+      <btn j="0" x="422" y="658" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;X&quot;);">
+        <inactive s="0">X</inactive>
+        <active s="0">X</active>
+      </btn>
+      <btn j="0" x="422" y="710" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;Z&quot;);">
+        <inactive s="0">Z</inactive>
+        <active s="0">Z</active>
+      </btn>
+      <btn j="0" x="422" y="38" w="20" h="20" t="List_Letter" flip="None" sim="0" l="1" s="1" js="AlphaBar.scrollTo(100,&quot;s1&quot;,&quot;#&quot;);">
+        <inactive s="0">#</inactive>
+        <active s="0">#</active>
+      </btn>
+      <btn j="0" x="125" y="406" w="102" h="73" t="setup" flip="None" sim="1" l="0" s="1" js="AlphaBar.templist(100);">
+        <inactive s="0">Setup List</inactive>
+        <active s="0">Setup List</active>
+      </btn>
+      <slider j="1" d="0" x="869" y="92" w="21" h="567" min="0" max="27" decimals="0" pressCmd="AlphaSlider" dragCmd="AlphaSlider" unit="decimal" t="alphaslider" invert="1" sim="1" l="0" />
+      <txt j="0" x="57" y="34" w="248" h="326" t="info" wrap="True" l="0">There are two methods used in this example for scrolling a list:
+
+1. Using buttons for each letter (left)
+
+2. Using a slider and calculating the letter based on slider position (right)
+
+Click the "setup list" button to fill it with fake data for this example.</txt>
+      <txt j="0" x="8" y="569" w="385" h="199" t="notes" wrap="True" l="0">Notes:
+- The slider is set to "reverse" mode so that the bottom of the slider is the max.
+
+- Loopback System is used for attaching a command to the slider, nothing more. This command performs the JavaScript calls.
+
+- See guiDesigner Project Properties &gt; Script Manager for how the JavaScript is attached to the project.</txt>
+    </landscape>
+  </page>
+  <subpage name="List_Item" w="400" h="40">
+    <img x="0" y="0" w="400" h="38" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">opaque.png</img>
+    <txt j="1" x="5" y="0" w="390" h="38" t="AlphaBar_List_Item" wrap="False" l="1">LIST TEXT</txt>
+  </subpage>
+</gui>

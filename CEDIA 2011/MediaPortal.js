@@ -208,6 +208,14 @@ var MP = {
 				case "RVOL": // Returning volume level of current zone
 					CF.setJoin("a1000", (65535/100)*dataArray[0]);
 					break;
+				case "RSEARCHERR":
+					// Get the error message and show the error popup
+					var msg = dataArray[0];
+					CF.setJoins([
+						{ "join": "d1020", value: 1},
+						{ "join": "s1020", value: msg}
+					]);
+					break;
 			}
 		}
 	},
@@ -217,9 +225,6 @@ var MP = {
     // ======================================================================
 	getMovies: function (perRow) {
 		if (!MP.gotMoviesAlready) {
-			CF.setProperties({join:"s"+MP.joinMovieList, opacity:1.0, scale:1.25}, 0.0, 0.15, CF.AnimationCurveEaseOut, function() {
-				CF.setProperties({join:"s"+MP.joinMovieList, scale:1.0}, 0.0, 0.15, CF.AnimationCurveEaseIn);
-			});
 			MP.sendMsg("TGETLIST", ["allmovies",perRow]);
 		}
 	},
@@ -237,6 +242,11 @@ var MP = {
 			MP.animateFanart();
 			MP.fanartAnimating = setInterval(function() {MP.animateFanart()}, 10000);
 		}
+	},
+
+	searchMovies: function (query, perRow) {
+		CF.log("searching for: " + query);
+		MP.sendMsg("TSEARCHMOVIES", [query,perRow]);
 	},
 
 	animateFanart: function() {
@@ -283,7 +293,7 @@ var MP = {
 	},
 	// Send a correctly build command to MP
 	sendMsg: function(command, data) {
-		CF.send("MP", "\xF3"+command+"\xF4"+(Array.isArray(data)?data.join("|"):data)+"\xF5\xF5");
+		CF.send("MP", "\xF3"+command+"\xF4"+(Array.isArray(data)?data.join("|"):(data!==undefined?data:''))+"\xF5\xF5");
 	},
 	// Only allow logging calls when CF is in debug mode - better performance in release mode this way
 	log: function(msg) {

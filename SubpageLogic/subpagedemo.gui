@@ -1,0 +1,139 @@
+<gui>
+  <properties>
+    <project>Subpage Logic Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="udp" alwayson="1" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Sub2" folder="SourceSubs">sub=2</cmd>
+      <cmd name="Sub3" folder="SourceSubs">sub=3</cmd>
+      <cmd name="Sub4" folder="SourceSubs">sub=4</cmd>
+      <cmd name="Sub5" folder="SourceSubs2">sub2=5</cmd>
+      <cmd name="Sub6" folder="SourceSubs2">sub2=6</cmd>
+      <cmd name="Sub7" folder="SourceSubs2">sub2=7</cmd>
+      <cmd name="Sub8" folder="SourceSubs2">sub2=8</cmd>
+      <cmd name="Sub1" folder="SourceSubs">sub=1</cmd>
+      <cmd name="Send 100">val=\x64</cmd>
+      <cmd name="Send 0">val=\x00</cmd>
+      <fb name="subpagelogic" regex="sub=(1)?(2)?(3)?(4)?">
+        <group index="1" name="" datatype="d" target="d1" onVal="1" />
+        <group index="2" name="" datatype="d" target="d2" transform="{{if(value==2, 1, 0)}}" onVal="2" />
+        <group index="3" name="" datatype="d" target="d3" transform="{{if(value==3, 1, 0)}}" onVal="3" />
+        <group index="4" name="" datatype="d" target="d4" transform="{{if(value==4, 1, 0)}}" onVal="4" />
+      </fb>
+      <fb name="subpagelogic2" regex="sub2=(\d+)">
+        <group index="1" name="" datatype="d" target="d5" transform="{{if(value==1, 1, 0)}}" onVal="5" />
+        <group index="1" name="" datatype="d" target="d6" transform="{{if(value==2, 1, 0)}}" onVal="6" />
+        <group index="1" name="" datatype="d" target="d7" transform="{{if(value==3, 1, 0)}}" onVal="7" />
+        <group index="1" name="" datatype="d" target="d8" transform="{{if(value==4, 1, 0)}}" onVal="8" />
+      </fb>
+      <fb name="value" regex="val=(.)">
+        <group index="1" name="" datatype="d" target="d1" offVal="\x00" onVal="\x64" />
+      </fb>
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".cfblue2_landscape"><![CDATA[ background-image: url(bg_landscape.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".cfblue2_bottom[state='0']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_off.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom[state='1']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_on.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom_bare[state='0']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_bare_off.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom_bare[state='1']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_bare_on.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".cfblue2_small_l"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 14px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".cfblue2_white"><![CDATA[ border-width: 0px; color: White; font-size: 18px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".cfblue2_bottom_L[state='0']"><![CDATA[padding: 0px 0px 0px 8px; background-image: url(bottom_btn_L_off.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom_L[state='1']"><![CDATA[padding: 0px 0px 0px 8px; background-image: url(bottom_btn_L_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom_M[state='0']"><![CDATA[padding: 0px 2px 0px 2px; -webkit-border-image: url(bottom_btn_M_off.png) 0 2 0 2; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom_M[state='1']"><![CDATA[padding: 0px 2px 0px 2px; -webkit-border-image: url(bottom_btn_M_on.png) 0 2 0 2; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom_R[state='0']"><![CDATA[padding: 0px 8px 0px 0px; background-image: url(bottom_btn_R_off.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom_R[state='1']"><![CDATA[padding: 0px 8px 0px 0px; background-image: url(bottom_btn_R_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".cfblue2_title_l"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".cfblue2_title_c"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Futura'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <subpage name="Sub1" x="0" y="67" j="0" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Sub2" x="0" y="0" j="2" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="1" topmost="0" v="1" l="0" />
+    </portrait>
+    <landscape t="cfblue2_landscape">
+      <subpage name="Sub1" x="62" y="160" j="1" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <btn j="1" x="31" y="48" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub1">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="2" x="141" y="48" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub2">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="3" x="251" y="48" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub3">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="4" x="361" y="48" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub4">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <subpage name="Sub2" x="275" y="160" j="2" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Sub3" x="487" y="160" j="3" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Sub4" x="700" y="160" j="4" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Sub5" x="62" y="437" j="5" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Sub6" x="275" y="437" j="6" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Sub7" x="487" y="437" j="7" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Sub8" x="700" y="437" j="8" transition1="" subtype1="" time1="0" ease1="" transition2="" subtype2="" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" />
+      <btn j="5" x="31" y="338" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub5">
+        <inactive s="0">5</inactive>
+        <active s="0">5</active>
+      </btn>
+      <btn j="6" x="141" y="338" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub6">
+        <inactive s="0">6</inactive>
+        <active s="0">6</active>
+      </btn>
+      <btn j="7" x="251" y="338" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub7">
+        <inactive s="0">7</inactive>
+        <active s="0">7</active>
+      </btn>
+      <btn j="8" x="361" y="338" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub8">
+        <inactive s="0">8</inactive>
+        <active s="0">8</active>
+      </btn>
+      <btn j="4" x="886" y="62" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Sub4">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+    </landscape>
+  </page>
+  <subpage name="Sub1" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 1</txt>
+    <btn j="2" x="51" y="9" w="92" h="44" t="cfblue2_bottom" flip="None" sim="2" l="0" s="1">
+      <inactive s="0">2</inactive>
+      <active s="0">2</active>
+    </btn>
+  </subpage>
+  <subpage name="Sub2" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 2</txt>
+  </subpage>
+  <subpage name="Sub3" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 3</txt>
+  </subpage>
+  <subpage name="Sub4" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 4</txt>
+  </subpage>
+  <subpage name="Sub5" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 5</txt>
+  </subpage>
+  <subpage name="Sub6" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 6</txt>
+  </subpage>
+  <subpage name="Sub7" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 7</txt>
+  </subpage>
+  <subpage name="Sub8" w="200" h="150">
+    <txt j="0" x="1" y="0" w="199" h="150" t="cfblue2_title_c" wrap="False" l="0">Subpage 8</txt>
+  </subpage>
+</gui>

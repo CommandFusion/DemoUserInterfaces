@@ -1,0 +1,60 @@
+<gui>
+  <properties>
+    <project>demo</project>
+    <designer>
+    </designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="udp" alwayson="1" accept="1" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="ShortPressCommand" target="d1" value="1">test</cmd>
+      <cmd name="LongPressCommand" target="d2" value="1">test</cmd>
+      <cmd name="Reset">reset</cmd>
+      <fb name="Reset_buttons" regex="(reset)">
+        <onmatch target="d1" value="0" />
+        <onmatch target="d2" value="0" />
+      </fb>
+    </system>
+  </systems>
+  <themes>
+    <theme type="button" name=".cfblue2_bottom[state='0']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_off.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom[state='1']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_on.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Futura'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="LongShortPress.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <btn j="0" x="84" y="144" w="152" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" js="LongShortPress.pressStart()" />
+            <press delay="0" hold="1000" repeat="0" js="LongShortPress.onLongPress(&quot;LongPressCommand&quot;)" />
+            <release delay="0" js="LongShortPress.onShortRelease(&quot;ShortPressCommand&quot;)" />
+          </action>
+        </actions>
+        <inactive s="0">Press Me!</inactive>
+        <active s="0">Press Me!</active>
+      </btn>
+      <btn j="1" x="84" y="242" w="152" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1">
+        <inactive s="0">Short Pressed</inactive>
+        <active s="0">Short Pressed</active>
+      </btn>
+      <btn j="2" x="84" y="292" w="152" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1">
+        <inactive s="0">Long Pressed</inactive>
+        <active s="0">Long Pressed</active>
+      </btn>
+      <btn j="0" x="58" y="427" w="204" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" cmd="Reset">
+        <inactive s="0">Clear Button States</inactive>
+        <active s="0">Clear Button States</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
