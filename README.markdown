@@ -18,7 +18,9 @@ There is also a video intro showing how video assets could be used in your own G
 
 ### List Alpha Bar
 This project shows how to use an alphabetical bar to automatically scroll a list based on the letter selected.  
-The project uses JavaScript and allows auto-scrolling the list via button press or using a slider.
+The project uses JavaScript and allows auto-scrolling the list via button press or using a slider.  
+This example is created by Darren Vollmer, JAG Electrical Systems, LLC.  
+Darren is available for contract CommandFusion programming (see his contact details in the JavaScript for this example).
 
 ### Long Short Press
 This example shows how you can use advanced button actions and a little JavaScript to create a button that has two actions.  
