@@ -16,7 +16,7 @@ This is the GUI that was on display at the CEDIA 2011 tradeshow in Sydney, Austr
 It includes basic JRiver Media Center control, as well as CBus, Dynalite, AirLive IP Camera and Media Portal.  
 There is also a video intro showing how video assets could be used in your own GUIs (video files, not streams).
 
-### List Alpha Bar
+### (List Alpha Bar)[tree/master/ListAlphaBar]
 This project shows how to use an alphabetical bar to automatically scroll a list based on the letter selected.  
 The project uses JavaScript and allows auto-scrolling the list via button press or using a slider.  
 This example is created by Darren Vollmer, JAG Electrical Systems, LLC.  
