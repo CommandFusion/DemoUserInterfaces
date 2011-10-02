@@ -1,0 +1,181 @@
+<gui>
+  <properties>
+    <project>Back Button Demo</project>
+    <designer>Darren Vollmer</designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Null System" ip="0.0.0.0" port="0" protocol="udp" alwayson="1" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Traffic_Show" target="d10" value="1">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="Traffic_Hide" target="d10" value="0">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="Description_Show" target="d20" value="1">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="Description_Hide" target="d20" value="0">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="Pictures_Hide" target="d30" value="0">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="Pictures_Show" target="d30" value="1">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="Football_Hide" target="d40" value="0">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="Football_Show" target="d40" value="1">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="About_Show" target="d50" value="1">no command actually sent, this is just to manipulate the join</cmd>
+      <cmd name="About_Hide" target="d50" value="0">no command actually sent, this is just to manipulate the join</cmd>
+    </system>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="udp" alwayson="1" accept="0" acceptBroadcasts="1" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Previous_Page">lastpage=[lastpage]</cmd>
+      <cmd name="Lastpage_Description">lastpage=description</cmd>
+      <cmd name="Lastpage_About">lastpage=about</cmd>
+      <cmd name="Lastpage_Football">lastpage=football</cmd>
+      <cmd name="Lastpage_Pictures">lastpage=pictures</cmd>
+      <fb name="Lastpage_Feedback" regex="(?ims)lastpage=(.*)">
+        <group index="1" name="[lastpage]" datatype="d" target="e0" settoken="1" />
+      </fb>
+      <fb name="Feedback_Lastpage_About" regex="(?ims)(lastpage=about)">
+        <onmatch target="e0" cmd="About_Show" />
+      </fb>
+      <fb name="Feedback_Lastpage_Description" regex="(?ims)(lastpage=description)">
+        <onmatch target="e0" cmd="Description_Show" />
+      </fb>
+      <fb name="Feedback_Lastpage_Football" regex="(?ims)(lastpage=football)">
+        <onmatch target="e0" cmd="Football_Show" />
+      </fb>
+      <fb name="Feedback_Lastpage_Pictures" regex="(?ims)(lastpage=pictures)">
+        <onmatch target="e0" cmd="Pictures_Show" />
+      </fb>
+      <fb name="DEBUG" regex="(.*)">
+        <group index="1" name="debug" datatype="s" target="s9999" />
+      </fb>
+    </system>
+  </systems>
+  <macros>
+    <macro name="Clear_GUI">
+      <command delay="0">About_Hide</command>
+      <command delay="0">Description_Hide</command>
+      <command delay="0">Football_Hide</command>
+      <command delay="0">Pictures_Hide</command>
+      <command delay="0">Traffic_Hide</command>
+    </macro>
+  </macros>
+  <themes>
+    <theme type="background" name=".JAG"><![CDATA[ background-image: url(Background6.jpg); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".GreenActive[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(button-oval-large-a-white.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".GreenActive[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(button-oval-large-a-green.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".Description"><![CDATA[ color: Black; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <tokens>
+    <token name="[lastpage]" value="0" />
+  </tokens>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait />
+    <landscape t="JAG">
+      <btn j="10" x="716" y="0" w="150" h="68" t="GreenActive" flip="None" sim="0" l="1" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" macro="Clear_GUI" />
+            <press delay="200" hold="0" repeat="0" command="Traffic_Show" />
+          </action>
+        </actions>
+        <inactive s="0">Traffic</inactive>
+        <active s="0">Traffic</active>
+      </btn>
+      <btn j="20" x="71" y="0" w="150" h="68" t="GreenActive" flip="None" sim="0" l="1" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" macro="Clear_GUI" />
+            <press delay="200" hold="0" repeat="0" command="Lastpage_Description" />
+          </action>
+        </actions>
+        <inactive s="0">Description</inactive>
+        <active s="0">Description</active>
+      </btn>
+      <btn j="50" x="232" y="0" w="150" h="68" t="GreenActive" flip="None" sim="0" l="1" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Lastpage_About" macro="Clear_GUI" />
+            <press delay="200" hold="0" repeat="0" command="Lastpage_About" />
+          </action>
+        </actions>
+        <inactive s="0">About Me</inactive>
+        <active s="0">About Me</active>
+      </btn>
+      <btn j="30" x="555" y="0" w="150" h="68" t="GreenActive" flip="None" sim="0" l="1" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" macro="Clear_GUI" />
+            <press delay="200" hold="0" repeat="0" command="Lastpage_Pictures" />
+          </action>
+        </actions>
+        <inactive s="0">Pictures</inactive>
+        <active s="0">Pictures</active>
+      </btn>
+      <btn j="40" x="394" y="0" w="150" h="68" t="GreenActive" flip="None" sim="0" l="1" s="1">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" macro="Clear_GUI" />
+            <press delay="200" hold="0" repeat="0" command="Lastpage_Football" />
+          </action>
+        </actions>
+        <inactive s="0">Football</inactive>
+        <active s="0">Football</active>
+      </btn>
+      <subpage name="Description" x="0" y="150" j="20" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="0" l="0" />
+      <subpage name="AboutMe" x="0" y="150" j="50" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="0" l="0" />
+      <subpage name="Pictures" x="0" y="150" j="30" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="0" l="0" />
+      <subpage name="Football" x="0" y="150" j="40" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="0" l="0" />
+      <txt j="9999" x="227" y="735" w="550" h="31" t="Description" wrap="False" l="0">USING A LOOPBACK TO CREATE A UNIVERSAL BACK BUTTON</txt>
+    </landscape>
+  </page>
+  <subpage name="TrafficCameras" w="1024" h="768" clip="1" t="JAG">
+    <img x="68" y="50" w="253" h="188" j="0" clickthrough="0" refresh="500" l="0" noCache="1" downloadIndicator="0" clearOnURLChange="0">http://pub2.camera.trafficland.com/image/live.jpg?system=modotstl&amp;webid=16333&amp;size=full&amp;pubtoken=936195cd571d329884bf36fcfe369557&amp;modot=3061</img>
+    <img x="64" y="269" w="253" h="188" j="0" clickthrough="0" refresh="500" l="0" noCache="1" downloadIndicator="0" clearOnURLChange="0">http://pub2.camera.trafficland.com/image/live.jpg?system=modotstl&amp;webid=11428&amp;size=full&amp;pubtoken=4633df79895c3a4e45296d37878efbd9&amp;modot=4385</img>
+    <img x="394" y="264" w="253" h="188" j="0" clickthrough="0" refresh="500" l="0" noCache="1" downloadIndicator="0" clearOnURLChange="0">http://pub2.camera.trafficland.com/image/live.jpg?system=modotstl&amp;webid=11429&amp;size=full&amp;pubtoken=9f692de9bfadd6867be2c87c29d85eee&amp;modot=9121</img>
+    <img x="390" y="39" w="253" h="188" j="0" clickthrough="0" refresh="250" l="0" noCache="1" downloadIndicator="0" clearOnURLChange="0">http://pub2.camera.trafficland.com/image/live.jpg?system=modotstl&amp;webid=11430&amp;size=full&amp;pubtoken=d7022a983564551f9220850976af02e9&amp;modot=2129</img>
+    <img x="710" y="261" w="253" h="188" j="0" clickthrough="0" refresh="500" l="0" noCache="1" downloadIndicator="0" clearOnURLChange="0">http://pub2.camera.trafficland.com/image/live.jpg?system=modotstl&amp;webid=11366&amp;size=full&amp;pubtoken=5e3b5b0b8d45a418d10a3ab4713f7807&amp;modot=1771</img>
+    <img x="721" y="35" w="253" h="188" j="0" clickthrough="0" refresh="500" l="0" noCache="1" downloadIndicator="0" clearOnURLChange="0">http://pub2.camera.trafficland.com/image/live.jpg?system=modotstl&amp;webid=11415&amp;size=full&amp;pubtoken=bcb70f20152a95dbea58164a9011639e&amp;modot=5642</img>
+    <btn j="0" x="441" y="595" w="150" h="68" t="GreenActive" flip="None" sim="0" l="0" s="1">
+      <actions>
+        <action>
+          <press delay="0" hold="0" repeat="0" macro="Clear_GUI" />
+          <press delay="200" hold="0" repeat="0" command="Previous_Page" />
+        </action>
+      </actions>
+      <inactive s="0">BACK</inactive>
+      <active s="0">BACK</active>
+    </btn>
+  </subpage>
+  <subpage name="Description" w="1024" h="500" clip="1">
+    <txt j="0" x="108" y="15" w="766" h="467" t="Description" wrap="True" l="0">This is an example of how to use a loopback system and a global token to create a "back" button that returns your GUI to the last state.  This is a function demo, no points awarded on artistic merit :)
+
+The first four buttons the Clear_GUI macro first, which basically tells all subpages to dissappear.  Then, 200ms later it fires a command on the loopback system( lastpage=pagename).  The reason for the 200ms delay is to give subpages that have a transition time a chance to dissappear before triggering the proper subpage to appear.  This delay must be adjusted to whatever the transition time is on your subpages.  
+
+The Lastpage_Feedback function captures the pagename and assigns it to the global token [lastpage]
+
+The Feedback_Lastpage_PAGENAME feedbacks also capture this loopback command and trigger the proper page to display.
+
+The Traffic button is the special case here.  It also fires the Clear_GUI macro and then fires a command directly to make the traffic subpage appear.  The "Back" button on the traffic page fires the Previous_Page loopback command which is lastpage=[lastpage].  [lastpage] is a global token which is replaced in the command by the last page to be captured by the Last_Page feedback.
+
+When we leave the traffic page via the "Back" button, we want whatever was displayed before entering the traffic page to reappear.
+
+At the bottom of the screen is a debug window so that you can see the loopback command that is being sent when a button is pressed.
+</txt>
+  </subpage>
+  <subpage name="AboutMe" w="1024" h="500" clip="1" t="JAG">
+    <txt j="0" x="72" y="92" w="885" h="608" t="Description" wrap="True" l="0">My Name is Darren Vollmer
+
+I live in St. Louis Missouri and have an Electrical Contracting Company, JAG Electrical Systems LLC.
+
+I am available for contract CF programming, training or advice.
+
+You can contact me at dgvollmer@gmail.com
+
+</txt>
+  </subpage>
+  <subpage name="Football" w="1024" h="500" clip="1" t="JAG">
+    <img x="73" y="8" w="834" h="487" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">http://www.nfl-wallpapers.com/bulkupload/NFL/Arizona%20Cardinals/Arizona-Cardinals-Logo.jpg</img>
+  </subpage>
+  <subpage name="Pictures" w="1024" h="500" clip="1" t="JAG">
+    <img x="186" y="16" w="651" h="462" j="0" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">http://www.jag-es.com/storyimage/automationdirectv3.png</img>
+  </subpage>
+</gui>

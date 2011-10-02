@@ -11,6 +11,10 @@ The animation frames are provided by [Custom Code Crafters](http://www.customcod
 This example shows how each item in a list can be animated using the CF.setProperties JavaScript method.  
 It also shows how you can scroll a list into specific positions via a slider, along with list properties that are available.
 
+### [Back Button](DemoUserInterfaces/tree/master/BackButton)
+An example on how to use a global token to track what subpage you were last viewing, so that you can use a back button to activate the correct subpage.  
+Created by Darren Vollmer (contact details in the GUI about page).
+
 ### [CEDIA 2011](DemoUserInterfaces/tree/master/CEDIA%202011)
 This is the GUI that was on display at the CEDIA 2011 tradeshow in Sydney, Australia.  
 It includes basic JRiver Media Center control, as well as CBus, Dynalite, AirLive IP Camera and Media Portal.  
