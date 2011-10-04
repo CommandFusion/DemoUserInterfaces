@@ -20,6 +20,11 @@ This is the GUI that was on display at the CEDIA 2011 tradeshow in Sydney, Austr
 It includes basic JRiver Media Center control, as well as CBus, Dynalite, AirLive IP Camera and Media Portal.  
 There is also a video intro showing how video assets could be used in your own GUIs (video files, not streams).
 
+### [Dynamic Room List](DemoUserInterfaces/tree/master/DynamicRoomList)
+Use HTTP Requests and an XML file to generate a dynamic room list, allowing for multiple levels and rooms in each level.  
+Simply change the XML and your room listing will update accordingly.  
+Page flip to the room on select.
+
 ### [List Alpha Bar](DemoUserInterfaces/tree/master/ListAlphaBar)
 This project shows how to use an alphabetical bar to automatically scroll a list based on the letter selected.  
 The project uses JavaScript and allows auto-scrolling the list via button press or using a slider.  
