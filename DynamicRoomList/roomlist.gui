@@ -9,6 +9,23 @@
     <imagefolder>
     </imagefolder>
     <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="Jarrod's iPhone">693CBC248292EB74D39DF7B0415B25CA</device>
+      <device name="Jarrod's iTouch">A1FDD44DB1F7CCDAA389BD22C9A92466</device>
+      <device name="Jarrod's iPhone 3G">3D0F1EA73558BA41AAE0105C51EDB533</device>
+      <device name="CommandFusion iTouch 3rd Gen">9C9309EA6867A4C87FEB1BC0E8A1A20C</device>
+      <device name="CommandFusion iPad">7FA41088AB80BA09CF10FA579B95C51C</device>
+      <device name="Lisa's iPhone">0D19F0E73C0A5334F0E468234AFEA2BB</device>
+      <device name="SP iPad">F9D64E2B02DC5FA0AE220B3D20A66115</device>
+      <device name="GuiLink iPad">7AE2743F5FB3D11EDAA5A6A2A6A90C04</device>
+      <device name="RFC iPad">B6F88BE7D54D6E8A10EB726C3655FF84</device>
+      <device name="Development iPad #2">F23E70BC8C90C29C94610D9B35F95A88</device>
+      <device name="CommandFusion iPhone 4">5AE0AE1AD7C838CFAE3BA26D23ED0712</device>
+      <device name="CommandFusion Archos5">D5652759DCC69DEC2503149E48959E55</device>
+      <device name="CommandFusion Black iPad2">4A10D1837F75AF1FC608D8C964A47900</device>
+      <device name="CommandFusion White iPad2">A65B95A392D915326B24CC37C7A88537</device>
+      <device name="SP iPad2 Black 64GB">1A8373FA3DDA092446A6BF489B67828E</device>
+    </devices>
   </properties>
   <themes>
     <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
@@ -24,37 +41,23 @@
     <theme type="button" name=".list_item[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(list_item_off.png); text-shadow: rgba(0,0,0,1) 0px -1px 1px; color: Silver; font-size: 18px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
     <theme type="button" name=".list_item[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(list_item_on.png); text-shadow: rgba(0,0,0,1) 0px -1px 1px; color: Silver; font-size: 18px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
   </themes>
+  <scripts>
+    <script name="roomlist.js" />
+  </scripts>
   <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
     <portrait t="portrait_dark">
       <list j="1" x="4" y="53" w="312" h="375" headerSub="" titleSub="" contentSub="list_item" footerSub="" orientation="v" l="0" swipedelete="0" />
       <img x="0" y="0" w="320" h="480" j="0" clickthrough="1" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">bg_portrait_overlay.png</img>
       <txt j="1" x="0" y="3" w="320" h="47" t="text_c" wrap="False" l="0">House Name</txt>
-      <btn j="1" x="107" y="432" w="106" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1">
+      <btn j="11" x="107" y="432" w="106" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="rooms.showLevelsList()">
         <inactive s="0">Back</inactive>
         <active s="0">Back</active>
       </btn>
     </portrait>
-    <landscape>
-      <btn j="0" x="71" y="137" w="72" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="denonAVR,selectInput(&quot;DVD&quot;)">
-        <inactive s="0">PC</inactive>
-        <active s="0">PC</active>
-      </btn>
-      <btn j="0" x="39" y="78" w="65" h="43" t="top_btn_left" flip="None" sim="1" l="0" s="0" repeatdelay="200">
-        <inactive s="0">
-        </inactive>
-        <active s="0">
-        </active>
-      </btn>
-      <btn j="0" x="104" y="78" w="65" h="43" t="top_btn_right" flip="None" sim="1" l="0" s="0" repeatdelay="200">
-        <inactive s="0">
-        </inactive>
-        <active s="0">
-        </active>
-      </btn>
-    </landscape>
+    <landscape />
   </page>
-  <subpage name="list_item" w="320" h="55" clip="1">
-    <btn j="1" x="0" y="0" w="320" h="55" t="list_item" flip="None" sim="1" l="0" s="1">
+  <subpage name="list_item" w="312" h="55" clip="1">
+    <btn j="1" x="0" y="0" w="312" h="55" t="list_item" flip="None" sim="1" l="0" s="1" js="rooms.selectItem(list, listIndex, join)">
       <inactive s="1">Room Name</inactive>
       <active s="1">Room Name</active>
     </btn>

@@ -1,16 +1,16 @@
 <house name="John Smith Residence">
 	<level name="Ground" number="0">
 		<room number="1">Living Room</room>
-		<room number="1">Media Room</room>
-		<room number="1">Garden</room>
-		<room number="1">Kid's Room</room>
-		<room number="1">Bathroom</room>
-		<room number="1">Office</room>
+		<room number="2">Media Room</room>
+		<room number="3">Garden</room>
+		<room number="4">Kid's Room</room>
+		<room number="5">Bathroom</room>
+		<room number="6">Office</room>
 	</level>
 	<level name="Level 1" number="1">
-		<room number="1">Master Bedroom</room>
-		<room number="1">Master Ensuite</room>
-		<room number="1">Bedroom 2</room>
-		<room number="1">Bedroom 2 Ensuite</room>
+		<room number="7">Master Bedroom</room>
+		<room number="8">Master Ensuite</room>
+		<room number="9">Bedroom 2</room>
+		<room number="10">Bedroom 2 Ensuite</room>
 	</level>
 </house>
