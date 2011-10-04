@@ -1,0 +1,62 @@
+<gui>
+  <properties>
+    <project>Dynamic Room List Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".text_r"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_left[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(top_btn_left_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_left[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(top_btn_left_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_right[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(top_btn_right_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_right[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(top_btn_right_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".portrait_dark"><![CDATA[ background-image: url(bg_portrait_dark.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".list_item[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(list_item_off.png); text-shadow: rgba(0,0,0,1) 0px -1px 1px; color: Silver; font-size: 18px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".list_item[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(list_item_on.png); text-shadow: rgba(0,0,0,1) 0px -1px 1px; color: Silver; font-size: 18px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="portrait_dark">
+      <list j="1" x="4" y="53" w="312" h="375" headerSub="" titleSub="" contentSub="list_item" footerSub="" orientation="v" l="0" swipedelete="0" />
+      <img x="0" y="0" w="320" h="480" j="0" clickthrough="1" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0">bg_portrait_overlay.png</img>
+      <txt j="1" x="0" y="3" w="320" h="47" t="text_c" wrap="False" l="0">House Name</txt>
+      <btn j="1" x="107" y="432" w="106" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Back</inactive>
+        <active s="0">Back</active>
+      </btn>
+    </portrait>
+    <landscape>
+      <btn j="0" x="71" y="137" w="72" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="denonAVR,selectInput(&quot;DVD&quot;)">
+        <inactive s="0">PC</inactive>
+        <active s="0">PC</active>
+      </btn>
+      <btn j="0" x="39" y="78" w="65" h="43" t="top_btn_left" flip="None" sim="1" l="0" s="0" repeatdelay="200">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="104" y="78" w="65" h="43" t="top_btn_right" flip="None" sim="1" l="0" s="0" repeatdelay="200">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+    </landscape>
+  </page>
+  <subpage name="list_item" w="320" h="55" clip="1">
+    <btn j="1" x="0" y="0" w="320" h="55" t="list_item" flip="None" sim="1" l="0" s="1">
+      <inactive s="1">Room Name</inactive>
+      <active s="1">Room Name</active>
+    </btn>
+  </subpage>
+</gui>
