@@ -1,10 +1,10 @@
 /* Color Picker module for CommandFusion
 ===============================================================================
 
-AUTHOR:		Jarrod Bell, CommandFusion
+AUTHOR:		Jarrod Bell, Florent Pillet, CommandFusion
 CONTACT:	support@commandfusion.com
 URL:		https://github.com/CommandFusion/
-VERSION:	v1.0.0
+VERSION:	v1.0.1
 LAST MOD:	Wednesday, 12 October 2011
 
 =========================================================================
@@ -12,10 +12,7 @@ HELP:
 
 REQUIRES iViewer v4.0.6
 
-WILL NOT RUN IN DEBUGGER!! See below:
-
-Note that because we are loading image data from the loopback address, this will not work when running in the JS debugger.
-So this script only works when running with debugging off.
+Note: Safari security is very strict, to debug this code you need to use Google Chrome
 
 1. If you want to change the color picker image (you can use any image you like), you need to change it in the GUI file, and also the filename at the bottom of this script.
 2. You handle the R,G,B data in the callback defined at the bottom of the script. Settings joins s10, s11 and s12 are just an example of what you can do.
@@ -64,16 +61,31 @@ var ColorPicker = function(url, hoverJoin, systemName, callback) {
 			self.can.height = self.img.height;
 			self.ctx.drawImage(self.img, 0, 0, self.img.width, self.img.height);
 		}
-		// Note that because we are loading data from the loopback address, this will not work when running in the JS debugger
-		// So this script only works when running with debugging off.
-		//self.img.crossOrigin = "";
-		self.img.src = "http://127.0.0.1:1234/" + self.imageURL;
+		
+		// slightly delay loading of the image to give our HTTP server system the time to
+		// actually start (right after we come back from the setup function)
+		setTimeout(function() {
+			self.img.crossOrigin = '';
+			if (CF.debug) {
+				// we are running in debugger: assemble a proper URL to ping our built-in
+				// http server
+				self.img.src = "http://" + document.location.hostname + ":1234/" + self.imageURL;
+			} else {
+				// we are running on device
+				self.img.src = "http://127.0.0.1:1234/" + self.imageURL;
+			}
+		}, 50);
 	};
 
 	self.getColorAt = function (x, y) {
+		// Obtain the color of the pixel at given location. If transparent,
+		// do nothing (this way, color pickers don't have to be square -- any transparent pixel
+		// will be ignored)
 		var pixel = self.ctx.getImageData(x, y, 1, 1);
-		CF.setProperties({join: self.hoverJoin, x: x - (self.hoverImageData.w / 2), y: y - (self.hoverImageData.h / 2)});
-		self.callback(pixel.data[0], pixel.data[1], pixel.data[2], x, y);
+		if (pixel.data[3] != 0) {
+			CF.setProperties({join: self.hoverJoin, x: x - (self.hoverImageData.w / 2), y: y - (self.hoverImageData.h / 2)});
+			self.callback(pixel.data[0], pixel.data[1], pixel.data[2], x, y);
+		}
 	};
 
 	return self;
