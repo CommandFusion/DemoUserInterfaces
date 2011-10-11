@@ -91,11 +91,11 @@ var ColorPickerServer = function(systemName, feedbackName) {
 	};
 
 	self.onRequestReceived = function(request, command, path, headers) {
-		CF.log("Request: " + path);
+		//CF.log("Request: " + path);
 		if (path == "/colorpicker.png") {
 			// Respond with the data from the image
 			CF.loadAsset("colorpicker.png", CF.BINARY, function (data) {
-				CF.log("loadAsset callback data length: " + data.length);
+				//CF.log("loadAsset callback data length: " + data.length);
 				self.sendResponse({"Content-Type": "image/png"}, data, true);
 			});
 		}		
@@ -139,7 +139,6 @@ var ColorPickerServer = function(systemName, feedbackName) {
 
 	// Internal functions
 	self.processHTTPRequest = function(system, request) {
-		CF.log("teststt");
 		// extract the command, path and headers
 		var lines = request.split("[\r\n]");
 		if (lines == null || lines.length < 1) {
