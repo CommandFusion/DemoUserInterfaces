@@ -20,6 +20,11 @@ This is the GUI that was on display at the CEDIA 2011 tradeshow in Sydney, Austr
 It includes basic JRiver Media Center control, as well as CBus, Dynalite, AirLive IP Camera and Media Portal.  
 There is also a video intro showing how video assets could be used in your own GUIs (video files, not streams).
 
+### [Color Picker](DemoUserInterfaces/tree/master/ColorPicker)
+This demo shows you how to create a color picker using JavaScript and Gestures.  
+Any image can be used and it's pixel color data obtained by tapping or dragging around the image.  
+Note that this demo will not run in debugger due to requiring localhost JavaScript HTTP requests to serve the image data from cache.
+
 ### [Dynamic Room List](DemoUserInterfaces/tree/master/DynamicRoomList)
 Use HTTP Requests and an XML file to generate a dynamic room list, allowing for multiple levels and rooms in each level.  
 Simply change the XML and your room listing will update accordingly.  
@@ -36,8 +41,8 @@ This example shows how you can use advanced button actions and a little JavaScri
 The button can be used to fire one command on short press, and a different command on long press.  
 If the long press is triggered, then the short command won't be. This is accomplished by triggering the short press on release, and cancelling it if the long press is triggered first.
 
-### [MultiModeManager](DemoUserInterfaces/tree/master/MultiModeManager)
-This example shows how you can use JavaScript to emulate the MultiMode feature of Crestron touch panels.  
+### [Multi-Mode Manager](DemoUserInterfaces/tree/master/MultiModeManager)
+This example shows how you can use JavaScript to emulate the Multi-Mode feature of Crestron touch panels.  
 See the JavaScript file for instructions on how to use this JavaScript module.  
 Note that this requires iViewer v4.0.6 or higher.
 
