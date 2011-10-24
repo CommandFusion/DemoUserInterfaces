@@ -183,4 +183,5 @@ CF.userMain = function () {
 	});
 	// Setup the colorpicker object after it was created above
 	myColorPicker.setup();
+	//setTimeout(function(){myColorPicker.setup();}, 1000);
 };
