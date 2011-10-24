@@ -1,0 +1,41 @@
+<gui>
+  <properties>
+    <project>relaunch</project>
+    <designer>
+    </designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="portrait">
+      <txt j="0" x="31" y="65" w="258" h="72" t="text_c" wrap="True" l="0">Relaunch this GUI by pressing the button below, or by raising digital join 1234567 high.</txt>
+      <btn j="0" x="107" y="285" w="106" h="43" t="top_btn_single" href="cf://192.168.0.10:8019" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Relaunch</inactive>
+        <active s="0">Relaunch</active>
+      </btn>
+      <btn j="1234567" x="107" y="385" w="106" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1">
+        <inactive s="0">Join 1234567</inactive>
+        <active s="0">Join 1234567</active>
+      </btn>
+      <btn j="2" x="107" y="12" w="106" h="43" t="top_btn_single" flip="None" sim="2" l="0" s="1">
+        <inactive s="0">TEST</inactive>
+        <active s="0">TEST</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
