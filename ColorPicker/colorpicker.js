@@ -1,11 +1,11 @@
 /* Color Picker module for CommandFusion
 ===============================================================================
 
-AUTHOR:		Jarrod Bell, Florent Pillet, CommandFusion
+AUTHOR:		Sergey Klenov, Jarrod Bell, Florent Pillet, CommandFusion
 CONTACT:	support@commandfusion.com
 URL:		https://github.com/CommandFusion/
-VERSION:	v1.0.1
-LAST MOD:	Wednesday, 12 October 2011
+VERSION:	v1.0.2
+LAST MOD:	Wednesday, 16 November 2011
 
 =========================================================================
 HELP:
@@ -16,9 +16,7 @@ Note: Safari security is very strict, to debug this code you need to use Google 
 
 1. If you want to change the color picker image (you can use any image you like), you need to change it in the GUI file, and also the filename at the bottom of this script.
 2. You handle the R,G,B data in the callback defined at the bottom of the script. Settings joins s10, s11 and s12 are just an example of what you can do.
-3. Your GUI file must contain a system named "COLORPICKER" (or whatever you change it to in the script) and a feedback item named COLORPICKER_FB
-4. The COLORPICKER_FB regex for handling HTTP requests for image data must be: (?msi).*\r\n\r\n
-5. To disable the hovering image, remove it from GUI project and send an empty string "" as the hoverJoin parameter to the ColorPicker object
+3. To disable the hovering image, remove it from GUI project and send an empty string "" as the hoverJoin parameter to the ColorPicker object
 
 =========================================================================
 */
@@ -31,7 +29,6 @@ var ColorPicker = function(url, hoverJoin, systemName, callback) {
 	var self = {
 		imageURL:	url || "colorpicker.png", // URL to load into the Image object
 		system:		systemName || "COLORPICKER", // The name of the system in the guiDesigner project used as the HTTP Server
-		server:		null, // Color Picker HTTP Server to send the color picker image data to JavaScript
 		can:		null, // Canvas
 		img:		null, // Image object
 		ctx:		null, // Canvas context
@@ -41,9 +38,6 @@ var ColorPicker = function(url, hoverJoin, systemName, callback) {
 	};
 
 	self.setup = function () {
-		// Create the HTTP Server for image data and then start it up
-		self.server = new ColorPickerServer(self.system, self.system + "_FB");
-		self.server.start();
 
 		if (self.hoverJoin !== null) {
 			CF.getProperties(self.hoverJoin, function(join) {
@@ -62,19 +56,11 @@ var ColorPicker = function(url, hoverJoin, systemName, callback) {
 			self.ctx.drawImage(self.img, 0, 0, self.img.width, self.img.height);
 		}
 		
-		// slightly delay loading of the image to give our HTTP server system the time to
-		// actually start (right after we come back from the setup function)
-		setTimeout(function() {
-			self.img.crossOrigin = '';
-			if (CF.debug) {
-				// we are running in debugger: assemble a proper URL to ping our built-in
-				// http server
-				self.img.src = "http://" + document.location.hostname + ":1234/" + self.imageURL;
-			} else {
-				// we are running on device
-				self.img.src = "http://127.0.0.1:1234/" + self.imageURL;
-			}
-		}, 50);
+		self.img.crossOrigin = '';
+			
+		CF.loadAsset(self.imageURL, CF.BINARY, function (data) {
+			self.img.src = "data:image/png;base64," + encode64(data);
+		});
 	};
 
 	self.getColorAt = function (x, y) {
@@ -90,94 +76,45 @@ var ColorPicker = function(url, hoverJoin, systemName, callback) {
 
 	return self;
 };
-// ======================================================================
-// Color Picker Server Object - Used by Color Picker object to serve up image data via HTTP from the project cache
-// ======================================================================
-var ColorPickerServer = function(systemName, feedbackName) {
-	var self = {
-		system: systemName,
-		feedbackItem: feedbackName,
-		started: false,
-		HTTP_COMMAND_RE: /(\w+) ([^ ]+)/,
-		HTTP_HEADER_RE: /(\w+):\s+(.*)/
-	};
 
-	self.onRequestReceived = function(request, command, path, headers) {
-		//CF.log("Request: " + path);
-		if (path == "/colorpicker.png") {
-			// Respond with the data from the image
-			CF.loadAsset("colorpicker.png", CF.BINARY, function (data) {
-				//CF.log("loadAsset callback data length: " + data.length);
-				self.sendResponse({"Content-Type": "image/png"}, data, true);
-			});
-		}		
-	};
-
-	// Call this function to send the response to a request
-	self.sendResponse = function(headers, body, binary) {
-		var h = ["HTTP/1.1 200 OK"];
-		for (var prop in headers) {
-			if (headers.hasOwnProperty(prop)) {
-				h.push(prop + ": " + headers[prop]);
-			}
-		}
-		if (headers["Access-Control-Allow-Origin"] == null) {
-			h.push("Access-Control-Allow-Origin: *");
-		}
-		if (headers["Content-Type"] == null) {
-			h.push(binary ? "Content-Type: application/unknown" : "Content-Type: text/plain");
-		}
-		if (headers["Content-Length"] == null) {
-			h.push("Content-Length: " + body.length);
-		}
-		CF.send(self.system, h.join("\r\n") + "\r\n\r\n" + body, binary ? CF.BINARY : CF.UTF8);
-	};
-
-	// Call this function to start the server
-	self.start = function() {
-		if (!self.started) {
-			self.started = true;
-			CF.watch(CF.FeedbackMatchedEvent, self.system, self.feedbackItem, self.processHTTPRequest);
-		}
-	};
+function encode64(input) {
+	var output = "";
+	var chr1, chr2, chr3 = "";
+	var enc1, enc2, enc3, enc4 = "";
+	var i = 0;
 	
-	// Call this function to stop the server
-	self.stop = function() {
-		if (self.started) {
-			CF.unwatch(CF.FeedbackMatchedEvent, self.system, self.feedbackItem);
-			self.started = false;
-		}
-	};
+	var keyStr = "ABCDEFGHIJKLMNOP" +
+                "QRSTUVWXYZabcdef" +
+                "ghijklmnopqrstuv" +
+                "wxyz0123456789+/" +
+                "=";
 
-	// Internal functions
-	self.processHTTPRequest = function(system, request) {
-		// extract the command, path and headers
-		var lines = request.split("[\r\n]");
-		if (lines == null || lines.length < 1) {
-			return;
-		}
-		var matches = lines[0].match(self.HTTP_COMMAND_RE);
-		if (matches.length != 3) {
-			return;
-		}
-		var command = matches[1];
-		var path = matches[2];
-		var headers = {};
-		var i, n;
-		for (i=1, n=lines.length; i < n; i++) {
-			matches = lines[i].match(self.HTTP_HEADER_RE);
-			if (matches != null && matches.length === 3 && matches[1].length !==0) {
-				headers[matches[1]] = matches[2];
-			}
-		}
-		self.onRequestReceived(request, command, path, headers);
-	};
-	
-	return self;
-};
+	do {
+		chr1 = input.charCodeAt(i++);
+		chr2 = input.charCodeAt(i++);
+		chr3 = input.charCodeAt(i++);
+
+		enc1 = chr1 >> 2;
+		enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+		enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+		enc4 = chr3 & 63;
+
+		if (isNaN(chr2)) enc3 = enc4 = 64;
+		else if (isNaN(chr3)) enc4 = 64;
+
+		output = output +
+		keyStr.charAt(enc1) +
+		keyStr.charAt(enc2) +
+		keyStr.charAt(enc3) +
+		keyStr.charAt(enc4);
+		chr1 = chr2 = chr3 = "";
+		enc1 = enc2 = enc3 = enc4 = "";
+	} while (i < input.length);
+
+	return output;
+}
 
 // Push the modules into the startup process
-CF.modules.push({name: "Color Picker Server", object: ColorPickerServer});
 CF.modules.push({name: "Color Picker", object: ColorPicker});
 
 var myColorPicker;
