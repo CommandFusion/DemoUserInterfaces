@@ -5,7 +5,7 @@ AUTHOR:		Sergey Klenov, Jarrod Bell, Florent Pillet, CommandFusion
 CONTACT:	support@commandfusion.com
 URL:		https://github.com/CommandFusion/
 VERSION:	v1.0.2
-LAST MOD:	Wednesday, 16 November 2011
+LAST MOD:	Thursday, 17 November 2011
 
 =========================================================================
 HELP:
@@ -28,7 +28,6 @@ var ColorPicker = function(url, hoverJoin, systemName, callback) {
 
 	var self = {
 		imageURL:	url || "colorpicker.png", // URL to load into the Image object
-		system:		systemName || "COLORPICKER", // The name of the system in the guiDesigner project used as the HTTP Server
 		can:		null, // Canvas
 		img:		null, // Image object
 		ctx:		null, // Canvas context
