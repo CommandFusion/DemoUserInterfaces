@@ -41,11 +41,21 @@ This example shows how you can use advanced button actions and a little JavaScri
 The button can be used to fire one command on short press, and a different command on long press.  
 If the long press is triggered, then the short command won't be. This is accomplished by triggering the short press on release, and cancelling it if the long press is triggered first.
 
+### [Mouse Coordinates](DemoUserInterfaces/tree/master/MouseCoords)
+This example shows how to use Gestures and JavaScript to update two analog joins based on the x and y position touched or dragged on an image.  
+This is a fundamental example on how to iViewer could be used to control a mouse on an external system.  
+The example also shows how to use inline JavaScript calls on buttons, gestures and commmands, as well as the use of persistent tokens to show/hide an object on startup.  
+Furthermore, it makes use of Math Expressions to set the analog join values based on min and max ranges of the gesture area and analog joins.
+
 ### [Multi-Mode Manager](DemoUserInterfaces/tree/master/MultiModeManager)
 This example shows how you can use JavaScript to emulate the Multi-Mode feature of Crestron touch panels.  
 See the JavaScript file for instructions on how to use this JavaScript module.  
 Note that this requires iViewer v4.0.6 or higher.
 
+### [Multiple Slider Commands](DemoUserInterfaces/tree/master/MultipleSliderCommands)
+This example shows how you can use loopback programming methods to effectively send multiple slider commands from a single slider.  
+The slider first sends a single command to the loopback system, which then in turn uses a feedback item to match the incoming slider command and send two separate commands to the external system via on match items in the feedback processing order.
+
 ### [Subpage Logic](DemoUserInterfaces/tree/master/SubpageLogic)
 This project shows a few ways that subpages can be controlled on the client side, without interaction with any backend server or device.  
-This is accomplished by using loopback prograaming (a system defined using the loopback address of 127.0.0.1).
+This is accomplished by using loopback programming (a system defined using the loopback address of 127.0.0.1).
