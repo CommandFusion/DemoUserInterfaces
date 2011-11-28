@@ -10,11 +10,6 @@
     </imagefolder>
     <debug loaderrors="0" connectionerrors="0" />
   </properties>
-  <systems>
-    <system name="COLORPICKER" ip="0.0.0.0" port="1234" protocol="tcp" alwayson="1" accept="1" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
-      <fb name="COLORPICKER_FB" regex="(?msi).*\r\n\r\n" />
-    </system>
-  </systems>
   <themes>
     <theme type="text" name=".color_channel"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
   </themes>
@@ -27,8 +22,8 @@
       <img x="0" y="0" w="480" h="320" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">colorpicker.png<gesture name="New Gesture" type="pan" taps="1" touches="1"><action phase="change" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture><gesture name="New Gesture" type="press" taps="1" touches="1"><action phase="begin" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture><gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture></img>
       <txt j="0" x="318" y="128" w="107" h="32" t="color_channel" wrap="False" l="0">R      G       B</txt>
       <txt j="10" x="318" y="148" w="27" h="32" t="color_channel" wrap="False" l="0">R</txt>
-      <txt j="11" x="355" y="148" w="27" h="32" t="color_channel" wrap="False" l="0">G</txt>
-      <txt j="12" x="396" y="148" w="27" h="32" t="color_channel" wrap="False" l="0">B</txt>
+      <txt j="11" x="356" y="148" w="27" h="32" t="color_channel" wrap="False" l="0">G</txt>
+      <txt j="12" x="399" y="148" w="27" h="32" t="color_channel" wrap="False" l="0">B</txt>
       <img x="0" y="0" w="40" h="40" j="1" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">location.png</img>
     </landscape>
   </page>
