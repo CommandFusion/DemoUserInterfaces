@@ -1,0 +1,50 @@
+<gui>
+  <properties>
+    <project>Multiple Slider Commands Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <controlsystem connectionStatus="0" disconnectionStatus="0" offlinequeue="1">
+      <hostname>192.168.0.10</hostname>
+      <commandPort>5500</commandPort>
+    </controlsystem>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="tcp" alwayson="1" offlinequeue="1" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="SliderCommand">slider1=[sliderval]</cmd>
+      <fb name="SendMultiCommands" regex="slider1=(-?\d+)">
+        <group index="1" name="[level1]" datatype="a" target="e0" settoken="1" transform="value+15" />
+        <onmatch target="e0" cmd="Room1" />
+        <onmatch target="e0" cmd="Room2" />
+      </fb>
+    </system>
+    <system name="LightingSystem" ip="192.168.0.10" port="4998" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Room1">!rpxpgn(19,1:5)={[level1]}</cmd>
+      <cmd name="Room2">!rpxpgn(20,1:5)={[level1]}</cmd>
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="gauge" name=".slider[state='0']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".slider[state='1']"><![CDATA[ background-image: url(vol_bar_on.png);]]></theme>
+  </themes>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="portrait">
+      <txt j="0" x="16" y="3" w="287" h="64" t="text_c" wrap="True" l="0">Send multiple commands from a single slider.</txt>
+      <img x="69" y="97" w="175" h="11" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">vol_bar_bg.png</img>
+      <slider j="191" d="0" x="76" y="88" w="160" h="30" min="-60" max="0" decimals="0" dragCmd="SliderCommand" unit="decimal" t="slider" sim="1" l="0">
+        <indicator state="0" offsetX="0" offsetY="0" x="0" y="0" w="0" h="0" t="">vol_slider.png</indicator>
+        <indicator state="1" offsetX="0" offsetY="0" zoom="100" />
+      </slider>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
