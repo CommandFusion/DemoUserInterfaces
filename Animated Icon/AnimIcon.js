@@ -83,7 +83,7 @@ var AnimIcon = function(params) {
 						// Reverse the direction
 						self.direction = self.direction*-1;
 					}
-					self.currentFrame == 1;
+					self.currentFrame = 1;
 				} else {
 					self.currentFrame++;
 				}
@@ -94,7 +94,7 @@ var AnimIcon = function(params) {
 						// Reverse the direction
 						self.direction = self.direction*-1;
 					}
-					self.currentFrame == self.totalFrames;
+					self.currentFrame = self.totalFrames;
 				} else {
 					self.currentFrame--;
 				}
