@@ -5,7 +5,8 @@ This repository contains sample GUIs that can be used as an example on specific 
 ### [Animated Icon](DemoUserInterfaces/tree/master/Animated%20Icon)
 This example shows how you can use multiple frames of an animation within a single image object to create animations.  
 The animation in the example is of a light turning on and off.  
-The animation frames are provided by [Custom Code Crafters](http://www.customcodecrafters.com/section/17/1/graphics)
+The animation frames are provided by [Custom Code Crafters](http://www.customcodecrafters.com/section/17/1/graphics)  
+Updated to now also include a simple loading spinner using a single image and rotating the image object via JavaScript CF.setProperties.
 
 ### [Animated Lists](DemoUserInterfaces/tree/master/Animated%20Lists)
 This example shows how each item in a list can be animated using the CF.setProperties JavaScript method.  
