@@ -6,7 +6,7 @@
       <portrait width="320" height="480" />
       <landscape width="480" height="320" />
     </size>
-    <controlsystem connectionStatus="0" disconnectionStatus="0">
+    <controlsystem connectionStatus="0" disconnectionStatus="0" offlinequeue="1">
       <hostname>192.168.0.10</hostname>
       <commandPort>8020</commandPort>
     </controlsystem>
@@ -99,6 +99,7 @@
         <active s="0">
         </active>
       </btn>
+      <img x="293" y="51" w="27" h="28" j="3" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">spinner_blue_glow.png</img>
     </portrait>
     <landscape />
   </page>
