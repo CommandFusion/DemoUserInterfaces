@@ -19,7 +19,7 @@
   <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
     <portrait />
     <landscape>
-      <img x="0" y="0" w="480" h="320" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">colorpicker.png<gesture name="New Gesture" type="pan" taps="1" touches="1"><action phase="change" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture><gesture name="New Gesture" type="press" taps="1" touches="1"><action phase="begin" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture><gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture></img>
+      <img x="0" y="0" w="480" h="320" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">colorpicker.png<gesture name="New Gesture" type="pan" taps="1" touches="1"><action phase="change" js="myColorPicker.getColorAt(gesture.x, gesture.y, true)" /></gesture><gesture name="New Gesture" type="press" taps="1" touches="1"><action phase="begin" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture><gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="myColorPicker.getColorAt(gesture.x, gesture.y)" /></gesture></img>
       <txt j="0" x="318" y="128" w="107" h="32" t="color_channel" wrap="False" l="0">R      G       B</txt>
       <txt j="10" x="318" y="148" w="27" h="32" t="color_channel" wrap="False" l="0">R</txt>
       <txt j="11" x="356" y="148" w="27" h="32" t="color_channel" wrap="False" l="0">G</txt>

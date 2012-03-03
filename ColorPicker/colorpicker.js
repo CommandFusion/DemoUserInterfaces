@@ -17,6 +17,7 @@ Note: Safari security is very strict, to debug this code you need to use Google 
 1. If you want to change the color picker image (you can use any image you like), you need to change it in the GUI file, and also the filename at the bottom of this script.
 2. You handle the R,G,B data in the callback defined at the bottom of the script. Settings joins s10, s11 and s12 are just an example of what you can do.
 3. To disable the hovering image, remove it from GUI project and send an empty string "" as the hoverJoin parameter to the ColorPicker object
+4. To limit the rate that any color data is sent, change the 0 in the "new" call to something larger. 100 means limit rate to sending only every 100ms (ie. 10 times a second).
 
 =========================================================================
 */
@@ -24,16 +25,18 @@ Note: Safari security is very strict, to debug this code you need to use Google 
 // ======================================================================
 // Color Picker Object - Create one for each color picker you want in your GUI
 // ======================================================================
-var ColorPicker = function(url, hoverJoin, systemName, callback) {
+var ColorPicker = function(url, hoverJoin, freq, callback) {
 
 	var self = {
 		imageURL:	url || "colorpicker.png", // URL to load into the Image object
+		freq:		freq || 0, // Frequency, in milliseconds, to limit the communication rate whilst dragging
 		can:		null, // Canvas
 		img:		null, // Image object
 		ctx:		null, // Canvas context
 		callback:	callback, // The function to call when new color data is obtained
 		hoverJoin: hoverJoin || null, // The join of the image object used as the hover image
 		hoverImageData:	{},	// Store info about the hover image for precise positioning later
+		lastSend: 0 // Last time the color values were sent, used with freq to limit sending rate
 	};
 
 	self.setup = function () {
@@ -62,13 +65,18 @@ var ColorPicker = function(url, hoverJoin, systemName, callback) {
 		});
 	};
 
-	self.getColorAt = function (x, y) {
+	self.getColorAt = function (x, y, dolimitRate) {
+		// Check if sending too quickly
+		if (dolimitRate && (Date.now() - self.lastSend < self.freq)) {
+			return;
+		}
 		// Obtain the color of the pixel at given location. If transparent,
 		// do nothing (this way, color pickers don't have to be square -- any transparent pixel
 		// will be ignored)
 		var pixel = self.ctx.getImageData(x, y, 1, 1);
 		if (pixel.data[3] != 0) {
 			CF.setProperties({join: self.hoverJoin, x: x - (self.hoverImageData.w / 2), y: y - (self.hoverImageData.h / 2)});
+			self.lastSend = Date.now();
 			self.callback(pixel.data[0], pixel.data[1], pixel.data[2], x, y);
 		}
 	};
@@ -120,7 +128,7 @@ var myColorPicker;
 // Only one CF.userMain function in all scripts is allowed!
 // If you have one already in your project, consolidate all their contents into one CF.userMain function
 CF.userMain = function () {
-	myColorPicker = new ColorPicker("colorpicker.png", "s1", "COLORPICKER", function (r, g, b, x, y) {
+	myColorPicker = new ColorPicker("colorpicker.png", "s1", 0, function (r, g, b, x, y) {
 		// This code will be run everytime the pixel color is obtained, along with the pixel data as parameters
 		//CF.log("R: " + r + ", G: " + g + ", B: " + b);
 		CF.setJoins([
