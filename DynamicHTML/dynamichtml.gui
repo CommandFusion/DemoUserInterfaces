@@ -1,0 +1,42 @@
+<gui>
+  <properties>
+    <project>Dynamic HTML Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="HTTP_SERVER" ip="0.0.0.0" port="8899" protocol="tcp" alwayson="1" offlinequeue="1" accept="1" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <fb name="HTTP_REQUEST" regex="(?msi).*\r\n\r\n" />
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".PageBackground"><![CDATA[background-color: #B7C8C8; background-image: url(bg.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".newtheme_1[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #008040; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_1[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".lrg_r"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 20px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="httpserver.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait />
+    <landscape t="PageBackground">
+      <web x="443" y="212" w="500" h="500" j="1" title="2" back="1" forward="2" refresh="4" stop="3" url="http://localhost:8899/" />
+      <web x="188" y="36" w="215" h="59" j="11" title="12" back="11" forward="12" refresh="14" stop="13" url="http://localhost:8899/picker" />
+      <txt j="0" x="0" y="36" w="175" h="60" t="lrg_r" wrap="False" l="0">Select something:</txt>
+    </landscape>
+  </page>
+  <page name="Cache" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <img x="79" y="45" w="40" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">check.png</img>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
