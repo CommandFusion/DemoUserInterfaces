@@ -42,6 +42,11 @@ This example shows how you can use advanced button actions and a little JavaScri
 The button can be used to fire one command on short press, and a different command on long press.  
 If the long press is triggered, then the short command won't be. This is accomplished by triggering the short press on release, and cancelling it if the long press is triggered first.
 
+### [Matrix Switcher](DemoUserInterfaces/tree/master/MatrixSwitcher)
+This example shows a basic concept of using Loopback processing (sending data back to itself) in order to do complex actions.  
+The matrix example here uses loopback data remember input selection, then when an output is chosen, route the selected input to that output using a ficticious protocol.  
+For any real matrix switcher, you would first have to adjust the "Matrix Switcher" system to talk to the correct address, then adjust the "Output" commands to use the correct protocol format for your switcher.
+
 ### [Mouse Coordinates](DemoUserInterfaces/tree/master/MouseCoords)
 This example shows how to use Gestures and JavaScript to update two analog joins based on the x and y position touched or dragged on an image.  
 This is a fundamental example on how to iViewer could be used to control a mouse on an external system.  

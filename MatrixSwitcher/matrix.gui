@@ -1,0 +1,108 @@
+<gui>
+  <properties>
+    <project>Matrix Switcher Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Input1">input=1</cmd>
+      <cmd name="Input2">input=2</cmd>
+      <cmd name="Input3">input=3</cmd>
+      <cmd name="Input4">input=3</cmd>
+      <cmd name="Input5">input=5</cmd>
+      <cmd name="Input6">input=6</cmd>
+      <fb name="input selection" regex="input=(\d+)">
+        <group index="1" name="" datatype="d" target="d1" onVal="1" />
+        <group index="1" name="" datatype="d" target="d2" onVal="2" />
+        <group index="1" name="" datatype="d" target="d3" onVal="3" />
+        <group index="1" name="" datatype="d" target="d4" onVal="4" />
+        <group index="1" name="" datatype="d" target="d5" onVal="5" />
+        <group index="1" name="" datatype="d" target="d6" onVal="6" />
+        <group index="1" name="" datatype="s" target="s1" />
+      </fb>
+    </system>
+    <system name="Matrix Switcher" ip="192.168.0.10" port="10210" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Output1">input=[@s1],output=1\x0D</cmd>
+      <cmd name="Output2">input=[@s1],output=2\x0D</cmd>
+      <cmd name="Output3">input=[@s1],output=3\x0D</cmd>
+      <cmd name="Output4">input=[@s1],output=4\x0D</cmd>
+      <cmd name="Output5">input=[@s1],output=5\x0D</cmd>
+      <cmd name="Output6">input=[@s1],output=6\x0D</cmd>
+    </system>
+  </systems>
+  <themes>
+    <theme type="button" name=".cfblue2_bottom[state='0']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_off.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Arial'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cfblue2_bottom[state='1']"><![CDATA[padding: 0px 19px 0px 19px; -webkit-border-image: url(bottom_btn_on.png) 0 19 0 19; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 18px; font-family: 'Arial'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".cfblue2_title_l"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Futura'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".cfblue2_title_c"><![CDATA[ text-shadow: rgba(0,0,0,0.78) 1px 1px 1px; color: White; font-size: 18px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <btn j="1" x="14" y="98" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Input1">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <txt j="0" x="16" y="67" w="287" h="31" t="cfblue2_title_c" wrap="False" l="0">Select Input</txt>
+      <btn j="2" x="114" y="98" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Input2">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="3" x="214" y="98" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Input3">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="4" x="14" y="148" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Input4">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="5" x="114" y="148" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Input5">
+        <inactive s="0">5</inactive>
+        <active s="0">5</active>
+      </btn>
+      <btn j="6" x="214" y="148" w="92" h="44" t="cfblue2_bottom" flip="None" sim="0" l="0" s="1" cmd="Input6">
+        <inactive s="0">6</inactive>
+        <active s="0">6</active>
+      </btn>
+      <txt j="0" x="16" y="263" w="287" h="31" t="cfblue2_title_c" wrap="False" l="0">Route to Output</txt>
+      <btn j="11" x="14" y="308" w="92" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" cmd="Output1">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="12" x="114" y="308" w="92" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" cmd="Output2">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="13" x="214" y="308" w="92" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" cmd="Output3">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="14" x="14" y="358" w="92" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" cmd="Output4">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="15" x="114" y="358" w="92" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" cmd="Output5">
+        <inactive s="0">5</inactive>
+        <active s="0">5</active>
+      </btn>
+      <btn j="16" x="214" y="358" w="92" h="44" t="cfblue2_bottom" flip="None" sim="1" l="0" s="1" cmd="Output6">
+        <inactive s="0">6</inactive>
+        <active s="0">6</active>
+      </btn>
+      <txt j="0" x="16" y="7" w="287" h="31" t="cfblue2_title_c" wrap="False" l="0">Matrix Switcher Example</txt>
+    </portrait>
+    <landscape />
+  </page>
+  <page name="CachePage" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <txt j="1" x="19" y="67" w="287" h="31" t="cfblue2_title_c" wrap="False" l="0">0</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
