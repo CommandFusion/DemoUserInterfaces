@@ -13,6 +13,7 @@ This demonstration GUI is designed to showcase the ability to create dials, volu
 var newDial = new Dial("s1", {srcJoin: "s2", maxTime: 0.5, minTime: 0.3, angleOffset: -45, maxAngle: 260});
 // Default parameters - just need to supply join number for the object to rotate
 var newDial2 = new Dial("s10");
+```
 
 ## Video Demo
 
