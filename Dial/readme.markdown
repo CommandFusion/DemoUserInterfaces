@@ -17,7 +17,7 @@ var newDial2 = new Dial("s10");
 
 ## Video Demo
 
-[Watch video demo on YouTube]()
+[Watch video demo on YouTube](http://www.youtube.com/watch?v=jSSfOCH8hmg)
 
 ## Technical Implementation Details
 
@@ -27,7 +27,7 @@ The dial image itself is rotated using the iViewer JavaScript API and the [CF.se
 The rotation via touch is performed using gestures attached to the dial background image.  
 This, and some trigonometry math in JavaScript, allows a Pan gesture on the image to calculate the required angle to rotate the image to, based on the touch point on the image.
 
-Other points of note:
+**Other points of note:**
 
 1. The slider min and max value settings specific the min and max angles to rotate to when using the slider method to rotate the dial.
 1. Repeat rate above zero on the + and - buttons allows press & hold functionality of the buttons to continuously call the JavaScript increment/decrement rotation functions.
