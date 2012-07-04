@@ -1,0 +1,78 @@
+<gui>
+  <properties>
+    <project>relaunch</project>
+    <designer>
+    </designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="SliderCommand" js="myDial.setRotation(data);" jsSendsCommand="False">[sliderval]</cmd>
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: #80FFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".text_r"><![CDATA[ color: White; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".white"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".text_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".vertical[state='0']"><![CDATA[ background-image: url(gauge_v.png);]]></theme>
+    <theme type="gauge" name=".vertical[state='1']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".horizontal[state='0']"><![CDATA[ background-image: url(gauge_h.png);]]></theme>
+    <theme type="gauge" name=".horizontal[state='1']"><![CDATA[]]></theme>
+    <theme type="text" name=".indicator"><![CDATA[ color: Black; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".switch[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(switch_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".switch[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(switch_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="background" name=".landscape_grid"><![CDATA[ background-image: url(bg_landscape_grid.png); background-repeat: no-repeat;]]></theme>
+    <theme type="gauge" name=".blank[state='0']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".blank[state='1']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".horizontal_lrg[state='0']"><![CDATA[ background-image: url(gauge_h_lrg_off.png);]]></theme>
+    <theme type="gauge" name=".horizontal_lrg[state='1']"><![CDATA[]]></theme>
+  </themes>
+  <scripts>
+    <script name="dial.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <slider j="1" d="1" x="73" y="423" w="174" h="21" min="0" max="260" decimals="0" pressCmd="SliderCommand" dragCmd="SliderCommand" releaseCmd="SliderCommand" unit="decimal" t="horizontal_lrg" sim="1" l="0">
+        <indicator state="0" offsetX="0" offsetY="0" x="0" y="0" w="0" h="0" t="">indicator_off.png</indicator>
+        <indicator state="1" offsetX="0" offsetY="0" zoom="100" />
+      </slider>
+      <btn j="2" x="128" y="47" w="65" h="43" t="top_btn_single" flip="None" sim="2" l="0" s="0" js="CF.getJoin(join, function(j,v){myDial.setRotation(v*270);});">
+        <inactive s="0">
+          <img x="10" y="-1" w="43" h="43">transports_grey_power_off_25.png</img>
+        </inactive>
+        <active s="0">
+          <img x="10" y="0" w="43" h="43">transports_grey_power_on_25.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="17" y="47" w="65" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="0" js="myDial.setRotation(-20, true);" repeatdelay="100">
+        <inactive s="0">
+          <img x="10" y="0" w="43" h="43">transports_grey_minus_off_25.png</img>
+        </inactive>
+        <active s="0">
+          <img x="10" y="0" w="43" h="43">transports_grey_minus_on_25.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="235" y="47" w="65" h="43" t="top_btn_single" flip="Return" sim="1" l="0" s="0" js="myDial.setRotation(20, true);" repeatdelay="100">
+        <inactive s="0">
+          <img x="10" y="0" w="43" h="43">transports_grey_plus_off_25.png</img>
+        </inactive>
+        <active s="0">
+          <img x="10" y="0" w="43" h="43">transports_grey_plus_on_25.png</img>
+        </active>
+      </btn>
+      <img x="36" y="116" w="247" h="247" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">knob_bg.png<gesture name="Tappity Tap Tap" type="tap" taps="1" touches="1"><action phase="begin" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture><gesture name="Draggity Drag Drag" type="pan" taps="1" touches="1"><action phase="change" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture></img>
+      <img x="76" y="156" w="167" h="167" j="1" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">knob.png</img>
+    </portrait>
+    <landscape t="landscape_grid" />
+  </page>
+</gui>

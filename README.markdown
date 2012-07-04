@@ -26,6 +26,10 @@ This demo shows you how to create a color picker using JavaScript and Gestures.
 Any image can be used and it's pixel color data obtained by tapping or dragging around the image.  
 Note that this demo will not run in debugger due to requiring localhost JavaScript HTTP requests to serve the image data from cache.
 
+### [Dial / Knob](DemoUserInterfaces/tree/master/Dial)
+This demo shows you how to create a volume dial or knob using JavaScript and Gestures.  
+More details are available in the README and top of the dial.js file.
+
 ### [Dynamic Room List](DemoUserInterfaces/tree/master/DynamicRoomList)
 Use HTTP Requests and an XML file to generate a dynamic room list, allowing for multiple levels and rooms in each level.  
 Simply change the XML and your room listing will update accordingly.  
