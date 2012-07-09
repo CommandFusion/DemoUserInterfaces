@@ -25,7 +25,7 @@ Note: Safari security is very strict, to debug this code you need to use Google 
 // ======================================================================
 // Color Picker Object - Create one for each color picker you want in your GUI
 // ======================================================================
-var ColorPicker = function(url, hoverJoin, freq, callback) {
+var ColorPicker = function(url, pickerJoin, hoverJoin, freq, callback) {
 
 	var self = {
 		imageURL:	url || "colorpicker.png", // URL to load into the Image object
@@ -36,7 +36,9 @@ var ColorPicker = function(url, hoverJoin, freq, callback) {
 		callback:	callback, // The function to call when new color data is obtained
 		hoverJoin: hoverJoin || null, // The join of the image object used as the hover image
 		hoverImageData:	{},	// Store info about the hover image for precise positioning later
-		lastSend: 0 // Last time the color values were sent, used with freq to limit sending rate
+		lastSend: 0, // Last time the color values were sent, used with freq to limit sending rate
+		pickerJoin: pickerJoin || null, // The join of the image object used as the color picker
+		pickerData: {} // Data of the picker image such as position on the screen - used to allow the hover image to be located correctly
 	};
 
 	self.setup = function () {
@@ -44,6 +46,12 @@ var ColorPicker = function(url, hoverJoin, freq, callback) {
 		if (self.hoverJoin !== null) {
 			CF.getProperties(self.hoverJoin, function(join) {
 				self.hoverImageData = join;
+			});
+		}
+
+		if (self.pickerJoin !== null) {
+			CF.getProperties(self.pickerJoin, function(join) {
+				self.pickerData = join;
 			});
 		}
 
@@ -75,7 +83,7 @@ var ColorPicker = function(url, hoverJoin, freq, callback) {
 		// will be ignored)
 		var pixel = self.ctx.getImageData(x, y, 1, 1);
 		if (pixel.data[3] != 0) {
-			CF.setProperties({join: self.hoverJoin, x: x - (self.hoverImageData.w / 2), y: y - (self.hoverImageData.h / 2)});
+			CF.setProperties({join: self.hoverJoin, x: x - (self.hoverImageData.w / 2) + self.pickerData.x, y: y - (self.hoverImageData.h / 2) + self.pickerData.y});
 			self.lastSend = Date.now();
 			self.callback(pixel.data[0], pixel.data[1], pixel.data[2], x, y);
 		}
@@ -128,7 +136,7 @@ var myColorPicker;
 // Only one CF.userMain function in all scripts is allowed!
 // If you have one already in your project, consolidate all their contents into one CF.userMain function
 CF.userMain = function () {
-	myColorPicker = new ColorPicker("colorpicker.png", "s1", 0, function (r, g, b, x, y) {
+	myColorPicker = new ColorPicker("colorpicker.png", "s2", "s1", 0, function (r, g, b, x, y) {
 		// This code will be run everytime the pixel color is obtained, along with the pixel data as parameters
 		//CF.log("R: " + r + ", G: " + g + ", B: " + b);
 		CF.setJoins([
