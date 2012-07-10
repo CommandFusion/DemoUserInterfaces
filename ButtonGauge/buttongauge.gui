@@ -1,0 +1,142 @@
+<gui>
+  <properties>
+    <project>Button Gauge Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" ip="127.0.0.1" port="10210" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Command1">value=1</cmd>
+      <cmd name="Command2">value=2</cmd>
+      <cmd name="Command3">value=3</cmd>
+      <cmd name="Command4">value=4</cmd>
+      <cmd name="Command5">value=5</cmd>
+      <cmd name="Command6">value=6</cmd>
+      <cmd name="Command7">value=7</cmd>
+      <cmd name="Command8">value=8</cmd>
+      <cmd name="Command9">value=9</cmd>
+      <cmd name="Command10">value=10</cmd>
+      <cmd name="CommandMute">value=0</cmd>
+      <fb name="Level" regex="value=(\d+)">
+        <group index="1" name="" datatype="s" target="s1" />
+      </fb>
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: #80FFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".text_r"><![CDATA[ color: White; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".white"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".text_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".vertical[state='0']"><![CDATA[ background-image: url(gauge_v.png);]]></theme>
+    <theme type="gauge" name=".vertical[state='1']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".horizontal[state='0']"><![CDATA[ background-image: url(gauge_h.png);]]></theme>
+    <theme type="gauge" name=".horizontal[state='1']"><![CDATA[]]></theme>
+    <theme type="text" name=".indicator"><![CDATA[ color: Black; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".blank[state='0']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".blank[state='1']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".horizontal_lrg[state='0']"><![CDATA[ background-image: url(gauge_h_lrg_off.png);]]></theme>
+    <theme type="gauge" name=".horizontal_lrg[state='1']"><![CDATA[]]></theme>
+    <theme type="button" name=".gauge_01[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_01_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_01[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_01_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_02[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_02_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_02[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_02_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_03[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_03_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_03[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_03_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_04[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_04_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_04[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_04_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_05[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_05_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_05[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_05_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_06[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_06_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_06[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_06_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_07[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_07_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_07[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_07_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_08[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_08_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_08[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_08_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_09[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_09_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_09[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_09_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_10[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_10_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".gauge_10[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(gauge_10_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <btn j="10" x="134" y="345" w="52" h="30" t="gauge_01" flip="None" sim="0" l="0" s="0" cmd="Command1" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="18" x="134" y="105" w="52" h="30" t="gauge_09" flip="None" sim="0" l="0" s="0" cmd="Command9" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="17" x="134" y="135" w="52" h="30" t="gauge_08" flip="None" sim="0" l="0" s="0" cmd="Command8" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="16" x="134" y="165" w="52" h="30" t="gauge_07" flip="None" sim="0" l="0" s="0" cmd="Command7" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="15" x="134" y="195" w="52" h="30" t="gauge_06" flip="None" sim="0" l="0" s="0" cmd="Command6" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="14" x="134" y="225" w="52" h="30" t="gauge_05" flip="None" sim="0" l="0" s="0" cmd="Command5" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="13" x="134" y="255" w="52" h="30" t="gauge_04" flip="None" sim="0" l="0" s="0" cmd="Command4" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="12" x="134" y="285" w="52" h="30" t="gauge_03" flip="None" sim="0" l="0" s="0" cmd="Command3" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="11" x="134" y="315" w="52" h="30" t="gauge_02" flip="None" sim="0" l="0" s="1" cmd="Command2" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="19" x="134" y="75" w="52" h="30" t="gauge_10" flip="None" sim="0" l="0" s="1" cmd="Command10" js="setGaugeLevel(join);">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="9" x="101" y="398" w="118" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" cmd="CommandMute" js="setGaugeLevel(join);">
+        <inactive s="0">MUTE</inactive>
+        <active s="0">MUTE</active>
+      </btn>
+      <txt j="1" x="110" y="38" w="100" h="29" t="text_c" wrap="False" l="0">0</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
