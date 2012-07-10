@@ -1,8 +1,7 @@
 <gui>
   <properties>
-    <project>relaunch</project>
-    <designer>
-    </designer>
+    <project>Dial Demo</project>
+    <designer>CommandFusion</designer>
     <size>
       <portrait width="320" height="480" />
       <landscape width="480" height="320" />
@@ -24,16 +23,7 @@
     <theme type="text" name=".text_r"><![CDATA[ color: White; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="input" name=".white"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="text" name=".text_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
-    <theme type="gauge" name=".vertical[state='0']"><![CDATA[ background-image: url(gauge_v.png);]]></theme>
-    <theme type="gauge" name=".vertical[state='1']"><![CDATA[]]></theme>
-    <theme type="gauge" name=".horizontal[state='0']"><![CDATA[ background-image: url(gauge_h.png);]]></theme>
-    <theme type="gauge" name=".horizontal[state='1']"><![CDATA[]]></theme>
     <theme type="text" name=".indicator"><![CDATA[ color: Black; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
-    <theme type="button" name=".switch[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(switch_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
-    <theme type="button" name=".switch[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(switch_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
-    <theme type="background" name=".landscape_grid"><![CDATA[ background-image: url(bg_landscape_grid.png); background-repeat: no-repeat;]]></theme>
-    <theme type="gauge" name=".blank[state='0']"><![CDATA[]]></theme>
-    <theme type="gauge" name=".blank[state='1']"><![CDATA[]]></theme>
     <theme type="gauge" name=".horizontal_lrg[state='0']"><![CDATA[ background-image: url(gauge_h_lrg_off.png);]]></theme>
     <theme type="gauge" name=".horizontal_lrg[state='1']"><![CDATA[]]></theme>
   </themes>
@@ -73,6 +63,6 @@
       <img x="36" y="116" w="247" h="247" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">knob_bg.png<gesture name="Tappity Tap Tap" type="tap" taps="1" touches="1"><action phase="begin" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture><gesture name="Draggity Drag Drag" type="pan" taps="1" touches="1"><action phase="change" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture></img>
       <img x="76" y="156" w="167" h="167" j="1" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">knob.png</img>
     </portrait>
-    <landscape t="landscape_grid" />
+    <landscape />
   </page>
 </gui>
