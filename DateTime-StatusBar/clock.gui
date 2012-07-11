@@ -1,0 +1,53 @@
+<gui>
+  <properties>
+    <project>Clock Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: #80FFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".text_r"><![CDATA[ color: White; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".white"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".text_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".indicator"><![CDATA[ color: Black; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="date.js" />
+    <script name="datetime.js" />
+    <script name="statusbar.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <btn j="0" x="81" y="130" w="158" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="myClock.toggle();">
+        <inactive s="0">Start/Stop Clock</inactive>
+        <active s="0">Start/Stop Clock</active>
+      </btn>
+      <txt j="1" x="110" y="95" w="100" h="29" t="text_c" wrap="False" l="0">CLOCK</txt>
+      <btn j="0" x="17" y="360" w="87" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="StatusBar.show();">
+        <inactive s="0">Show</inactive>
+        <active s="0">Show</active>
+      </btn>
+      <txt j="2" x="4" y="195" w="311" h="29" t="text_c" wrap="False" l="0">DATE</txt>
+      <txt j="0" x="4" y="315" w="311" h="29" t="text_c" wrap="False" l="0">Status Bar</txt>
+      <btn j="0" x="117" y="360" w="87" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="StatusBar.hide();">
+        <inactive s="0">Hide</inactive>
+        <active s="0">Hide</active>
+      </btn>
+      <btn j="0" x="217" y="360" w="87" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="StatusBar.toggle();">
+        <inactive s="0">Toggle</inactive>
+        <active s="0">Toggle</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
