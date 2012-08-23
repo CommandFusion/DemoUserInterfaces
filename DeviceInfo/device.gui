@@ -1,0 +1,55 @@
+<gui>
+  <properties>
+    <project>CFLinkJS Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".status_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Red; font-size: 12px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".text_r"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".text_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="portrait">
+      <txt j="0" x="0" y="21" w="320" h="29" t="text_c" wrap="False" l="0">Device Information Demo</txt>
+      <txt j="0" x="0" y="96" w="100" h="34" t="text_r" wrap="False" l="0">Platform:</txt>
+      <btn j="0" x="107" y="412" w="106" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="1" js="refreshInfo()">
+        <inactive s="0">REFRESH</inactive>
+        <active s="0">REFRESH</active>
+      </btn>
+      <txt j="1" x="109" y="96" w="211" h="34" t="text_l" wrap="False" l="0">-</txt>
+      <txt j="0" x="0" y="126" w="100" h="34" t="text_r" wrap="False" l="0">Version:</txt>
+      <txt j="2" x="109" y="126" w="211" h="34" t="text_l" wrap="False" l="0">-</txt>
+      <txt j="0" x="0" y="156" w="100" h="34" t="text_r" wrap="False" l="0">Model:</txt>
+      <txt j="3" x="109" y="156" w="211" h="34" t="text_l" wrap="False" l="0">-</txt>
+      <txt j="0" x="0" y="186" w="100" h="34" t="text_r" wrap="False" l="0">Device ID:</txt>
+      <txt j="4" x="109" y="186" w="211" h="54" t="text_l" wrap="True" l="0">-</txt>
+      <txt j="0" x="0" y="246" w="100" h="34" t="text_r" wrap="False" l="0">Name:</txt>
+      <txt j="5" x="109" y="246" w="211" h="44" t="text_l" wrap="True" l="0">-</txt>
+      <txt j="0" x="0" y="296" w="100" h="34" t="text_r" wrap="False" l="0">IP Address:</txt>
+      <txt j="6" x="109" y="296" w="211" h="34" t="text_l" wrap="False" l="0">-</txt>
+      <txt j="0" x="0" y="326" w="100" h="34" t="text_r" wrap="False" l="0">MAC:</txt>
+      <txt j="7" x="109" y="326" w="211" h="34" t="text_l" wrap="False" l="0">-</txt>
+      <txt j="0" x="0" y="356" w="100" h="34" t="text_r" wrap="False" l="0">Orientation:</txt>
+      <txt j="8" x="109" y="356" w="211" h="34" t="text_l" wrap="False" l="0">-</txt>
+    </portrait>
+    <landscape />
+  </page>
+  <subpage name="Cache" w="320" h="480" clip="1">
+    <img x="19" y="22" w="40" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">Padlock-Open.png</img>
+    <img x="82" y="23" w="40" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">Padlock.png</img>
+  </subpage>
+</gui>
