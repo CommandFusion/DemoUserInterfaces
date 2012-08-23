@@ -48,8 +48,5 @@
     </portrait>
     <landscape />
   </page>
-  <subpage name="Cache" w="320" h="480" clip="1">
-    <img x="19" y="22" w="40" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">Padlock-Open.png</img>
-    <img x="82" y="23" w="40" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">Padlock.png</img>
-  </subpage>
+  <subpage name="Cache" w="320" h="480" clip="1" />
 </gui>
