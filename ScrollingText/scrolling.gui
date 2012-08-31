@@ -1,0 +1,87 @@
+<gui>
+  <properties>
+    <project>Scrolling Text Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="Vollmer iPad">F29E04DDD481E5FED7C5AEC840539BA0</device>
+      <device name="D">DA54662E7665827AD08D79EA88B0A4EF</device>
+      <device name="Kindle Fire">9E02B61206478F9F4F854B10E4CE6D3C</device>
+      <device name="dv">D861BBED677C2AD6AA15EAF1FFCF86</device>
+    </devices>
+  </properties>
+  <themes>
+    <theme type="text" name=".med_bol_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".med_bol_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn_single[state='0']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_off.png) 0 20 0 20; text-shadow: rgba(0,0,0,1) 0px 1px 1px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_single[state='1']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_on.png) 0 20 0 20; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".large_bold_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 22px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".grey_bold_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 12px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".med_bol_r"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".input"><![CDATA[ border-width: 0px; color: Black; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".input_l"><![CDATA[ border-width: 0px; color: Black; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn_group_left[state='0']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_group_left_off.png) 0 20 0 20; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_left[state='1']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_group_left_on.png) 0 20 0 20; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_middle[state='0']"><![CDATA[padding: 0px 1px 0px 1px; -webkit-border-image: url(btn_group_middle_off.png) 0 1 0 1; text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_middle[state='1']"><![CDATA[padding: 0px 1px 0px 1px; -webkit-border-image: url(btn_group_middle_on.png) 0 1 0 1; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_right[state='0']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_group_right_off.png) 0 20 0 20; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_right[state='1']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_group_right_on.png) 0 20 0 20; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="scrollingtext.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="portrait">
+      <txt j="2" x="320" y="0" w="320" h="20" t="" wrap="False" l="0">Fiasco's Scrolling Demo - Field 2</txt>
+      <txt j="2" x="320" y="227" w="320" h="20" t="" wrap="False" l="0">Fiasco's Scrolling Demo - Field 2</txt>
+      <btn j="0" x="43" y="369" w="95" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="scroller1.start();">
+        <inactive s="0">Start</inactive>
+        <active s="0">Start</active>
+      </btn>
+      <btn j="0" x="183" y="369" w="95" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="scroller1.stop();">
+        <inactive s="0">Stop</inactive>
+        <active s="0">Stop</active>
+      </btn>
+      <txt j="0" x="0" y="0" w="320" h="58" t="large_bold_c" wrap="False" l="0">Scrolling Text Demo</txt>
+      <txt j="0" x="42" y="421" w="236" h="48" t="grey_bold_c" wrap="True" l="0">Buttons are assigned JavaScript actions to control the scrolling text.</txt>
+      <txt j="0" x="42" y="41" w="236" h="37" t="grey_bold_c" wrap="True" l="0">Adjustable Parameters</txt>
+      <img x="10" y="308" w="11" h="46" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">textarea_left.png</img>
+      <img x="21" y="308" w="278" h="46" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">textarea_middle.png</img>
+      <img x="299" y="308" w="11" h="46" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">textarea_right.png</img>
+      <txt j="1" x="10" y="317" w="300" h="28" t="med_bol_c" wrap="False" l="0">Some sample text that will be scrolled using the ScrollingText JavaScript module...</txt>
+      <img x="101" y="84" w="5" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_left.png</img>
+      <img x="106" y="84" w="45" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_middle.png</img>
+      <img x="151" y="84" w="5" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_right.png</img>
+      <txt j="0" x="29" y="85" w="64" h="36" t="med_bol_r" wrap="False" l="0">Speed:</txt>
+      <input j="0" s="100" x="103" y="89" w="53" h="30" pass="0" autoFocus="0" f="0" t="input" l="0">100</input>
+      <img x="256" y="84" w="5" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_left.png</img>
+      <img x="261" y="84" w="45" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_middle.png</img>
+      <img x="305" y="84" w="5" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_right.png</img>
+      <txt j="0" x="179" y="85" w="70" h="36" t="med_bol_r" wrap="False" l="0">Spaces:</txt>
+      <input j="0" s="101" x="257" y="89" w="53" h="30" pass="0" autoFocus="0" f="0" t="input" l="0">5</input>
+      <img x="10" y="197" w="5" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_left.png</img>
+      <img x="15" y="197" w="290" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_middle.png</img>
+      <img x="305" y="197" w="5" h="40" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">inputfield_right.png</img>
+      <input j="0" s="102" x="12" y="201" w="299" h="30" pass="0" autoFocus="0" f="0" t="input_l" l="0">Type new text here...</input>
+      <txt j="0" x="8" y="139" w="86" h="36" t="med_bol_r" wrap="False" l="0">Direction:</txt>
+      <btn j="103" x="103" y="137" w="80" h="43" t="btn_group_left" flip="None" sim="0" l="0" s="1" js="changeDirection(&quot;left&quot;);">
+        <inactive s="0">LEFT</inactive>
+        <active s="0">LEFT</active>
+      </btn>
+      <btn j="104" x="183" y="137" w="80" h="43" t="btn_group_right" flip="None" sim="0" l="0" s="1" js="changeDirection(&quot;right&quot;);">
+        <inactive s="0">RIGHT</inactive>
+        <active s="0">RIGHT</active>
+      </btn>
+      <txt j="0" x="155" y="86" w="24" h="37" t="grey_bold_c" wrap="True" l="0">ms</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>

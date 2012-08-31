@@ -66,6 +66,11 @@ Note that this requires iViewer v4.0.6 or higher.
 This example shows how you can use loopback programming methods to effectively send multiple slider commands from a single slider.  
 The slider first sends a single command to the loopback system, which then in turn uses a feedback item to match the incoming slider command and send two separate commands to the external system via on match items in the feedback processing order.
 
+### [Scrolling Text](DemoUserInterfaces/tree/master/ScrollingText)
+This example shows how JavaScript can be used to create a scrolling text box in your GUI.  
+The GUI also shows how you can use input fields to change settings on the fly for the scrolling text module.  
+See the JavaScript comments for specific details on the parameters you can use.
+
 ### [Subpage Logic](DemoUserInterfaces/tree/master/SubpageLogic)
 This project shows a few ways that subpages can be controlled on the client side, without interaction with any backend server or device.  
 This is accomplished by using loopback programming (a system defined using the loopback address of 127.0.0.1).
