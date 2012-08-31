@@ -30,7 +30,7 @@ CF.userMain = function() {
 	CF.watch(CF.InputFieldEditedEvent, "s100", function(j,v) {
 		// validate the setting
 		if (isNumber(v)) {
-			scroller1.speed = v;
+			scroller1.speed = parseInt(v, 10);
 			scroller1.start();
 		}
 	});
@@ -39,7 +39,7 @@ CF.userMain = function() {
 	CF.watch(CF.InputFieldEditedEvent, "s101", function(j,v) {
 		// validate the setting
 		if (isNumber(v)) {
-			scroller1.spaces = v;
+			scroller1.spaces = parseInt(v, 10);
 			scroller1.reset();
 		}
 	});
