@@ -26,6 +26,11 @@ This demo shows you how to create a color picker using JavaScript and Gestures.
 Any image can be used and it's pixel color data obtained by tapping or dragging around the image.  
 Note that this demo will not run in debugger due to requiring localhost JavaScript HTTP requests to serve the image data from cache.
 
+### [Data Logging](DemoUserInterfaces/tree/master/DataLogging)
+This demo shows you how to log incoming data and display it in an auto-scrolling list.  
+The data is parsed and can show non-printable characters in ASCII representation such as \x0D for carriage return.  
+Any prefix and/or suffix can be added to the hex data representation as you desire.
+
 ### [Dial / Knob](DemoUserInterfaces/tree/master/Dial)
 This demo shows you how to create a volume dial or knob using JavaScript and Gestures.  
 More details are available in the README and top of the dial.js file.

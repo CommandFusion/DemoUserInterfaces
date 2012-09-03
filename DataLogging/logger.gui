@@ -1,0 +1,51 @@
+<gui>
+  <properties>
+    <project>Data Logging Example</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Demo system" ip="127.0.0.1" port="10210" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Test Data">START\x00\x01\x02END</cmd>
+      <fb name="My Feedback" regex="." />
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".btn_single[state='0']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_off.png) 0 20 0 20; text-shadow: rgba(0,0,0,1) 0px 1px 1px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_single[state='1']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_on.png) 0 20 0 20; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".large_bold_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 22px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".small_bold_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".grey_bold_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="logger.js" />
+    <script name="main.js" />
+    <script name="date.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="portrait">
+      <btn j="0" x="66" y="59" w="187" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" cmd="Test Data">
+        <inactive s="0">Send Test Data</inactive>
+        <active s="0">Send Test Data</active>
+      </btn>
+      <txt j="0" x="0" y="0" w="320" h="57" t="large_bold_c" wrap="False" l="0">Data Logging Example</txt>
+      <btn j="0" x="66" y="427" w="187" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="logger.clear();">
+        <inactive s="0">Clear Log Data</inactive>
+        <active s="0">Clear Log Data</active>
+      </btn>
+      <list j="1" x="5" y="110" w="310" h="311" headerSub="" titleSub="" contentSub="LogItem" footerSub="" orientation="v" l="0" swipedelete="0" />
+    </portrait>
+    <landscape />
+  </page>
+  <subpage name="LogItem" w="310" h="35" clip="1">
+    <txt j="1" x="68" y="0" w="242" h="35" t="small_bold_l" wrap="True" l="0">Log Data Goes Here</txt>
+    <txt j="2" x="0" y="0" w="67" h="35" t="grey_bold_l" wrap="True" l="0">Date</txt>
+  </subpage>
+</gui>
