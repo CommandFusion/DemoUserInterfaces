@@ -47,14 +47,14 @@
   <scripts>
     <script name="AnimIcon.js" />
   </scripts>
-  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="" start="1">
     <portrait t="portrait">
       <img x="10" y="71" w="300" h="300" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">downlight-01.png</img>
-      <btn j="0" x="164" y="435" w="72" h="36" t="btn_sm" flip="None" sim="1" l="0" s="1" js="Anim1.startAnim(1, false)">
+      <btn j="0" x="164" y="435" w="72" h="36" t="btn_sm" flip="None" sim="1" l="0" s="1" js="Anim1.start(1, false)">
         <inactive s="0">ON</inactive>
         <active s="0">ON</active>
       </btn>
-      <btn j="0" x="82" y="435" w="72" h="36" t="btn_sm" flip="None" sim="1" l="0" s="1" js="Anim1.startAnim(-1, false)">
+      <btn j="0" x="82" y="435" w="72" h="36" t="btn_sm" flip="None" sim="1" l="0" s="1" js="Anim1.start(-1, false)">
         <inactive s="0">OFF</inactive>
         <active s="0">OFF</active>
       </btn>
@@ -65,8 +65,8 @@
       <btn j="0" x="245" y="403" w="65" h="68" t="btn_up" flip="None" sim="1" l="0" s="1">
         <actions>
           <action>
-            <press delay="0" hold="0" repeat="0" js="Anim1.startAnim(1, false)" />
-            <release delay="0" js="Anim1.stopAnim()" />
+            <press delay="0" hold="0" repeat="0" js="Anim1.start(1, false)" />
+            <release delay="0" js="Anim1.stop()" />
           </action>
         </actions>
         <inactive s="0">
@@ -77,8 +77,8 @@
       <btn j="0" x="9" y="403" w="65" h="68" t="btn_down" flip="None" sim="1" l="0" s="1">
         <actions>
           <action>
-            <press delay="0" hold="0" repeat="0" js="Anim1.startAnim(-1, false)" />
-            <release delay="0" js="Anim1.stopAnim()" />
+            <press delay="0" hold="0" repeat="0" js="Anim1.start(-1, false)" />
+            <release delay="0" js="Anim1.stop()" />
           </action>
         </actions>
         <inactive s="0">
@@ -100,6 +100,12 @@
         </active>
       </btn>
       <img x="293" y="51" w="27" h="28" j="3" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0">spinner_blue_glow.png</img>
+      <btn j="0" x="260" y="48" w="60" h="50" t="btn_blank" flip="None" sim="0" l="0" s="1" js="if (Rotation1.running) { Rotation1.stop(); } else { Rotation1.start();}">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
     </portrait>
     <landscape />
   </page>
