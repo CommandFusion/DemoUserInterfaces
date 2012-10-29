@@ -79,3 +79,7 @@ See the JavaScript comments for specific details on the parameters you can use.
 ### [Subpage Logic](DemoUserInterfaces/tree/master/SubpageLogic)
 This project shows a few ways that subpages can be controlled on the client side, without interaction with any backend server or device.  
 This is accomplished by using loopback programming (a system defined using the loopback address of 127.0.0.1).
+
+### [Volume Buttons](DemoUserInterfaces/tree/master/VolumeButtons)
+This project shows how you can obtain the current volume of the device running iViewer, and then use this value to detect if the button up or down button was pressed.  
+It also shows how to change the screen brightness via the iViewer JavaScript API.

@@ -1,0 +1,31 @@
+<gui>
+  <properties>
+    <project>Volume Button Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".large_bold_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 22px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".med_bol_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="portrait">
+      <txt j="0" x="0" y="0" w="320" h="46" t="large_bold_c" wrap="False" l="0">Volume Button Demo</txt>
+      <txt j="1" x="0" y="44" w="320" h="100" t="med_bol_c" wrap="False" l="0">New Text Object</txt>
+      <txt j="0" x="0" y="323" w="320" h="157" t="med_bol_c" wrap="True" l="0">This demo shows how the volume levels can be read on volume change.
+
+It also demonstrates changing the screen brightness via the JavaScript API.</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
