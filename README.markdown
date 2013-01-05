@@ -40,6 +40,9 @@ Use HTTP Requests and an XML file to generate a dynamic room list, allowing for 
 Simply change the XML and your room listing will update accordingly.  
 Page flip to the room on select.
 
+### [HTML Embedded Demo](DemoUserInterfaces/tree/master/HTMLEmbedded)
+Embed HTML files into your GUI, taking advantage of iViewer's ability to load zip files containing any content.
+
 ### [List Alpha Bar](DemoUserInterfaces/tree/master/ListAlphaBar)
 This project shows how to use an alphabetical bar to automatically scroll a list based on the letter selected.  
 The project uses JavaScript and allows auto-scrolling the list via button press or using a slider.  

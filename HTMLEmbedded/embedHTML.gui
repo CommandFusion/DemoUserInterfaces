@@ -1,0 +1,24 @@
+<gui>
+  <properties>
+    <project>HTML Embedded Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".white"><![CDATA[background-color: #FFFFFF;]]></theme>
+    <theme type="text" name=".black_bold_c"><![CDATA[ color: Black; font-size: 12px; font-name: 'HelveticaNeue-Bold'; font-family: 'Helvetica Neue'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait t="white">
+      <web x="120" y="200" w="80" h="80" j="1" title="0" back="0" forward="0" refresh="0" stop="0" url="loader.html" />
+      <txt j="0" x="40" y="83" w="240" h="100" t="black_bold_c" wrap="True" l="0">The Loading Spinner below is actually a HTML file, embedded into the GUI.</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
