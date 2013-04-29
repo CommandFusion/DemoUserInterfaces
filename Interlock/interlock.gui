@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Interlock demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".Blue"><![CDATA[background-color: #8080FF;]]></theme>
+    <theme type="background" name=".White"><![CDATA[background-color: #FFFFFF;]]></theme>
+    <theme type="text" name=".Large_C_White"><![CDATA[ color: White; font-size: 30px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Medium_L_White"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px 1px 0px; color: White; font-size: 18px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Medium_R_White"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px 1px 0px; color: White; font-size: 18px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Small_L_Grey"><![CDATA[ color: Silver; font-size: 14px; font-name: 'DroidSans'; font-family: 'Droid Sans'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Small_L_Black"><![CDATA[ color: Black; font-size: 14px; font-name: 'DroidSans'; font-family: 'Droid Sans'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".StateButton[state='0']"><![CDATA[padding: 0px 0px 0px 10px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: Red; color: White; font-size: 14px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; font-weight: bold; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".StateButton[state='1']"><![CDATA[padding: 0px 0px 0px 10px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #008040; color: White; font-size: 14px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; font-weight: bold; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".InfoButton[state='0']"><![CDATA[padding: 0px 0px 0px 10px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #000000; color: White; font-size: 14px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; font-weight: bold; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".InfoButton[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".Medium_C_White"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px 1px 0px; color: White; font-size: 18px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Mini_C_White"><![CDATA[ color: White; font-size: 14px; font-name: 'ArialMT'; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".Medium_C_Black"><![CDATA[ color: Black; font-size: 18px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="interlock.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="None" subtype="None" time="0" ease="">
+    <portrait />
+    <landscape t="Blue">
+      <txt j="0" x="6" y="1" w="1018" h="183" t="Medium_L_White" wrap="True" l="0">Interlock module demonstration
+
+To add interlock functionality to your GUI, copy the file "interlock.js" in your GUI folder and add it to the project using the Script Manager in guiDesigner.
+
+An example of use can be found in this example's main.js file.</txt>
+      <btn j="1" x="55" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+        <inactive s="0">Subpage 1</inactive>
+        <active s="0">Subpage 1</active>
+      </btn>
+      <btn j="2" x="275" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+        <inactive s="0">Subpage 2</inactive>
+        <active s="0">Subpage 2</active>
+      </btn>
+      <btn j="3" x="491" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+        <inactive s="0">Subpage 3</inactive>
+        <active s="0">Subpage 3</active>
+      </btn>
+      <btn j="4" x="708" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+        <inactive s="0">Subpage 4</inactive>
+        <active s="0">Subpage 4</active>
+      </btn>
+      <txt j="0" x="57" y="209" w="363" h="54" t="Medium_L_White" wrap="False" l="0">Press button to change subpage</txt>
+      <subpage name="Subpage1" x="56" y="322" j="100" transition1="moveIn" subtype1="fromBottom" time1="0.5" ease1="easeIn" transition2="moveIn" subtype2="fromBottom" time2="0.5" ease2="easeOut" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Subpage2" x="274" y="322" j="200" transition1="moveIn" subtype1="fromBottom" time1="0.5" ease1="easeIn" transition2="moveIn" subtype2="fromBottom" time2="0.5" ease2="easeOut" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Subpage3" x="492" y="322" j="300" transition1="moveIn" subtype1="fromBottom" time1="0.5" ease1="easeIn" transition2="moveIn" subtype2="fromBottom" time2="0.5" ease2="easeOut" clickthrough="0" topmost="0" v="1" l="0" />
+      <subpage name="Subpage4" x="708" y="322" j="400" transition1="moveIn" subtype1="fromBottom" time1="0.5" ease1="easeIn" transition2="moveIn" subtype2="fromBottom" time2="0.5" ease2="easeOut" clickthrough="0" topmost="0" v="1" l="0" />
+      <txt j="1" x="464" y="209" w="455" h="54" t="Medium_R_White" wrap="False" l="0">Current selection</txt>
+    </landscape>
+  </page>
+  <subpage name="Subpage1" w="200" h="200" clip="1" t="White">
+    <txt j="0" x="12" y="34" w="171" h="133" t="Medium_C_Black" wrap="False" l="0">This is
+subpage 1</txt>
+  </subpage>
+  <subpage name="Subpage2" w="200" h="200" clip="1" t="White">
+    <txt j="0" x="12" y="34" w="171" h="133" t="Medium_C_Black" wrap="False" l="0">This is
+subpage 2</txt>
+  </subpage>
+  <subpage name="Subpage3" w="200" h="200" clip="1" t="White">
+    <txt j="0" x="12" y="34" w="171" h="133" t="Medium_C_Black" wrap="False" l="0">This is
+subpage 3</txt>
+  </subpage>
+  <subpage name="Subpage4" w="200" h="200" clip="1" t="White">
+    <txt j="0" x="12" y="34" w="171" h="133" t="Medium_C_Black" wrap="False" l="0">This is
+subpage 4</txt>
+  </subpage>
+</gui>
