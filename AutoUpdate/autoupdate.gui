@@ -58,10 +58,14 @@
   </scripts>
   <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
     <portrait>
-      <txt j="0" x="20" y="136" w="280" h="207" t="small_bold_c" wrap="True" l="0">This project demonstrates how to implement an automatic update checker into your GUI, allowing your clients to be automatically notified when an upate to their GUI is available.
+      <txt j="0" x="20" y="122" w="280" h="237" t="small_bold_c" wrap="True" l="0">This project demonstrates how to implement an automatic update checker into your GUI, allowing your clients to be automatically notified when an upate to their GUI is available.
 
-It relies on your GUI file being served from a web server that also sends Last-Modified headers with each response.</txt>
-      <btn j="0" x="64" y="394" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="AutoUpdater.checkForUpdate();">
+It relies on your GUI file being served from a web server that also sends Last-Modified headers with each response.
+
+Use the JavaScript debugger to see more details and check the main.js script for configuration.
+
+Lastly, make sure you have the global token defined correctly in your project.</txt>
+      <btn j="0" x="64" y="394" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="AutoUpdater.checkForUpdate(true);">
         <inactive s="0">Check For Updates</inactive>
         <active s="0">Check For Updates</active>
       </btn>

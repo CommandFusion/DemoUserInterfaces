@@ -9,7 +9,7 @@ var AutoUpdate = function (params) {
 		newDate: null
 	};
 
-	self.checkForUpdate = function () {
+	self.checkForUpdate = function (alwaysConfirm) {
 		if (!self.intervalID) {
 			// Start the automatic rechecking every x milliseconds
 			self.intervalID = setInterval(self.checkForUpdate, self.checkInterval);
@@ -37,13 +37,16 @@ var AutoUpdate = function (params) {
 						self.updateAvailableCallback();
 					}
 				} else {
-					CF.log("UPDATE NOT REQUIRED!");
+					CF.log("UPDATE NOT REQUIRED: " + ((newDate != null) ? newDate.toUTCString() : "NULL"));
 					// Save new date to global token
 					if (newDate) {
 						CF.setToken(CF.GlobalTokensJoin, self.lastModifiedToken, newDate.toUTCString());
 					}
-					if (typeof(self.alreadyUpdatedCallback) == typeof(Function)) {
-						self.alreadyUpdatedCallback();
+					// Only show the confirmation dialog if we manually requested a dialog if already up to date
+					if (alwaysConfirm) {
+						if (typeof(self.alreadyUpdatedCallback) == typeof(Function)) {
+							self.alreadyUpdatedCallback();
+						}
 					}
 				}
 			});
