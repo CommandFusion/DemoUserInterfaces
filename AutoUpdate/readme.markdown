@@ -12,3 +12,8 @@ You can can use the main.js file included in this demo as a sample on how to use
 
 We recommend either using your own web server to store the project, or a service like DropBox.  
 Always use project archives (zip files) when storing on services like dropbox to ensure asset files for your GUI will be loaded correctly.
+
+## Demo
+
+You can load the below URL into your iViewer GUI File URL setting to see this demo in action on your mobile device:  
+`cmdf.us/autoupdater`
