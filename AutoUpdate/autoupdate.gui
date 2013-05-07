@@ -50,7 +50,7 @@
     <theme type="text" name=".small_bold_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 12px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
   </themes>
   <tokens>
-    <token name="[last-modified]" value="9999999999999999" persist="1" />
+    <token name="[last-modified]" value="" persist="1" />
   </tokens>
   <scripts>
     <script name="autoupdate.js" />
@@ -58,20 +58,29 @@
   </scripts>
   <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
     <portrait>
-      <txt j="0" x="20" y="121" w="280" h="237" t="small_bold_c" wrap="True" l="0">This project demonstrates how to implement an automatic update checker into your GUI, allowing your clients to be automatically notified when an upate to their GUI is available.
+      <txt j="0" x="20" y="21" w="280" h="237" t="small_bold_c" wrap="True" l="0">This project demonstrates how to implement an automatic update checker into your GUI, allowing your clients to be automatically notified when an upate to their GUI is available.
 
-It relies on your GUI file being served from a web server that also sends Last-Modified headers with each response.
+It relies on your GUI file being served from a web server that also sends Last-Modified or Etag headers with each response.
 
 Use the JavaScript debugger to see more details and check the main.js script for configuration.
 
 Lastly, make sure you have the global token defined correctly in your project.</txt>
-      <btn j="0" x="64" y="394" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="AutoUpdater.checkForUpdate(true);">
+      <btn j="0" x="64" y="374" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="AutoUpdater.checkForUpdate(true);">
         <inactive s="0">Check For Updates</inactive>
         <active s="0">Check For Updates</active>
       </btn>
-      <txt j="0" x="0" y="50" w="320" h="29" t="med_bol_c" wrap="False" l="0">Auto Update Demo</txt>
+      <txt j="0" x="0" y="0" w="320" h="29" t="med_bol_c" wrap="False" l="0">Auto Update Demo</txt>
       <subpage name="UpdateOrNot" x="0" y="0" j="1" transition1="moveIn" subtype1="fromBottom" time1="0.2" ease1="easeOut" transition2="moveIn" subtype2="fromBottom" time2="0.2" ease2="easeOut" clickthrough="0" topmost="1" v="0" l="0" />
       <subpage name="UpToDate" x="0" y="0" j="2" transition1="moveIn" subtype1="fromBottom" time1="0.2" ease1="easeOut" transition2="moveIn" subtype2="fromBottom" time2="0.2" ease2="easeOut" clickthrough="0" topmost="1" v="0" l="0" />
+      <txt j="1" x="0" y="438" w="320" h="42" t="small_bold_c" wrap="False" l="0">Last Updated:
+[[LASTMOD]]</txt>
+      <txt j="2" x="0" y="351" w="320" h="26" t="small_bold_c" wrap="False" l="0">
+      </txt>
+      <btn j="0" x="64" y="264" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="forceUpdate();">
+        <inactive s="0">Force change in GUI File on server...</inactive>
+        <active s="0">Force change in GUI File on server...</active>
+      </btn>
+      <subpage name="ForcingUpdate" x="0" y="0" j="3" transition1="moveIn" subtype1="fromBottom" time1="0.2" ease1="easeOut" transition2="moveIn" subtype2="fromBottom" time2="0.2" ease2="easeOut" clickthrough="0" topmost="0" v="0" l="0" />
     </portrait>
     <landscape />
   </page>
@@ -92,5 +101,8 @@ Lastly, make sure you have the global token defined correctly in your project.</
       <active s="0">Continue</active>
     </btn>
     <txt j="0" x="30" y="0" w="260" h="65" t="med_bol_c" wrap="True" l="0">Your automation user interface is up to date.</txt>
+  </subpage>
+  <subpage name="ForcingUpdate" w="320" h="480" clip="1" t="grey">
+    <txt j="0" x="30" y="0" w="260" h="114" t="med_bol_c" wrap="True" l="0">Forcing update of the file on dropbox, please wait...</txt>
   </subpage>
 </gui>
