@@ -15,5 +15,5 @@ Always use project archives (zip files) when storing on services like dropbox to
 
 ## Demo
 
-You can load the below URL into your iViewer GUI File URL setting to see this demo in action on your mobile device:  
-`cmdf.us/autoupdater`
+Download the project via the below URL and add your iViewer license to the project in guiDesigner, then load it onto your licensed device running iViewer:  
+http://cmdf.us/autoupdater
