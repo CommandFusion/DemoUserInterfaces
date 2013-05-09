@@ -58,7 +58,7 @@
   </scripts>
   <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
     <portrait>
-      <txt j="0" x="20" y="21" w="280" h="237" t="small_bold_c" wrap="True" l="0">This project demonstrates how to implement an automatic update checker into your GUI, allowing your clients to be automatically notified when an upate to their GUI is available.
+      <txt j="0" x="20" y="21" w="280" h="237" t="small_bold_c" wrap="True" l="0">This project demonstrates how to implement an automatic update checker into your GUI, allowing your clients to be automatically notified when an update to their GUI is available.
 
 It relies on your GUI file being served from a web server that also sends Last-Modified or Etag headers with each response.
 
