@@ -25,7 +25,8 @@
 // * to remove an interlock group (remove interlock functionality):
 // Interlock.remove("group name");
 //
-// Author: Florent Pillet, CommandFusion
+// Author:  Florent Pillet, CommandFusion
+// Version: 1.1, 13-MAY-2013
 // ------------------------------------------------------------------
 var Interlock = {
 	groups: { },			// internal management object
@@ -94,6 +95,10 @@ var Interlock = {
 				if (newGroup.callback != null && previous !== join) {
 					newGroup.callback.apply(null, [name, join, previous]);
 				}
+			} else if (join == newGroup.selection) {
+				// simulated mode: if user taps the button again, raise it back to
+				// ensure that it stays highlighted
+				CF.setJoin(join, 1);
 			}
 		});
 
