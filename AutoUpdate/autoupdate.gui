@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Auto Update Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="CommandFusion iPad Mini White 16GB NEW ID">85AB3CDA433DF2E2230A35144E7CF2C6</device>
+      <device name="CommandFusion's iPhone">D539A21C09A4C347B008D44A6B14C317</device>
+      <device name="CommandFusion iPhone">C005B115E9E2628925D03298CCD50DC8</device>
+      <device name="CommandFusion iPad Mini White 16GB">1FD2B945BA32E1053AABE816D601C9C7</device>
+      <device name="CommandFusion iPhone5 Black 16GB">D1200B1E78D32DE14774215B227BF7E9</device>
+      <device name="CommandFusion iPad 3 White 16GB">B70D74782DB7EE61069D8B1E6DE71044</device>
+      <device name="PHP upgrade test">709D094147F35A6305DC7368314AD924</device>
+      <device name="Mike Quin iPod Touch">1B8752CDB58B90ABE1C36584472D7460</device>
+      <device name="Tech2Home iPad Free">BE1C42FABFA477130B16A24302D6D140</device>
+      <device name="CommandFusion iPhone4S 16GB White">1AA37565C0BFC23BBBF9D7AB2B8156E4</device>
+      <device name="CommandFusion White iPad2">A65B95A392D915326B24CC37C7A88537</device>
+      <device name="CommandFusion Black iPad2">4A10D1837F75AF1FC608D8C964A47900</device>
+      <device name="Alan Michael iPad">F755FB0A970C99777E8A8F66903FB66E</device>
+      <device name="CommandFusion iPhone 4">5AE0AE1AD7C838CFAE3BA26D23ED0712</device>
+      <device name="Development iPad #2">F23E70BC8C90C29C94610D9B35F95A88</device>
+      <device name="GuiLink iPad">7AE2743F5FB3D11EDAA5A6A2A6A90C04</device>
+      <device name="Natalie Bassat iPad">0B95D77CEEDEC3BEACFC13CDF50B9875</device>
+      <device name="Andrew Bassat iPad">AF0B8BA1EFB34E1672D53768E0DCCCAD</device>
+      <device name="Lisa iPhone 3G">0D19F0E73C0A5334F0E468234AFEA2BB</device>
+      <device name="CommandFusion iPad">7FA41088AB80BA09CF10FA579B95C51C</device>
+      <device name="Camberwell Elec iPod Touch">E2DD5563C216102B72A9472C7B51633C</device>
+      <device name="Matt Bassat iPod Touch">A6EF77B9A9EBFAEE74F93FEF73949844</device>
+      <device name="Nat Bassat iPhone">C2B24234531BB262D55DA8ACEEE28753</device>
+      <device name="CommandFusion iTouch 3rd Gen">9C9309EA6867A4C87FEB1BC0E8A1A20C</device>
+      <device name="Jarrod's iPhone 3G">3D0F1EA73558BA41AAE0105C51EDB533</device>
+      <device name="Jarrod iPhone Test">4F982B8139F86701EDDAE79D2C73A6BD</device>
+      <device name="The Pad iTouch 1">79EBA1CF09570F7645A70E22E0EC160F</device>
+      <device name="Ross' iPhone">A8189CCD0CBC962969902DC9F968FF71</device>
+    </devices>
+  </properties>
+  <themes>
+    <theme type="button" name=".btn_single[state='0']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_off.png) 0 20 0 20; text-shadow: rgba(0,0,0,1) 0px 1px 1px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_single[state='1']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_on.png) 0 20 0 20; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".med_bol_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="background" name=".grey"><![CDATA[background-color: #515151;]]></theme>
+    <theme type="text" name=".small_bold_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px 1px 0px; color: White; font-size: 12px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <tokens>
+    <token name="[last-modified]" value="" persist="1" />
+  </tokens>
+  <scripts>
+    <script name="autoupdate.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <txt j="0" x="20" y="21" w="280" h="237" t="small_bold_c" wrap="True" l="0">This project demonstrates how to implement an automatic update checker into your GUI, allowing your clients to be automatically notified when an update to their GUI is available.
+
+It relies on your GUI file being served from a web server that also sends Last-Modified or Etag headers with each response.
+
+Use the JavaScript debugger to see more details and check the main.js script for configuration.
+
+Lastly, make sure you have the global token defined correctly in your project.</txt>
+      <btn j="0" x="64" y="374" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="AutoUpdater.checkForUpdate(true);">
+        <inactive s="0">Check For Updates</inactive>
+        <active s="0">Check For Updates</active>
+      </btn>
+      <txt j="0" x="0" y="0" w="320" h="29" t="med_bol_c" wrap="False" l="0">Auto Update Demo</txt>
+      <subpage name="UpdateOrNot" x="0" y="0" j="1" transition1="moveIn" subtype1="fromBottom" time1="0.2" ease1="easeOut" transition2="moveIn" subtype2="fromBottom" time2="0.2" ease2="easeOut" clickthrough="0" topmost="1" v="0" l="0" />
+      <subpage name="UpToDate" x="0" y="0" j="2" transition1="moveIn" subtype1="fromBottom" time1="0.2" ease1="easeOut" transition2="moveIn" subtype2="fromBottom" time2="0.2" ease2="easeOut" clickthrough="0" topmost="1" v="0" l="0" />
+      <txt j="1" x="0" y="438" w="320" h="42" t="small_bold_c" wrap="False" l="0">Last Updated:
+[[LASTMOD]]</txt>
+      <txt j="2" x="0" y="351" w="320" h="26" t="small_bold_c" wrap="False" l="0">
+      </txt>
+      <btn j="0" x="64" y="264" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="forceUpdate();">
+        <inactive s="0">Force change in GUI File on server...</inactive>
+        <active s="0">Force change in GUI File on server...</active>
+      </btn>
+      <subpage name="ForcingUpdate" x="0" y="0" j="3" transition1="moveIn" subtype1="fromBottom" time1="0.2" ease1="easeOut" transition2="moveIn" subtype2="fromBottom" time2="0.2" ease2="easeOut" clickthrough="0" topmost="0" v="0" l="0" />
+    </portrait>
+    <landscape />
+  </page>
+  <subpage name="UpdateOrNot" w="320" h="480" clip="1" t="grey">
+    <btn j="0" x="64" y="74" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="AutoUpdater.doReload();">
+      <inactive s="0">Download Update</inactive>
+      <active s="0">Download Update</active>
+    </btn>
+    <txt j="0" x="0" y="0" w="320" h="65" t="med_bol_c" wrap="True" l="0">A new version of your automation user interface is available for download.</txt>
+    <btn j="0" x="64" y="134" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="cancelPopups();">
+      <inactive s="0">Ignore Update</inactive>
+      <active s="0">Ignore Update</active>
+    </btn>
+  </subpage>
+  <subpage name="UpToDate" w="320" h="480" clip="1" t="grey">
+    <btn j="0" x="64" y="74" w="180" h="43" t="btn_single" flip="None" sim="1" l="0" s="1" js="cancelPopups();">
+      <inactive s="0">Continue</inactive>
+      <active s="0">Continue</active>
+    </btn>
+    <txt j="0" x="30" y="0" w="260" h="65" t="med_bol_c" wrap="True" l="0">Your automation user interface is up to date.</txt>
+  </subpage>
+  <subpage name="ForcingUpdate" w="320" h="480" clip="1" t="grey">
+    <txt j="0" x="30" y="0" w="260" h="114" t="med_bol_c" wrap="True" l="0">Forcing update of the file on dropbox, please wait...</txt>
+  </subpage>
+</gui>

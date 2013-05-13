@@ -40,19 +40,19 @@
 To add interlock functionality to your GUI, copy the file "interlock.js" in your GUI folder and add it to the project using the Script Manager in guiDesigner.
 
 An example of use can be found in this example's main.js file.</txt>
-      <btn j="1" x="55" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+      <btn j="1" x="55" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1" js="CF.setJoin(join, 1);">
         <inactive s="0">Subpage 1</inactive>
         <active s="0">Subpage 1</active>
       </btn>
-      <btn j="2" x="275" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+      <btn j="2" x="275" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1" js="CF.setJoin(join, 1);">
         <inactive s="0">Subpage 2</inactive>
         <active s="0">Subpage 2</active>
       </btn>
-      <btn j="3" x="491" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+      <btn j="3" x="491" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1" js="CF.setJoin(join, 1);">
         <inactive s="0">Subpage 3</inactive>
         <active s="0">Subpage 3</active>
       </btn>
-      <btn j="4" x="708" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1">
+      <btn j="4" x="708" y="265" w="166" h="42" t="StateButton" flip="None" sim="0" l="0" s="1" js="CF.setJoin(join, 1);">
         <inactive s="0">Subpage 4</inactive>
         <active s="0">Subpage 4</active>
       </btn>

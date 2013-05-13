@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <gui>
   <properties>
     <project>Data Logging Example</project>
@@ -11,8 +12,8 @@
     <debug loaderrors="0" connectionerrors="0" />
   </properties>
   <systems>
-    <system name="Demo system" ip="127.0.0.1" port="10210" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
-      <cmd name="Test Data">START\x00\x01\x02END</cmd>
+    <system name="Demo system" ip="127.0.0.1" port="4998" protocol="tcp" alwayson="1" offlinequeue="0" accept="0" acceptBroadcasts="0" ssl="0" maxconnections="0" heartbeatRx="" heartbeatTx="" heartbeatMode="-1" eom="" connectionStatus="0" disconnectionStatus="0">
+      <cmd name="Test Data" js="CF.send(system, &quot;somedata&quot;+data.substring(1) + &quot;somemoredata&quot;);" jsSendsCommand="False">[join]</cmd>
       <fb name="My Feedback" regex="." />
     </system>
   </systems>
