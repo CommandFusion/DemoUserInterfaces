@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Zip Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="button" name=".btn_sq_med_stretch[state='0']"><![CDATA[padding: 0px 10px 0px 10px; -webkit-border-image: url(btn_sq_med_off.png) 0 10 0 10; text-shadow: rgba(255,255,255,0.78) 0px 1px 0px; color: #404040; font-size: 16px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sq_med_stretch[state='1']"><![CDATA[padding: 0px 8px 0px 8px; -webkit-border-image: url(btn_sq_med_on.png) 0 8 0 8; text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 16px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".title_c"><![CDATA[ text-shadow: rgba(0,0,0,0.39) 0px -1px 0px; color: White; font-size: 20px; font-name: 'HelveticaNeue-Bold'; font-family: 'Helvetica Neue'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".body_c"><![CDATA[ text-shadow: rgba(0,0,0,0.39) 0px -1px 0px; color: White; font-size: 14px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="js-unzip.min.js" />
+    <script name="js-inflate.min.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait>
+      <btn j="0" x="78" y="215" w="163" h="67" t="btn_sq_med_stretch" flip="None" sim="1" l="0" s="1" js="loadZip();">
+        <inactive s="0">Load ZIP JSON</inactive>
+        <active s="0">Load ZIP JSON</active>
+      </btn>
+      <btn j="0" x="78" y="315" w="163" h="67" t="btn_sq_med_stretch" flip="None" sim="1" l="0" s="1" js="loadZip(&quot;xml&quot;, GUIURL+&quot;/testData.xml.zip&quot;);">
+        <inactive s="0">Load ZIP XML</inactive>
+        <active s="0">Load ZIP XML</active>
+      </btn>
+      <txt j="0" x="0" y="0" w="320" h="42" t="title_c" wrap="False" l="0">ZIP DEMO</txt>
+      <txt j="0" x="5" y="31" w="310" h="161" t="body_c" wrap="True" l="0">This demo loads a zip file from a URL, then unzips the first file in the zip, and converts it to a JSON object or an XMLDocument object.
+
+You must be running iViewer with the remote debugger attached to see the events when buttons are pressed.</txt>
+      <txt j="0" x="5" y="398" w="310" h="82" t="body_c" wrap="True" l="0">See the included JavaScript for details on how it works.</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
