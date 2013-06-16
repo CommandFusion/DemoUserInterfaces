@@ -1,0 +1,20 @@
+<gui>
+  <properties>
+    <project>YouTube Embedding Demo</project>
+    <designer>CommandFusion</designer>
+    <size>
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes />
+  <page name="Startup" j="0" transition="" subtype="" time="0" ease="">
+    <portrait />
+    <landscape>
+      <web x="240" y="407" w="490" h="316" j="0" title="0" back="0" forward="0" refresh="0" stop="0" url="http://www.youtube.com/embed/2SqHXWLNkW4" />
+    </landscape>
+  </page>
+</gui>
