@@ -4,13 +4,14 @@ var AutoUpdate = function (params) {
 		fileURLCheck: params.fileURLCheck || params.fileURL || "http://192.168.0.10:8019",
 		checkInterval: params.checkInterval || 60000,
 		lastModifiedToken: params.tokenName || "[last-modified]",
+		isDateModeToken: params.isDateModeToken || "[is-date-mode]",
 		intervalID: null,
 		updateAvailableCallback: params.updateAvailable || null,
 		alreadyUpdatedCallback: params.alreadyUpdated || null,
 		checkingForUpdateCallback: params.checkingForUpdate || null,
-		header: "Last-Modified",
 		requestMethod: params.requestMethod || "HEAD",
-		lastModInfo: null
+		lastModInfo: null,
+		isDateMode: false
 	};
 
 	var Etag = "Etag";
@@ -29,21 +30,22 @@ var AutoUpdate = function (params) {
 		// First get the last modified date stored in global tokens
 		CF.getJoin(CF.GlobalTokensJoin, function(j,v,t) {
 			var lastModifiedToken = t[self.lastModifiedToken];
+			var isDateModeToken = t[self.isDateModeToken];
 			if (lastModifiedToken === undefined) {
 				CF.log("AUTO UPDATE ERROR: Global Token '" + self.lastModifiedToken + "' is missing from your GUI project.");
 				return;
 			} else {
-				CF.log("AUTO UPDATE TOKEN: " + lastModifiedToken);
+				CF.log("LAST AUTO UPDATE TOKEN: " + lastModifiedToken);
 			}
 			// Only convert token value to a date object if the token value is not empty and we got the token value from Last-Modified headers
-			if (self.header == LastModified && lastModifiedToken != "") {
+			if (self.isDateMode && lastModifiedToken != "") {
 				lastModifiedToken = new Date(lastModifiedToken);
 			}
 
 			self.getLastModInfo(self.fileURLCheck, function(lastModInfo) {
 				// This anonymous function is called when the getLastModInfo function completes
 				// Now compare the last mod info to see if it needs reloading
-				if ((lastModifiedToken != "") && ((self.header == LastModified && lastModInfo > lastModifiedToken) || (self.header == Etag && lastModInfo != lastModifiedToken))) {
+				if ((lastModifiedToken != "") && ((self.isDateMode && lastModInfo > lastModifiedToken) || (!self.isDateMode && lastModInfo != lastModifiedToken))) {
 					// GUI needs to be reloaded
 					CF.log("UPDATE AVAILABLE!");
 					self.lastModInfo = lastModInfo;
@@ -52,10 +54,10 @@ var AutoUpdate = function (params) {
 						self.updateAvailableCallback();
 					}
 				} else {
-					CF.log("UPDATE NOT REQUIRED: " + ((lastModInfo != null) ? (self.header == LastModified ? lastModInfo.toUTCString() : lastModInfo) : "NULL"));
+					CF.log("UPDATE NOT REQUIRED: " + ((lastModInfo != null) ? (self.isDateMode ? lastModInfo.toUTCString() : lastModInfo) : "NULL"));
 					// Save new last mod info to global token
 					if (lastModInfo) {
-						CF.setToken(CF.GlobalTokensJoin, self.lastModifiedToken, (self.header == LastModified ? lastModInfo.toUTCString() : lastModInfo));
+						CF.setToken(CF.GlobalTokensJoin, self.lastModifiedToken, (self.isDateMode ? lastModInfo.toUTCString() : lastModInfo));
 					}
 					// Only show the confirmation dialog if we manually requested a dialog if already up to date
 					if (alwaysConfirm) {
@@ -78,6 +80,7 @@ var AutoUpdate = function (params) {
 		CF.request(fileURL, self.requestMethod, null, function(status, headers) {
 			if (status == "405") {
 				// Try again, using GET method instead, and use GET for all future checks
+				CF.log(self.requestMethod + " mode not supported by server hosting the GUI.");
 				self.requestMethod = "GET";
 				self.getLastModInfo(fileURL, callback);
 			} else if (status != "200") {
@@ -85,10 +88,10 @@ var AutoUpdate = function (params) {
 				callback(null);
 			} else {
 				if (headers[LastModified]) {
-					self.header = LastModified;
+					self.isDateMode = true;
 					callback(new Date(headers[LastModified]));
 				} else if (headers[Etag]) {
-					self.header = Etag;
+					self.isDateMode = false;
 					callback(headers[Etag]);
 				} else {
 					CF.log("AUTO UPDATE ERROR: Both the 'Last-Modified' and 'Etag' headers were not sent with reply from the web server hosting the GUI file.");
@@ -100,7 +103,7 @@ var AutoUpdate = function (params) {
 
 	self.doReload = function () {
 		if (self.fileURL != "") {
-			CF.setToken(CF.GlobalTokensJoin, self.lastModifiedToken, (self.header == "Last-Modified" ? self.lastModInfo.toUTCString() : self.lastModInfo));
+			CF.setToken(CF.GlobalTokensJoin, self.lastModifiedToken, (self.isDateMode ? self.lastModInfo.toUTCString() : self.lastModInfo));
 			CF.loadGUI(self.fileURL, {reloadGUI: true, reloadAssets: true, reloadAllAssets: true});
 		}
 	};

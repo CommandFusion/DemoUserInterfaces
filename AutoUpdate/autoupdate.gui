@@ -51,6 +51,7 @@
   </themes>
   <tokens>
     <token name="[last-modified]" value="" persist="1" />
+    <token name="[is-date-mode]" value="" persist="1" />
   </tokens>
   <scripts>
     <script name="autoupdate.js" />
