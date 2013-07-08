@@ -193,5 +193,34 @@ var Interlock = {
 			return false;
 		}
 		return true;
+	},
+
+	/**
+	 * Automatically create interlock groups based on global tokens starting with 'interlock_'
+	 * Globa Token value should be an array of join numbers (with or without the 'd') separated by commas (with or without a space after the comma)
+	 */
+	setup: function() {
+		CF.getJoin(CF.GlobalTokensJoin, function(j,v,t) {
+			for (tokenName in t) {
+				if (tokenName.indexOf("interlock_") === 0) {
+					var joins = t[tokenName].replace(" ", "").split(",");
+					for (var i = 0; i<joins.length; i++) {
+						if (joins[i].indexOf("d") !== 0) {
+							joins[i] = "d" + joins[i];
+						}
+					}
+					var name = tokenName.substr(tokenName.indexOf("interlock_") + "interlock_".length);
+					CF.log("Created Interlock: " + name + " - " + joins.join(", "));
+					Interlock.create(name, joins);
+				}
+			}
+		});
 	}
 };
+
+CF.modules.push({
+	name: "Interlock",       // the name of the module (mostly for display purposes)
+	setup: Interlock.setup,  // the setup function to call
+	object: Interlock,       // the object to which the setup function belongs ("this")
+	version: 1.0             // An optional module version number that is displayed in the Remote Debugger
+});
