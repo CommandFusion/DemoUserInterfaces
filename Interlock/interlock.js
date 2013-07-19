@@ -6,7 +6,7 @@
 // The module provides a suite of simple calls to manage interlocks:
 //
 // * create interlock groups via global tokens in guiDesigner
-// Right Click project node (in project tree) and choose 'Global Token Properties..'
+// Right Click project node (in project tree) and choose 'Global Token Manager..'
 // Create a new token in the format: interlock_groupName (must start with prefix 'interlock_')
 // Enter the digital join numbers separated by commas, eg: 1,2,3,4,5
 // The interlock will then be automatically created at runtime by this script.
