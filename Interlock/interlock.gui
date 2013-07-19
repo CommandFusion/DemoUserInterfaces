@@ -27,7 +27,12 @@
     <theme type="text" name=".Medium_C_White"><![CDATA[ text-shadow: rgba(0,0,0,1) 1px 1px 0px; color: White; font-size: 18px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="text" name=".Mini_C_White"><![CDATA[ color: White; font-size: 14px; font-name: 'ArialMT'; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
     <theme type="text" name=".Medium_C_Black"><![CDATA[ color: Black; font-size: 18px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".StateButtonOrange[state='0']"><![CDATA[padding: 0px 0px 0px 10px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8000; color: White; font-size: 14px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; font-weight: bold; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".StateButtonOrange[state='1']"><![CDATA[padding: 0px 0px 0px 10px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #80FFFF; color: Black; font-size: 14px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; font-weight: bold; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
   </themes>
+  <tokens>
+    <token name="interlock_zones" value="10,11,12,13,14" />
+  </tokens>
   <scripts>
     <script name="interlock.js" />
     <script name="main.js" />
@@ -35,11 +40,13 @@
   <page name="Startup" j="0" tags="" transition="None" subtype="None" time="0" ease="">
     <portrait />
     <landscape t="Blue">
-      <txt j="0" x="6" y="1" w="1018" h="183" t="Medium_L_White" wrap="True" l="0" tags="">Interlock module demonstration
+      <txt j="0" x="6" y="1" w="1018" h="203" t="Medium_L_White" wrap="True" l="0" tags="">Interlock module demonstration
 
 To add interlock functionality to your GUI, copy the file "interlock.js" in your GUI folder and add it to the project using the Script Manager in guiDesigner.
 
-An example of use can be found in this example's main.js file.</txt>
+An example of use can be found in this example's main.js file.
+
+Also check Project Properties &gt; Global Token Manager for an example on creating an interlock group without code.</txt>
       <btn j="1" x="55" y="265" w="166" h="42" t="StateButton" flip="None" sim="2" l="0" s="1" tags="">
         <inactive s="0">Subpage 1</inactive>
         <active s="0">Subpage 1</active>
@@ -62,6 +69,26 @@ An example of use can be found in this example's main.js file.</txt>
       <subpage name="Subpage3" x="492" y="322" j="300" transition1="moveIn" subtype1="fromBottom" time1="0.5" ease1="easeIn" transition2="moveIn" subtype2="fromBottom" time2="0.5" ease2="easeOut" clickthrough="0" topmost="0" v="1" l="0" tags="" />
       <subpage name="Subpage4" x="708" y="322" j="400" transition1="moveIn" subtype1="fromBottom" time1="0.5" ease1="easeIn" transition2="moveIn" subtype2="fromBottom" time2="0.5" ease2="easeOut" clickthrough="0" topmost="0" v="1" l="0" tags="" />
       <txt j="1" x="464" y="209" w="455" h="54" t="Medium_R_White" wrap="False" l="0" tags="">Current selection</txt>
+      <btn j="10" x="69" y="705" w="166" h="42" t="StateButtonOrange" flip="None" sim="2" l="0" s="1" tags="">
+        <inactive s="0">Zone 1</inactive>
+        <active s="0">Zone 1</active>
+      </btn>
+      <btn j="11" x="249" y="705" w="166" h="42" t="StateButtonOrange" flip="None" sim="2" l="0" s="1" tags="">
+        <inactive s="0">Zone 2</inactive>
+        <active s="0">Zone 2</active>
+      </btn>
+      <btn j="12" x="429" y="705" w="166" h="42" t="StateButtonOrange" flip="None" sim="2" l="0" s="1" tags="">
+        <inactive s="0">Zone 3</inactive>
+        <active s="0">Zone 3</active>
+      </btn>
+      <btn j="13" x="609" y="705" w="166" h="42" t="StateButtonOrange" flip="None" sim="2" l="0" s="1" tags="">
+        <inactive s="0">Zone 4</inactive>
+        <active s="0">Zone 4</active>
+      </btn>
+      <btn j="14" x="789" y="705" w="166" h="42" t="StateButtonOrange" flip="None" sim="2" l="0" s="1" tags="">
+        <inactive s="0">Zone 5</inactive>
+        <active s="0">Zone 5</active>
+      </btn>
     </landscape>
   </page>
   <subpage name="Subpage1" w="200" h="200" clip="1" t="White">

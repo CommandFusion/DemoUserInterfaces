@@ -5,7 +5,13 @@
 //
 // The module provides a suite of simple calls to manage interlocks:
 //
-// * to create an interlock group:
+// * create interlock groups via global tokens in guiDesigner
+// Right Click project node (in project tree) and choose 'Global Token Properties..'
+// Create a new token in the format: interlock_groupName (must start with prefix 'interlock_')
+// Enter the digital join numbers separated by commas, eg: 1,2,3,4,5
+// The interlock will then be automatically created at runtime by this script.
+//
+// * to create an interlock group via JS:
 // Interlock.create("group name", join1, join2 ... joinN);
 //
 // * to set the currently selected item in an interlock group:
@@ -30,6 +36,7 @@
 // ------------------------------------------------------------------
 var Interlock = {
 	groups: { },			// internal management object
+	tokenPrefix: "interlock_",
 
 	/**
 	 * Create a new Interlock group
@@ -202,14 +209,14 @@ var Interlock = {
 	setup: function() {
 		CF.getJoin(CF.GlobalTokensJoin, function(j,v,t) {
 			for (tokenName in t) {
-				if (tokenName.indexOf("interlock_") === 0) {
+				if (tokenName.toLowerCase().indexOf(Interlock.tokenPrefix) === 0) {
 					var joins = t[tokenName].replace(" ", "").split(",");
 					for (var i = 0; i<joins.length; i++) {
 						if (joins[i].indexOf("d") !== 0) {
 							joins[i] = "d" + joins[i];
 						}
 					}
-					var name = tokenName.substr(tokenName.indexOf("interlock_") + "interlock_".length);
+					var name = tokenName.substr(Interlock.tokenPrefix.length);
 					CF.log("Created Interlock: " + name + " - " + joins.join(", "));
 					Interlock.create(name, joins);
 				}
