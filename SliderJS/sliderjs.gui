@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Slider JS</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" protocol="tcp" accept="0" ip="127.0.0.1" port="10207" origin="0" alwayson="1" inactivityTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
+      <cmd name="Slider Command" js="sliderChanged(data);" jsSendsCommand="False">[sliderval]</cmd>
+    </system>
+  </systems>
+  <themes>
+    <theme type="gauge" name=".slider_vertical[state='0']"><![CDATA[]]></theme>
+    <theme type="gauge" name=".slider_vertical[state='1']"><![CDATA[ background-image: url(slider_vertical_on.png);]]></theme>
+    <theme type="text" name=".title_c"><![CDATA[ text-shadow: rgba(0,0,0,0.39) 0px -1px 0px; color: White; font-size: 20px; font-name: 'HelveticaNeue-Bold'; font-family: 'Helvetica Neue'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait>
+      <img x="146" y="127" w="27" h="227" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">slider_vertical_bg.png</img>
+      <slider j="0" d="0" x="146" y="135" w="27" h="208" min="0" max="65535" decimals="0" dragCmd="Slider Command" releaseCmd="Slider Command" unit="decimal" t="slider_vertical" sim="1" l="0" tags="">
+        <indicator state="0" offsetX="0" offsetY="0" x="0" y="0" w="0" h="0" t="">slider_indicator.png</indicator>
+        <indicator state="1" offsetX="0" offsetY="0" x="0" y="0" w="0" h="0" t="">slider_indicator.png</indicator>
+      </slider>
+      <txt j="1" x="4" y="24" w="313" h="48" t="title_c" wrap="False" l="0" tags="output">MSB: 0, LSB: 0</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
