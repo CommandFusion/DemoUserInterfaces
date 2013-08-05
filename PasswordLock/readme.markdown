@@ -1,4 +1,4 @@
-# Passwork Lock Module
+# Password Lock Module
 Use this module in your iViewer projects to add simple password validation for your users.
 
 By default the module will perform a page flip when correct password is entered, but you could change this to do whatever you need within the JavaScript.
@@ -10,6 +10,8 @@ By default the module will perform a page flip when correct password is entered,
 	* `[password]` = the valid password. Eg. `1234`.
 	* `[passSuccessPage]` = the name of the page to flip to when password is entered correctly. Eg. `Welcome`. This page must exist in your project.
 4. Add the buttons to your password entry screen, and call the `PassLock.keyPress` and `PassLock.clear` JavaScript functions as required.
+
+If you don't want to mask the user input with asterisks, then you can change line 3 of the JavaScript module to remove the asterisk, then the actual text will be rendered. Eg. `	maskChar: "",`
 
 ## Demo
 Open up the passwordlock.gui file in guiDesigner and run it on your device to see it in action. You can see the appropriate JavaScript calls to place on your buttons in this demo.
