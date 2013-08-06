@@ -9,6 +9,8 @@
 // Right Click project node (in project tree) and choose 'Global Token Manager..'
 // Create a new token in the format: interlock_groupName (must start with prefix 'interlock_')
 // Enter the digital join numbers separated by commas, eg: 1,2,3,4,5
+// Optionally, enter the join number range (inclusive), eg: 1-5
+// Or even mix the two formats to result in a single interlock across multiple ranges, eg: 1-5,8,10,20-30
 // The interlock will then be automatically created at runtime by this script.
 //
 // * to create an interlock group via JS:
@@ -210,7 +212,23 @@ var Interlock = {
 		CF.getJoin(CF.GlobalTokensJoin, function(j,v,t) {
 			for (tokenName in t) {
 				if (tokenName.toLowerCase().indexOf(Interlock.tokenPrefix) === 0) {
-					var joins = t[tokenName].replace(" ", "").split(",");
+					// Check if using comma separated or hyphenated format for join list
+					var joins = [], joinSegments = [];
+					joinSegments = t[tokenName].replace(" ", "").split(",");
+					for (var i = 0; i<joinSegments.length; i++) {
+						var seg = joinSegments[i];
+						if (seg.indexOf("-") > 0) {
+							var limits = seg.split("-");
+							if (limits.length != 2) {
+								CF.log("Interlock token join range is invalid: " + t[tokenName]);
+								continue; // abort and jump to the next segment
+							}
+							joins = joins.concat(Interlock.range(limits[0], limits[1]));
+						} else {
+							joins.push(seg);
+						}
+					}
+
 					for (var i = 0; i<joins.length; i++) {
 						if (joins[i].indexOf("d") !== 0) {
 							joins[i] = "d" + joins[i];
@@ -222,8 +240,15 @@ var Interlock = {
 				}
 			}
 		});
+	},
+
+	range: function(start, stop) {
+		for (var r = []; start <= stop; r.push(""+start++));
+		return r;
 	}
 };
+
+
 
 CF.modules.push({
 	name: "Interlock",       // the name of the module (mostly for display purposes)

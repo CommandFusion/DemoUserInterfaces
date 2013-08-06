@@ -31,7 +31,7 @@
     <theme type="button" name=".StateButtonOrange[state='1']"><![CDATA[padding: 0px 0px 0px 10px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #80FFFF; color: Black; font-size: 14px; font-name: 'DroidSans-Bold'; font-family: 'Droid Sans'; font-weight: bold; font-style: none; text-decoration: none; text-align: left; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
   </themes>
   <tokens>
-    <token name="interlock_zones" value="10,11,12,13,14" />
+    <token name="interlock_zones" value="10-14,15,16,20-25" />
   </tokens>
   <scripts>
     <script name="interlock.js" />
