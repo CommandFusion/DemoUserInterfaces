@@ -5,14 +5,22 @@ This demonstration GUI is designed to showcase the ability to create dials, volu
 ## Usage
 
 1. Add the dial.js file to your [guiDesigner](http://www.commandfusion.com/guidesigner.html) project.
-2. Edit the dial.js to configure your settings at the very end of the code
+2. Add the main.js file to your guiDesigner project. If you already have a main.js for some other use, you can merge the contents of them without issue.
+3. Edit the main.js to configure your settings
+4. Create a function to be notified when the dial rotation changes so that you can use the rotation angle parameter to control external systems any way you need.
 
 ### Example code to create your own dial JavaScript object:
 ```javascript
 // Custom parameters
-var newDial = new Dial("s1", {srcJoin: "s2", maxTime: 0.5, minTime: 0.3, angleOffset: -45, maxAngle: 260});
-// Default parameters - just need to supply join number for the object to rotate
-var newDial2 = new Dial("s10");
+var newDial = new Dial("s1", callbackFunction, {srcJoin: "s2", maxTime: 0.5, minTime: 0.3, angleOffset: -45, maxAngle: 260});
+// Default parameters - just need to supply join number for the object to rotate and the callback function to be notified when the dial rotates:
+var newDial2 = new Dial("s10", callbackFunction);
+
+function callbackFunction(newAngle) {
+	// This function will be called when the dial rotation angle changes.
+	// Do something with the new angle variable, such as control a light or something.
+	CF.send("My Lighting System", "light(1)=" + newAngle); // Sample of sending the angle to the system as part of a direct send command.
+}
 ```
 
 ## Video Demo

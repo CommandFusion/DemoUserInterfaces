@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <gui>
   <properties>
-    <project>Dial Demo</project>
+    <project>Dial Demo for iPhone5</project>
     <designer>CommandFusion</designer>
     <size autoposition="scale">
-      <portrait width="320" height="480" />
-      <landscape width="480" height="320" />
+      <portrait width="320" height="568" />
+      <landscape width="568" height="320" />
     </size>
     <autoposition />
     <imagefolder>
@@ -16,6 +16,7 @@
     <system name="Loopback" protocol="tcp" accept="0" ip="127.0.0.1" port="10210" origin="0" alwayson="1" inactivityTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="0" ssl="0">
       <cmd name="SliderCommand" js="myDial.setRotation(data);" jsSendsCommand="False">[sliderval]</cmd>
     </system>
+    <system name="Test" protocol="tcp" accept="0" ip="192.168.0.10" port="4998" origin="0" alwayson="1" inactivityTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="0" ssl="0" />
   </systems>
   <scripts>
     <script name="dial.js" />
@@ -35,7 +36,7 @@
   </themes>
   <page name="Startup" j="0" tags="" transition="None" subtype="None" time="0" ease="">
     <portrait t="portrait">
-      <slider j="1" d="1" x="73" y="423" w="174" h="21" min="0" max="260" decimals="0" pressCmd="SliderCommand" dragCmd="SliderCommand" releaseCmd="SliderCommand" unit="decimal" t="horizontal_lrg" sim="1" l="0" tags="">
+      <slider j="1" d="1" x="73" y="473" w="174" h="21" min="0" max="260" decimals="0" pressCmd="SliderCommand" dragCmd="SliderCommand" releaseCmd="SliderCommand" unit="decimal" t="horizontal_lrg" sim="1" l="0" tags="">
         <indicator state="0" offsetX="0" offsetY="0" x="0" y="0" w="0" h="0" t="">indicator_off.png</indicator>
         <indicator state="1" offsetX="0" offsetY="0" zoom="100" />
       </slider>
@@ -55,7 +56,7 @@
           <img x="10" y="0" w="43" h="43">transports_grey_minus_on_25.png</img>
         </active>
       </btn>
-      <btn j="0" x="235" y="47" w="65" h="43" t="top_btn_single" flip="Return" sim="1" l="0" s="0" tags="" js="myDial.setRotation(20, true);" repeatdelay="100">
+      <btn j="0" x="235" y="47" w="65" h="43" t="top_btn_single" flip="None" sim="1" l="0" s="0" tags="" js="myDial.setRotation(20, true);" repeatdelay="100">
         <inactive s="0">
           <img x="10" y="0" w="43" h="43">transports_grey_plus_off_25.png</img>
         </inactive>
@@ -63,8 +64,8 @@
           <img x="10" y="0" w="43" h="43">transports_grey_plus_on_25.png</img>
         </active>
       </btn>
-      <img x="36" y="116" w="247" h="247" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">knob_bg.png<gesture name="Tappity Tap Tap" type="tap" taps="1" touches="1"><action phase="begin" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture><gesture name="Draggity Drag Drag" type="pan" taps="1" touches="1"><action phase="change" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture></img>
-      <img x="76" y="156" w="167" h="167" j="1" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">knob.png</img>
+      <img x="36" y="164" w="247" h="247" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">knob_bg.png<gesture name="Tappity Tap Tap" type="tap" taps="1" touches="1"><action phase="begin" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture><gesture name="Draggity Drag Drag" type="pan" taps="1" touches="1"><action phase="change" js="myDial.rotateToPoint(gesture.x, gesture.y);" /></gesture></img>
+      <img x="76" y="204" w="167" h="167" j="1" clickthrough="1" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">knob.png</img>
     </portrait>
     <landscape />
   </page>

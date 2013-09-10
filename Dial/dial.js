@@ -3,22 +3,25 @@
 
  AUTHORS:	Jarrod Bell, CommandFusion
  CONTACT:	support@commandfusion.com
- VERSION:	v 1.0
+ VERSION:	v 1.1
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  USAGE:
 
- // Custom parameters
- var newDial = new Dial("s1", {srcJoin: "s2", maxTime: 0.5, minTime: 0.3, angleOffset: -45, maxAngle: 260});
- // Default parameters - just need to supply join number for the object to rotate
- var newDial2 = new Dial("s10");
-
+ Custom parameters:
+ ------------------
+ var newDial = new Dial("s1", callbackFunction, {srcJoin: "s2", maxTime: 0.5, minTime: 0.3, angleOffset: -45, maxAngle: 260});
+ 
+ Default parameters - just need to supply join number for the object to rotate and the callback function to be notified
+ when the dial rotates:
+ ----------------------
+ var newDial2 = new Dial("s10", callbackFunction);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 */
 
-var Dial = function(join, params) {
+var Dial = function(join, callback, params) {
 
 	var self = {
 		// Join string for the object to rotate
@@ -36,7 +39,8 @@ var Dial = function(join, params) {
 		MAX_ANGLE : (params.maxAngle !== undefined) ? params.maxAngle : 360,
 
 		ROTATING : false,
-		NEXT_POS : -1
+		NEXT_POS : -1,
+		callback: callback
 	};	
 
 	self.setRotation = function(pos, relative) {
@@ -61,7 +65,7 @@ var Dial = function(join, params) {
 			var duration = (self.MAX_TIME > 0) ? Math.max(self.MIN_TIME, (self.MAX_TIME / self.MAX_ANGLE) * absDistance) : 0;
 
 			//CF.log("from " + fromAngle + " to " + toAngle + ": distance=" + distance + ", rotationTime=" + duration);
-
+			
 			if (absDistance > 179) {
 				// rotation will go the shortest route possible
 				// so have make sure to set a midpoint if we want to rotate larger than 179 degrees
@@ -91,16 +95,10 @@ var Dial = function(join, params) {
 				});
 			}
 
-			// Set state of power button (any value above 0 will send a digital join high)
-			CF.setJoin("d2", toAngle);
+			if (self.callback !== undefined) {
+				self.callback(toAngle);
+			}
 
-			// Set value of slider, only if we aren't adjusting the slider at the time.
-			// Slider digital joins are not accessible via JavaScript just yet, available in build 216 and greater
-			CF.getJoin("d1", function (j, v) {
-				if (v == 0) {
-					CF.setJoin("a1", (65535 / self.MAX_ANGLE) * toAngle);
-				}
-			});
 		});
 	};
 
@@ -132,6 +130,3 @@ var Dial = function(join, params) {
 	// Return the created instance object
 	return self;
 };
-
-// Create the dial object we want to be able to use in our GUI
-var myDial = new Dial("s1", {srcJoin: "s2", maxTime: 0.2, minTime: 0.1, angleOffset: -45, maxAngle: 260});
