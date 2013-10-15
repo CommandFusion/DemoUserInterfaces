@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Parallax Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <themes>
+    <theme type="button" name=".btn_arrowpad_ok[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_arrowpad_ok_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad_ok[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_arrowpad_ok_on.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_down[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_arrowpad2_down_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_down[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_left[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_arrowpad2_left_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_left[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_right[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_arrowpad2_right_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_right[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_up[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_arrowpad2_up_off.png); color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_arrowpad2_up[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sq_med[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_sq_med_off.png); text-shadow: rgba(255,255,255,0.78) 0px 1px 0px; color: #404040; font-size: 16px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sq_med[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_sq_med_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 16px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sq_lrg[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_sq_lrg_off.png); text-shadow: rgba(255,255,255,0.78) 0px 1px 0px; color: #404040; font-size: 20px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_sq_lrg[state='1']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(btn_sq_lrg_on.png); text-shadow: rgba(0,0,0,0.78) 0px -1px 0px; color: White; font-size: 20px; font-family: 'Verdana'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait>
+      <img x="-328" y="-200" w="1424" h="1424" j="1" clickthrough="0" refresh="0" l="1" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">bg.jpg</img>
+      <img x="0" y="0" w="768" h="1024" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">overlay.png</img>
+      <img x="300" y="621" w="169" h="169" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">btn_arrowpad2_a_bg.png</img>
+      <btn j="0" x="352" y="673" w="64" h="64" t="btn_arrowpad_ok" flip="None" sim="1" l="0" s="1" tags="enter ok select">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="350" y="741" w="69" h="49" t="btn_arrowpad2_down" flip="None" sim="1" l="0" s="0" tags="arrowD down arrowdown dwn arrowdwn dpaddown">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+          <img x="0" y="-50" w="69" h="108">btn_arrowpad2_down_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="300" y="671" w="49" h="69" t="btn_arrowpad2_left" flip="None" sim="1" l="0" s="0" tags="arrowL left arrowleft lft arrowlft dpadleft">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+          <img x="-9" y="0" w="108" h="69">btn_arrowpad2_left_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="420" y="671" w="49" h="69" t="btn_arrowpad2_right" flip="None" sim="1" l="0" s="0" tags="arrowR right arrowright rght arrowrght dpadright">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+          <img x="-50" y="0" w="107" h="69">btn_arrowpad2_right_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="350" y="621" w="69" h="49" t="btn_arrowpad2_up" flip="None" sim="1" l="0" s="0" tags="arrowU up arrowup dpadup">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+          <img x="0" y="-9" w="69" h="107">btn_arrowpad2_up_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="204" y="241" w="67" h="67" t="btn_sq_med" flip="None" sim="1" l="0" s="0" tags="skipback skipprev prev">
+        <inactive s="0">
+          <img x="10" y="10" w="45" h="45">transport_med_fastrewind_off.png</img>
+        </inactive>
+        <active s="0">
+          <img x="10" y="10" w="45" h="45">transport_med_fastrewind_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="274" y="241" w="67" h="67" t="btn_sq_med" flip="None" sim="1" l="0" s="0" tags="rewind reverse rwd">
+        <inactive s="0">
+          <img x="8" y="10" w="45" h="45">transport_med_rewind_off.png</img>
+        </inactive>
+        <active s="0">
+          <img x="8" y="10" w="45" h="45">transport_med_rewind_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="344" y="233" w="82" h="82" t="btn_sq_lrg" flip="None" sim="1" l="0" s="0" tags="play playpause">
+        <inactive s="0">
+          <img x="11" y="10" w="60" h="60">transport_lrg_play_off.png</img>
+        </inactive>
+        <active s="0">
+          <img x="11" y="10" w="60" h="60">transport_lrg_play_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="427" y="241" w="67" h="67" t="btn_sq_med" flip="None" sim="1" l="0" s="0" tags="forward ffwd fwd fastfwd">
+        <inactive s="0">
+          <img x="12" y="10" w="45" h="45">transport_med_forward_off.png</img>
+        </inactive>
+        <active s="0">
+          <img x="12" y="10" w="45" h="45">transport_med_forward_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="497" y="241" w="67" h="67" t="btn_sq_med" flip="None" sim="1" l="0" s="0" tags="skipfwd skipnext next">
+        <inactive s="0">
+          <img x="11" y="10" w="45" h="45">transport_med_fastforward_off.png</img>
+        </inactive>
+        <active s="0">
+          <img x="11" y="10" w="45" h="45">transport_med_fastforward_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="315" y="328" w="67" h="67" t="btn_sq_med" flip="None" sim="1" l="0" s="0" tags="pause">
+        <inactive s="0">
+          <img x="10" y="10" w="45" h="45">transport_med_pause_off.png</img>
+        </inactive>
+        <active s="0">
+          <img x="10" y="10" w="45" h="45">transport_med_pause_on.png</img>
+        </active>
+      </btn>
+      <btn j="0" x="385" y="328" w="67" h="67" t="btn_sq_med" flip="None" sim="1" l="0" s="0" tags="stop">
+        <inactive s="0">
+          <img x="10" y="10" w="45" h="45">transport_med_stop_off.png</img>
+        </inactive>
+        <active s="0">
+          <img x="10" y="10" w="45" h="45">transport_med_stop_on.png</img>
+        </active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+  <subpage name="parallax_bg" w="1424" h="1424" clip="1">
+    <img x="0" y="0" w="1424" h="1424" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">bg.jpg</img>
+  </subpage>
+</gui>
