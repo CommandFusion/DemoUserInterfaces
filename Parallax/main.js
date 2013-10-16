@@ -36,7 +36,7 @@ function attitudeCallback(sensorType, data) {
 
 	var roll = data[0].roll;
 	var pitch = data[0].pitch;
-	//var yaw = Math.abs(data[0].yaw);
+	//var yaw = data[0].yaw;
 
 	// Roll values to expect:
 	// 0 = Flat
@@ -50,4 +50,5 @@ function attitudeCallback(sensorType, data) {
 	} else {
 		CF.setProperties({join: parallaxImageJoin, y: (pitch-1.5)*yRadianMovement}, 0.0, 0.5);
 	}
+	//CF.setProperties({join: parallaxImageJoin, zrotation: yaw*30}, 0.0, 0.5);
 }
