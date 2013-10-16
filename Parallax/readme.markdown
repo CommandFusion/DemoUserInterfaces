@@ -3,7 +3,7 @@ This demo shows a way to use the mobile device hardware sensors to make the page
 
 ![parallax effect](https://raw.github.com/CommandFusion/DemoUserInterfaces/master/Parallax/screenshot/iviewer-parallax.gif)
 
-[Full Demo Video on YouTube](http://www.youtube.com/watch?v=ie5sh6t4N9I)
+[Full Demo Video on YouTube](http://www.youtube.com/watch?v=Sbs-HEg4qCg)
 
 ## Tips
 To change the sensitivity of the effect, you can use a larger or smaller image.  
