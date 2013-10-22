@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <gui>
   <properties>
     <project>bitmask</project>
@@ -15,6 +16,18 @@
     <system name="LightingSystem" protocol="tcp" accept="0" ip="192.168.0.10" port="10207" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
       <fb name="INCOMING_DATA" regex="\x22\x01\x10\x00\x00\x00([\x00-\xFF])" />
     </system>
+    <system name="LightingSystem_1" protocol="tcp" accept="0" ip="192.168.0.10" port="10208" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
+      <fb name="INCOMING_GROUP" regex="\x22\x01\x10\x00\x00\x00([\x00-\xFF])">
+        <group index="1" name="" datatype="a" target="d1" transform="{{value and 1}}" unit="hexb" />
+        <group index="1" name="" datatype="a" target="d2" transform="{{value and 2}}" unit="hexb" />
+        <group index="1" name="" datatype="a" target="d3" transform="{{value and 4}}" unit="hexb" />
+        <group index="1" name="" datatype="a" target="d4" transform="{{value and 8}}" unit="hexb" />
+        <group index="1" name="" datatype="a" target="d5" transform="{{value and 16}}" unit="hexb" />
+        <group index="1" name="" datatype="a" target="d6" transform="{{value and 32}}" unit="hexb" />
+        <group index="1" name="" datatype="a" target="d7" transform="{{value and 64}}" unit="hexb" />
+        <group index="1" name="" datatype="a" target="d8" transform="{{value and 128}}" unit="hexb" />
+      </fb>
+    </system>
   </systems>
   <scripts>
     <script name="main.js" />
@@ -23,6 +36,7 @@
     <theme type="background" name=".bg"><![CDATA[background-color: #DBE7E8;]]></theme>
     <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080C0; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
     <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8040; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".txt_c"><![CDATA[ color: Black; font-size: 18px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
   </themes>
   <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
     <portrait t="bg">
@@ -82,6 +96,7 @@
         <inactive s="0">TEST FF</inactive>
         <active s="0">TEST FF</active>
       </btn>
+      <txt j="1" x="109" y="411" w="100" h="54" t="txt_c" wrap="False" l="0" tags="">X</txt>
     </portrait>
     <landscape />
   </page>
