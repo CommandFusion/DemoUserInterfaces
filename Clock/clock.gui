@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Analog Clock Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <themes>
+    <theme type="background" name=".blue"><![CDATA[background-color: #DDE3E6;]]></theme>
+  </themes>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait t="blue">
+      <img x="35" y="113" w="250" h="258" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_bg.png</img>
+      <img x="148" y="129" w="24" h="222" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_hour.png</img>
+      <img x="148" y="129" w="24" h="222" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_minute.png</img>
+      <img x="148" y="129" w="24" h="222" j="3" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_second.png</img>
+      <img x="35" y="113" w="250" h="258" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_overlay.png</img>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
