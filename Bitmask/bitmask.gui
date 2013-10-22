@@ -1,0 +1,88 @@
+<gui>
+  <properties>
+    <project>bitmask</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="LightingSystem" protocol="tcp" accept="0" ip="192.168.0.10" port="10207" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
+      <fb name="INCOMING_DATA" regex="\x22\x01\x10\x00\x00\x00([\x00-\xFF])" />
+    </system>
+  </systems>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <themes>
+    <theme type="background" name=".bg"><![CDATA[background-color: #DBE7E8;]]></theme>
+    <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080C0; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8040; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait t="bg">
+      <btn j="1" x="45" y="22" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">1</inactive>
+        <active s="0">1</active>
+      </btn>
+      <btn j="2" x="105" y="22" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">2</inactive>
+        <active s="0">2</active>
+      </btn>
+      <btn j="3" x="165" y="22" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">3</inactive>
+        <active s="0">3</active>
+      </btn>
+      <btn j="4" x="225" y="22" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">4</inactive>
+        <active s="0">4</active>
+      </btn>
+      <btn j="5" x="45" y="82" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">5</inactive>
+        <active s="0">5</active>
+      </btn>
+      <btn j="6" x="105" y="82" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">6</inactive>
+        <active s="0">6</active>
+      </btn>
+      <btn j="7" x="165" y="82" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">7</inactive>
+        <active s="0">7</active>
+      </btn>
+      <btn j="8" x="225" y="82" w="50" h="50" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">8</inactive>
+        <active s="0">8</active>
+      </btn>
+      <btn j="0" x="60" y="216" w="90" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="parseFeedback(&quot;something&quot;, &quot;\x22\x01\x10\x00\x00\x00\x01\x35&quot;);">
+        <inactive s="0">TEST 1</inactive>
+        <active s="0">TEST 1</active>
+      </btn>
+      <btn j="0" x="170" y="216" w="90" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="parseFeedback(&quot;something&quot;, &quot;\x22\x01\x10\x00\x00\x00\x02\x35&quot;);">
+        <inactive s="0">TEST 2</inactive>
+        <active s="0">TEST 2</active>
+      </btn>
+      <btn j="0" x="60" y="276" w="90" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="parseFeedback(&quot;something&quot;, &quot;\x22\x01\x10\x00\x00\x00\x03\x35&quot;);">
+        <inactive s="0">TEST 3</inactive>
+        <active s="0">TEST 3</active>
+      </btn>
+      <btn j="0" x="170" y="276" w="90" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="parseFeedback(&quot;something&quot;, &quot;\x22\x01\x10\x00\x00\x00\x04\x35&quot;);">
+        <inactive s="0">TEST 4</inactive>
+        <active s="0">TEST 4</active>
+      </btn>
+      <btn j="0" x="60" y="336" w="90" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="parseFeedback(&quot;something&quot;, &quot;\x22\x01\x10\x00\x00\x00\x15\x35&quot;);">
+        <inactive s="0">TEST 15</inactive>
+        <active s="0">TEST 15</active>
+      </btn>
+      <btn j="0" x="170" y="336" w="90" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="parseFeedback(&quot;something&quot;, &quot;\x22\x01\x10\x00\x00\x00\xFF\x35&quot;);">
+        <inactive s="0">TEST FF</inactive>
+        <active s="0">TEST FF</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
