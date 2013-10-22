@@ -96,7 +96,6 @@
         <inactive s="0">TEST FF</inactive>
         <active s="0">TEST FF</active>
       </btn>
-      <txt j="1" x="109" y="411" w="100" h="54" t="txt_c" wrap="False" l="0" tags="">X</txt>
     </portrait>
     <landscape />
   </page>
