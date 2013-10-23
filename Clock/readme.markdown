@@ -11,5 +11,5 @@ Every second a function is called to update the hand rotations using the `CF.set
 **NOTE:** The rotation happens at the center point of an image object, so the clock hand graphics are designed with the center rotation point of the hand in the center of the image, with transparent pixels used to oversize the graphic.
 
 ## Demo
-Use the GUI File URL below in iViewer settings to load the project into your iOS or Android device:
+Use the GUI File URL below in iViewer settings to load the project into your iOS or Android device:  
 http://cmdf.us/clockgui
