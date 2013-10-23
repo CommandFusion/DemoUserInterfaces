@@ -17,14 +17,21 @@
   </scripts>
   <themes>
     <theme type="background" name=".blue"><![CDATA[background-color: #DDE3E6;]]></theme>
+    <theme type="text" name=".txt_c"><![CDATA[ color: Black; font-size: 14px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
   </themes>
   <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
     <portrait t="blue">
-      <img x="35" y="113" w="250" h="258" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_bg.png</img>
-      <img x="148" y="129" w="24" h="222" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_hour.png</img>
-      <img x="148" y="129" w="24" h="222" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_minute.png</img>
-      <img x="148" y="129" w="24" h="222" j="3" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_second.png</img>
-      <img x="35" y="113" w="250" h="258" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_overlay.png</img>
+      <img x="35" y="203" w="250" h="258" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_bg.png</img>
+      <img x="148" y="219" w="24" h="222" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_hour.png</img>
+      <img x="148" y="219" w="24" h="222" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_minute.png</img>
+      <img x="148" y="219" w="24" h="222" j="3" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_hand_second.png</img>
+      <img x="35" y="203" w="250" h="258" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_overlay.png</img>
+      <img x="119" y="14" w="82" h="84" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_small_bg.png</img>
+      <img x="156" y="18" w="10" h="76" j="11" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_small_hour.png</img>
+      <img x="156" y="18" w="10" h="76" j="12" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_small_minute.png</img>
+      <img x="156" y="18" w="10" h="76" j="13" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">clock_small_second.png</img>
+      <txt j="0" x="15" y="35" w="100" h="41" t="txt_c" wrap="False" l="0" tags="">small clock</txt>
+      <txt j="0" x="110" y="160" w="100" h="41" t="txt_c" wrap="False" l="0" tags="">large clock</txt>
     </portrait>
     <landscape />
   </page>
