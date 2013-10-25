@@ -309,7 +309,7 @@ var SpinningAnimation = function(params) {
 
 
 // Trigger animations via digital join triggering (buttons in simulation mode, etc) or direct JS calls (button actions, gestures, commands, etc)
-var Anim1 = new AnimIcon({baseFileName: "downlight-##.png", framesPerSecond: 10, totalFrames: 12, serialJoin: 1, digitalJoin: 1, direction: 1, loop: true, bounce: true});
+var Anim1 = new AnimIcon({baseFileName: "downlight-##.png", framesPerSecond: 10, totalFrames: 12, serialJoin: 1, triggerJoin: 1, direction: 1, loop: true, bounce: true});
 // Trigger animations via only direct JS calls (button actions, gestures, commands, etc)
 var Anim2 = new AnimIcon({baseFileName: "downlight-##.png", framesPerSecond: 10, totalFrames: 12, serialJoin: 1});
 // Single frame, rotation-based example:
