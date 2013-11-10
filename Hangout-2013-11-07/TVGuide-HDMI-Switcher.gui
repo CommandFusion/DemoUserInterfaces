@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Google Hangout 2013-11-07</project>
+    <designer>Jarrod Bell</designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="HDMI-Matrix" protocol="tcp" accept="0" ip="127.0.0.1" port="10207" origin="0" alwayson="1" inactivityTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
+      <cmd name="test_o01i02">o01i02</cmd>
+      <fb name="hdmi_route" regex="o(\d+)i(\d+)">
+        <group index="1" name="output" datatype="a" target="s1" settoken="1" transform="value + 0" />
+        <group index="2" name="input" datatype="s" target="s1" settoken="1" />
+        <onmatch target="s$output$" value="$input$" />
+      </fb>
+    </system>
+  </systems>
+  <themes>
+    <theme type="button" name=".guide_item[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080FF; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".guide_item[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8000; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".txt_l"><![CDATA[ color: White; font-size: 18px; font-name: 'Avenir-Heavy'; font-family: 'Avenir'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".txt_c"><![CDATA[ color: White; font-size: 18px; font-name: 'Avenir-Heavy'; font-family: 'Avenir'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait />
+    <landscape>
+      <list j="1" x="0" y="56" w="1024" h="240" headerSub="" titleSub="" contentSub="GuideRow" footerSub="" orientation="v" l="0" swipedelete="0" tags="" />
+      <txt j="0" x="0" y="21" w="284" h="33" t="txt_l" wrap="False" l="0" tags="">Dynamic TV Guide Listing</txt>
+      <txt j="0" x="0" y="331" w="284" h="33" t="txt_l" wrap="False" l="0" tags="">HDMI Matrix</txt>
+      <txt j="0" x="43" y="396" w="62" h="34" t="txt_c" wrap="False" l="0" tags="">OUT 1</txt>
+      <txt j="0" x="113" y="396" w="62" h="34" t="txt_c" wrap="False" l="0" tags="">OUT 2</txt>
+      <txt j="0" x="183" y="396" w="62" h="34" t="txt_c" wrap="False" l="0" tags="">OUT 3</txt>
+      <txt j="0" x="253" y="396" w="62" h="34" t="txt_c" wrap="False" l="0" tags="">OUT 4</txt>
+      <btn j="0" x="48" y="432" w="50" h="50" t="guide_item" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="1">X</inactive>
+        <active s="1">X</active>
+      </btn>
+      <btn j="0" x="118" y="432" w="50" h="50" t="guide_item" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="2">X</inactive>
+        <active s="2">X</active>
+      </btn>
+      <btn j="0" x="188" y="432" w="50" h="50" t="guide_item" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="3">X</inactive>
+        <active s="3">X</active>
+      </btn>
+      <btn j="0" x="258" y="432" w="50" h="50" t="guide_item" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="4">X</inactive>
+        <active s="4">X</active>
+      </btn>
+      <btn j="0" x="135" y="514" w="86" h="50" t="guide_item" flip="None" sim="1" l="0" s="1" tags="" cmd="test_o01i02">
+        <inactive s="0">TEST</inactive>
+        <active s="0">TEST</active>
+      </btn>
+    </landscape>
+  </page>
+  <subpage name="GuideRow" w="1200" h="50" clip="1">
+    <btn j="1" x="0" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="1">X</inactive>
+      <active s="1">X</active>
+    </btn>
+    <btn j="2" x="50" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="2">X</inactive>
+      <active s="2">X</active>
+    </btn>
+    <btn j="3" x="100" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="3">X</inactive>
+      <active s="3">X</active>
+    </btn>
+    <btn j="4" x="150" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="4">X</inactive>
+      <active s="4">X</active>
+    </btn>
+    <btn j="5" x="200" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="5">X</inactive>
+      <active s="5">X</active>
+    </btn>
+    <btn j="6" x="250" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="6">X</inactive>
+      <active s="6">X</active>
+    </btn>
+    <btn j="7" x="300" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="7">X</inactive>
+      <active s="7">X</active>
+    </btn>
+    <btn j="8" x="350" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="8">X</inactive>
+      <active s="8">X</active>
+    </btn>
+    <btn j="9" x="400" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="9">X</inactive>
+      <active s="9">X</active>
+    </btn>
+    <btn j="10" x="450" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="10">X</inactive>
+      <active s="10">X</active>
+    </btn>
+    <btn j="11" x="500" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="11">X</inactive>
+      <active s="11">X</active>
+    </btn>
+    <btn j="12" x="550" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="12">X</inactive>
+      <active s="12">X</active>
+    </btn>
+    <btn j="13" x="599" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="13">X</inactive>
+      <active s="13">X</active>
+    </btn>
+    <btn j="14" x="649" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="14">X</inactive>
+      <active s="14">X</active>
+    </btn>
+    <btn j="15" x="699" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="15">X</inactive>
+      <active s="15">X</active>
+    </btn>
+    <btn j="16" x="749" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="16">X</inactive>
+      <active s="16">X</active>
+    </btn>
+    <btn j="17" x="799" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="17">X</inactive>
+      <active s="17">X</active>
+    </btn>
+    <btn j="18" x="849" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="18">X</inactive>
+      <active s="18">X</active>
+    </btn>
+    <btn j="19" x="899" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="19">X</inactive>
+      <active s="19">X</active>
+    </btn>
+    <btn j="20" x="949" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="20">X</inactive>
+      <active s="20">X</active>
+    </btn>
+    <btn j="21" x="999" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="21">X</inactive>
+      <active s="21">X</active>
+    </btn>
+    <btn j="22" x="1049" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="22">X</inactive>
+      <active s="22">X</active>
+    </btn>
+    <btn j="23" x="1099" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="23">X</inactive>
+      <active s="23">X</active>
+    </btn>
+    <btn j="24" x="1148" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="24">X</inactive>
+      <active s="24">X</active>
+    </btn>
+  </subpage>
+</gui>
