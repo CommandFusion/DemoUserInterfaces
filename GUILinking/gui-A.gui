@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>GUI A</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="text" name=".txt_c"><![CDATA[ color: White; font-size: 18px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080FF; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8000; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".txt_info"><![CDATA[ color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait>
+      <btn j="0" x="90" y="151" w="141" h="50" t="btn" href="cf://192.168.0.10:8019/gui-B.gui" flip="None" sim="1" l="0" s="1" tags="">
+        <inactive s="0">Switch to GUI B</inactive>
+        <active s="0">Switch to GUI B</active>
+      </btn>
+      <txt j="0" x="65" y="28" w="190" h="100" t="txt_c" wrap="False" l="0" tags="">This is GUI A</txt>
+      <txt j="0" x="16" y="339" w="289" h="136" t="txt_info" wrap="True" l="0" tags="">Change the GUI URL in the button properties to suit your configuration.
+
+If using the guiDesigner upload service, then change the URL to reflect your computers IP Address.</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
