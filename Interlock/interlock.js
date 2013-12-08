@@ -33,8 +33,8 @@
 // * to remove an interlock group (remove interlock functionality):
 // Interlock.remove("group name");
 //
-// Author:  Florent Pillet, CommandFusion
-// Version: 1.1, 13-MAY-2013
+// Authors:  Florent Pillet - CommandFusion, Jarrod Bell - CommandFusion
+// Version: 1.3, 13-DEC-2013
 // ------------------------------------------------------------------
 var Interlock = {
 	groups: { },			// internal management object
@@ -211,10 +211,10 @@ var Interlock = {
 	setup: function() {
 		CF.getJoin(CF.GlobalTokensJoin, function(j,v,t) {
 			for (tokenName in t) {
-				if (tokenName.toLowerCase().indexOf(Interlock.tokenPrefix) === 0) {
+				if (tokenName.toLowerCase().indexOf(Interlock.tokenPrefix.toLowerCase()) === 0) {
 					// Check if using comma separated or hyphenated format for join list
 					var joins = [], joinSegments = [];
-					joinSegments = t[tokenName].replace(" ", "").split(",");
+					joinSegments = t[tokenName].replace(/\s+/g, "").split(",");
 					for (var i = 0; i<joinSegments.length; i++) {
 						var seg = joinSegments[i];
 						if (seg.indexOf("-") > 0) {
@@ -254,5 +254,5 @@ CF.modules.push({
 	name: "Interlock",       // the name of the module (mostly for display purposes)
 	setup: Interlock.setup,  // the setup function to call
 	object: Interlock,       // the object to which the setup function belongs ("this")
-	version: 1.0             // An optional module version number that is displayed in the Remote Debugger
+	version: 1.3             // An optional module version number that is displayed in the Remote Debugger
 });
