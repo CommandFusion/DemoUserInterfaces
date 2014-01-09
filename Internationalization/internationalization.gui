@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Internationalization Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <themes>
+    <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #76C4DE; color: Black; font-size: 12px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #AD0303; color: White; font-size: 12px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".info"><![CDATA[ color: White; font-size: 18px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait>
+      <txt j="102" x="0" y="389" w="320" h="52" t="info" wrap="False" l="0" tags="">New Text Object</txt>
+      <txt j="101" x="0" y="339" w="320" h="52" t="info" wrap="False" l="0" tags="">New Text Object</txt>
+      <txt j="100" x="0" y="289" w="320" h="52" t="info" wrap="False" l="0" tags="">New Text Object</txt>
+      <btn j="0" x="85" y="61" w="150" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="CF.setJoin(&quot;a1&quot;, 1);">
+        <inactive s="0">English</inactive>
+        <active s="0">English</active>
+      </btn>
+      <btn j="0" x="85" y="121" w="150" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="setLocale(&quot;de&quot;)">
+        <inactive s="0">German</inactive>
+        <active s="0">German</active>
+      </btn>
+      <btn j="0" x="85" y="181" w="150" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="CF.setJoin(&quot;a1&quot;, 3);">
+        <inactive s="0">Portuguese</inactive>
+        <active s="0">Portuguese</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
