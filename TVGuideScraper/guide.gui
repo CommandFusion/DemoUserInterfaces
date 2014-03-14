@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Google Hangout 2013-11-07</project>
+    <designer>Jarrod Bell</designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="CommandFusion iPad Mini White 16GB NEW ID">3EF2CC982D292940DA4B4CD023B8892B</device>
+      <device name="Jarrod Bell’s iPad">3C1E289326F51ABCEDFCB61EC226A2C1</device>
+      <device name="asus Nexus 7 4.2.2">D4F0FDB0E90040C12692166FCBD97172</device>
+      <device name="asus Nexus 7">DA142D7EF62BD52E01D2602B9F899172</device>
+      <device name="asus Transformer TF101">EE167D4D8B749A7FC027BF02C8087D4D</device>
+      <device name="CommandFusion's iPhone">D539A21C09A4C347B008D44A6B14C317</device>
+      <device name="CommandFusion iPhone">C005B115E9E2628925D03298CCD50DC8</device>
+      <device name="CommandFusion iPad Mini White 16GB">1FD2B945BA32E1053AABE816D601C9C7</device>
+      <device name="CommandFusion iPhone5 Black 16GB">D1200B1E78D32DE14774215B227BF7E9</device>
+      <device name="CommandFusion iPad 3 White 16GB">B70D74782DB7EE61069D8B1E6DE71044</device>
+      <device name="PHP upgrade test">709D094147F35A6305DC7368314AD924</device>
+      <device name="Mike Quin iPod Touch">1B8752CDB58B90ABE1C36584472D7460</device>
+      <device name="Tech2Home iPad Free">BE1C42FABFA477130B16A24302D6D140</device>
+      <device name="CommandFusion iPhone4S 16GB White">1AA37565C0BFC23BBBF9D7AB2B8156E4</device>
+      <device name="CommandFusion White iPad2">A65B95A392D915326B24CC37C7A88537</device>
+      <device name="CommandFusion Black iPad2">4A10D1837F75AF1FC608D8C964A47900</device>
+      <device name="Alan Michael iPad">F755FB0A970C99777E8A8F66903FB66E</device>
+      <device name="CommandFusion iPhone 4">5AE0AE1AD7C838CFAE3BA26D23ED0712</device>
+      <device name="Development iPad #2">F23E70BC8C90C29C94610D9B35F95A88</device>
+      <device name="GuiLink iPad">7AE2743F5FB3D11EDAA5A6A2A6A90C04</device>
+      <device name="Natalie Bassat iPad">0B95D77CEEDEC3BEACFC13CDF50B9875</device>
+      <device name="Andrew Bassat iPad">AF0B8BA1EFB34E1672D53768E0DCCCAD</device>
+      <device name="Lisa iPhone 3G">0D19F0E73C0A5334F0E468234AFEA2BB</device>
+      <device name="CommandFusion iPad">7FA41088AB80BA09CF10FA579B95C51C</device>
+      <device name="Camberwell Elec iPod Touch">E2DD5563C216102B72A9472C7B51633C</device>
+      <device name="Matt Bassat iPod Touch">A6EF77B9A9EBFAEE74F93FEF73949844</device>
+      <device name="Nat Bassat iPhone">C2B24234531BB262D55DA8ACEEE28753</device>
+      <device name="CommandFusion iTouch 3rd Gen">9C9309EA6867A4C87FEB1BC0E8A1A20C</device>
+      <device name="Jarrod's iPhone 3G">3D0F1EA73558BA41AAE0105C51EDB533</device>
+      <device name="Jarrod iPhone Test">4F982B8139F86701EDDAE79D2C73A6BD</device>
+      <device name="The Pad iTouch 1">79EBA1CF09570F7645A70E22E0EC160F</device>
+      <device name="Ross' iPhone">A8189CCD0CBC962969902DC9F968FF71</device>
+    </devices>
+  </properties>
+  <themes>
+    <theme type="button" name=".guide_item[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080FF; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".guide_item[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #FF8000; color: White; font-size: 12px; font-name: 'Avenir-Medium'; font-family: 'Avenir'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".txt_l"><![CDATA[ color: White; font-size: 18px; font-name: 'Avenir-Heavy'; font-family: 'Avenir'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".txt_c"><![CDATA[ color: White; font-size: 18px; font-name: 'Avenir-Heavy'; font-family: 'Avenir'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait />
+    <landscape>
+      <list j="1" x="0" y="56" w="1024" h="712" headerSub="" titleSub="" contentSub="GuideRow" footerSub="" orientation="v" l="0" swipedelete="0" tags="l_guide" />
+      <txt j="0" x="7" y="11" w="247" h="33" t="txt_l" wrap="False" l="0" tags="">Dynamic TV Guide Listing</txt>
+      <btn j="0" x="261" y="8" w="110" h="40" t="guide_item" flip="None" sim="1" l="0" s="1" tags="" js="refreshGuide()">
+        <inactive s="0">REFRESH</inactive>
+        <active s="0">REFRESH</active>
+      </btn>
+    </landscape>
+  </page>
+  <subpage name="GuideRow" w="1200" h="50" clip="1">
+    <btn j="1" x="0" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="1">X</inactive>
+      <active s="1">X</active>
+    </btn>
+    <btn j="2" x="50" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="2">X</inactive>
+      <active s="2">X</active>
+    </btn>
+    <btn j="3" x="100" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="3">X</inactive>
+      <active s="3">X</active>
+    </btn>
+    <btn j="4" x="150" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="4">X</inactive>
+      <active s="4">X</active>
+    </btn>
+    <btn j="5" x="200" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="5">X</inactive>
+      <active s="5">X</active>
+    </btn>
+    <btn j="6" x="250" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="6">X</inactive>
+      <active s="6">X</active>
+    </btn>
+    <btn j="7" x="300" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="7">X</inactive>
+      <active s="7">X</active>
+    </btn>
+    <btn j="8" x="350" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="8">X</inactive>
+      <active s="8">X</active>
+    </btn>
+    <btn j="9" x="400" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="9">X</inactive>
+      <active s="9">X</active>
+    </btn>
+    <btn j="10" x="450" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="10">X</inactive>
+      <active s="10">X</active>
+    </btn>
+    <btn j="11" x="500" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="11">X</inactive>
+      <active s="11">X</active>
+    </btn>
+    <btn j="12" x="550" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="12">X</inactive>
+      <active s="12">X</active>
+    </btn>
+    <btn j="13" x="599" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="13">X</inactive>
+      <active s="13">X</active>
+    </btn>
+    <btn j="14" x="649" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="14">X</inactive>
+      <active s="14">X</active>
+    </btn>
+    <btn j="15" x="699" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="15">X</inactive>
+      <active s="15">X</active>
+    </btn>
+    <btn j="16" x="749" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="16">X</inactive>
+      <active s="16">X</active>
+    </btn>
+    <btn j="17" x="799" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="17">X</inactive>
+      <active s="17">X</active>
+    </btn>
+    <btn j="18" x="849" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="18">X</inactive>
+      <active s="18">X</active>
+    </btn>
+    <btn j="19" x="899" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="19">X</inactive>
+      <active s="19">X</active>
+    </btn>
+    <btn j="20" x="949" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="20">X</inactive>
+      <active s="20">X</active>
+    </btn>
+    <btn j="21" x="999" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="21">X</inactive>
+      <active s="21">X</active>
+    </btn>
+    <btn j="22" x="1049" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="22">X</inactive>
+      <active s="22">X</active>
+    </btn>
+    <btn j="23" x="1099" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="23">X</inactive>
+      <active s="23">X</active>
+    </btn>
+    <btn j="24" x="1148" y="0" w="46" h="46" t="guide_item" flip="None" sim="1" l="0" s="1" tags="">
+      <inactive s="24">X</inactive>
+      <active s="24">X</active>
+    </btn>
+  </subpage>
+</gui>
