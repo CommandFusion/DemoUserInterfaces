@@ -70,7 +70,7 @@ var ColorPicker = function(url, pickerJoin, hoverJoin, freq, callback) {
 			
 		CF.loadAsset(self.imageURL, CF.BINARY, function (data) {
 			self.img.src = "data:image/png;base64," + encode64(data);
-		});
+		}, CF.CACHE);
 	};
 
 	self.getColorAt = function (x, y, dolimitRate) {
