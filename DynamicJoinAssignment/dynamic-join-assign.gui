@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Dynamic Join Assignment</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="Jarrod Bell’s iPad">3C1E289326F51ABCEDFCB61EC226A2C1</device>
+      <device name="asus Nexus 7 4.2.2">D4F0FDB0E90040C12692166FCBD97172</device>
+      <device name="asus Nexus 7">DA142D7EF62BD52E01D2602B9F899172</device>
+      <device name="asus Transformer TF101">EE167D4D8B749A7FC027BF02C8087D4D</device>
+      <device name="CommandFusion's iPhone">D539A21C09A4C347B008D44A6B14C317</device>
+      <device name="CommandFusion iPhone">C005B115E9E2628925D03298CCD50DC8</device>
+      <device name="CommandFusion iPad Mini White 16GB">1FD2B945BA32E1053AABE816D601C9C7</device>
+      <device name="CommandFusion iPhone5 Black 16GB">D1200B1E78D32DE14774215B227BF7E9</device>
+      <device name="CommandFusion iPad 3 White 16GB">B70D74782DB7EE61069D8B1E6DE71044</device>
+      <device name="PHP upgrade test">709D094147F35A6305DC7368314AD924</device>
+      <device name="Mike Quin iPod Touch">1B8752CDB58B90ABE1C36584472D7460</device>
+      <device name="Tech2Home iPad Free">BE1C42FABFA477130B16A24302D6D140</device>
+      <device name="CommandFusion iPhone4S 16GB White">1AA37565C0BFC23BBBF9D7AB2B8156E4</device>
+      <device name="CommandFusion White iPad2">A65B95A392D915326B24CC37C7A88537</device>
+      <device name="CommandFusion Black iPad2">4A10D1837F75AF1FC608D8C964A47900</device>
+      <device name="Alan Michael iPad">F755FB0A970C99777E8A8F66903FB66E</device>
+      <device name="CommandFusion iPhone 4">5AE0AE1AD7C838CFAE3BA26D23ED0712</device>
+      <device name="Development iPad #2">F23E70BC8C90C29C94610D9B35F95A88</device>
+      <device name="GuiLink iPad">7AE2743F5FB3D11EDAA5A6A2A6A90C04</device>
+      <device name="Natalie Bassat iPad">0B95D77CEEDEC3BEACFC13CDF50B9875</device>
+      <device name="Andrew Bassat iPad">AF0B8BA1EFB34E1672D53768E0DCCCAD</device>
+      <device name="Lisa iPhone 3G">0D19F0E73C0A5334F0E468234AFEA2BB</device>
+      <device name="CommandFusion iPad">7FA41088AB80BA09CF10FA579B95C51C</device>
+      <device name="Camberwell Elec iPod Touch">E2DD5563C216102B72A9472C7B51633C</device>
+      <device name="Matt Bassat iPod Touch">A6EF77B9A9EBFAEE74F93FEF73949844</device>
+      <device name="Nat Bassat iPhone">C2B24234531BB262D55DA8ACEEE28753</device>
+      <device name="CommandFusion iTouch 3rd Gen">9C9309EA6867A4C87FEB1BC0E8A1A20C</device>
+      <device name="Jarrod's iPhone 3G">3D0F1EA73558BA41AAE0105C51EDB533</device>
+      <device name="Jarrod iPhone Test">4F982B8139F86701EDDAE79D2C73A6BD</device>
+      <device name="The Pad iTouch 1">79EBA1CF09570F7645A70E22E0EC160F</device>
+      <device name="Ross' iPhone">A8189CCD0CBC962969902DC9F968FF71</device>
+    </devices>
+  </properties>
+  <systems>
+    <system name="Loopback Demo" protocol="udp" ip="127.0.0.1" port="10207" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" origin="0" accept="1" acceptBroadcasts="1" eom="" js="" textEncoding="" ssl="0">
+      <cmd name="Ch12_0">Channel12=0</cmd>
+      <cmd name="Ch12_255">Channel12=255</cmd>
+      <cmd name="Ch23_0">Channel23=0</cmd>
+      <cmd name="Ch23_128">Channel23=128</cmd>
+      <fb name="fb" regex="Channel(\d+)=(\d+)">
+        <group index="1" name="ch" datatype="a" target="a1" />
+        <group index="2" name="level" datatype="a" target="a1" min="0" max="255" />
+        <onmatch target="a$ch$" value="$level$" />
+        <onmatch target="s1" value="$ch$ = $level$" />
+      </fb>
+    </system>
+  </systems>
+  <tokens>
+    <token name="[NESTAUTH]" value="" persist="1" />
+    <token name="[NESTDEVICES]" value="" persist="1" />
+    <token name="[NESTSTRUCTURES]" value="" persist="1" />
+  </tokens>
+  <scripts>
+    <script name="lifx.js" />
+  </scripts>
+  <themes>
+    <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #004080; color: White; font-size: 12px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080FF; color: White; font-size: 12px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".txt"><![CDATA[ color: White; font-size: 14px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".PIN"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 30px; font-name: 'CourierNewPS-BoldMT'; font-family: 'Courier New'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".h[state='0']"><![CDATA[ background-image: url(gauge_h_off.png);]]></theme>
+    <theme type="gauge" name=".h[state='1']"><![CDATA[ background-image: url(gauge_h_on.png);]]></theme>
+  </themes>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait>
+      <txt j="0" x="0" y="0" w="320" h="87" t="txt" wrap="True" l="0" tags="">Dynamic Join Value Assignment Demo</txt>
+      <btn j="0" x="30" y="86" w="120" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" cmd="Ch12_0">
+        <inactive s="0">CH 12
+OFF</inactive>
+        <active s="0">CH 12
+OFF</active>
+      </btn>
+      <btn j="0" x="170" y="86" w="120" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" cmd="Ch12_255">
+        <inactive s="0">CH 12
+ON</inactive>
+        <active s="0">CH 12
+ON</active>
+      </btn>
+      <gauge j="12" x="54" y="263" w="212" h="32" t="h" l="0" tags="" />
+      <btn j="0" x="30" y="156" w="120" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" cmd="Ch23_0">
+        <inactive s="0">CH 23
+OFF</inactive>
+        <active s="0">CH 23
+OFF</active>
+      </btn>
+      <btn j="0" x="170" y="156" w="120" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" cmd="Ch23_128">
+        <inactive s="0">CH 23
+MID</inactive>
+        <active s="0">CH 23
+MID</active>
+      </btn>
+      <gauge j="23" x="54" y="313" w="212" h="32" t="h" l="0" tags="" />
+      <txt j="1" x="0" y="393" w="320" h="87" t="txt" wrap="True" l="0" tags="">
+      </txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
