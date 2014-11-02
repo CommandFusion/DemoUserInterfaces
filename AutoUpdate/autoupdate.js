@@ -45,7 +45,7 @@ var AutoUpdate = function (params) {
 			self.getLastModInfo(self.fileURLCheck, function(lastModInfo) {
 				// This anonymous function is called when the getLastModInfo function completes
 				// Now compare the last mod info to see if it needs reloading
-				if ((lastModifiedToken != "") && ((self.isDateMode && lastModInfo > lastModifiedToken) || (!self.isDateMode && lastModInfo != lastModifiedToken))) {
+				if ((lastModifiedToken != "") && lastModInfo != null && ((self.isDateMode && lastModInfo > lastModifiedToken) || (!self.isDateMode && lastModInfo != lastModifiedToken))) {
 					// GUI needs to be reloaded
 					CF.log("UPDATE AVAILABLE!");
 					self.lastModInfo = lastModInfo;
@@ -75,14 +75,17 @@ var AutoUpdate = function (params) {
 	// The HTTP response must issue Last-Modified or Etag headers for this to work (not all servers will do this!)
 	self.getLastModInfo = function (fileURL, callback) {
 		if (!fileURL || !callback) {
+			CF.log("AUTO UPDATE ERROR: URL and callback function are required.");
 			callback(null);
 		}
 		CF.request(fileURL, self.requestMethod, null, function(status, headers) {
 			if (status == "405") {
 				// Try again, using GET method instead, and use GET for all future checks
 				CF.log(self.requestMethod + " mode not supported by server hosting the GUI.");
-				self.requestMethod = "GET";
-				self.getLastModInfo(fileURL, callback);
+				if (self.requestMethod != "GET") {
+					self.requestMethod = "GET";
+					self.getLastModInfo(fileURL, callback);
+				}
 			} else if (status != "200") {
 				CF.log("AUTO UPDATE ERROR: GUI File URL returned HTTP Code " + status);
 				callback(null);
