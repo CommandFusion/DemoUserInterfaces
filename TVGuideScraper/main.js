@@ -177,32 +177,32 @@ function updateGuideList(startDate) {
 	}
 };
 
-var startTimeRegex = /<p class=\"heure_precedent\">(.*?)<\/p>/;
-var channelRegex = /<a href=\"\/programme\/chaine\/.*? title=\"Programme de (.*?)\".*?<\/a>([\s\S]*?<\/li>)/g;
-//var showRegex = /<p\s+class=\"largeur_cell_.*?><span>(.*?)<\/span>(?:<a href.*?>)?(.*?)</g;
-var showRegex = /<p\s+class=\"largeur_cell_.*?>(?:<span>.*?<\/span>)?(?:<a href.*?>)?(.*?)<.*?<em>(.*?)\((.*?)\)/g;
+//var startTimeRegex = /<p class=\"heure_precedent\">(.*?)<\/p>/;
+var channelRegex = /<div class=\"channelItem\">[\s\S]*?<a.*?href=\"\/programme\/chaine\/.*?title=\"Programme de (.*?)\"[\s\S]*?<\/a>[\s\S]*?<\/div>([\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/g;
+var showRegex = /<div\s*class=\"show[\s\S]*?<p class="time">(.*?)<\/p>[\s\S]*?<p class=\"title\">(?:<a[\s\S]*?\">(.*?)<\/a>|(.*?)<\/p>)[\s\S]*?<p class=\"type\">.*?\((.*?)\)/g;
 function scrapeGuide(url) {
     CF.log("Scraping guide data from " + url);
 
     CF.request(url, function (status, headers, body) {
         // Check that the URL request returned without error
         if (status == 200) {
-            var startTime = startTimeRegex.exec(body)[1];
+            //var startTime = startTimeRegex.exec(body)[1];
 
             var matches;
             while (matches = channelRegex.exec(body)) {
                 var newChannel = {
                     name: decodeEntities(matches[1]),
                     channel: 0,
-                    guideStartTime: startTime,
+                    //guideStartTime: startTime,
                     shows: []
                 };
                 var channelBody = matches[2];
                 var showMatches;
                 while (showMatches = showRegex.exec(channelBody)) {
                     newChannel.shows.push({
-                        title: showMatches[1],
-                        mins: getMins(showMatches[3])
+                        //startTime: showMatches[1],
+                        title: decodeEntities(showMatches[2] || showMatches[3]),
+                        mins: getMins(showMatches[4])
                     });
                 }
                 guideData.channels.push(newChannel);
