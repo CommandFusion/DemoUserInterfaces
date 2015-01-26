@@ -5,8 +5,13 @@ This way you can store your guiDesigner projects in dropbox (or similar) then an
 
 ## Usage
 
-Simply add the autoupdate.js file to your project and instantiate it in your own main.js file for your projects.  
+Add the autoupdate.js file to your project and instantiate it in your own main.js file for your projects.  
 You can can use the main.js file included in this demo as a sample on how to use it within your projects.
+
+Add two tokens to your guiDesigner project, via Project Properties:
+* [last-modified]
+* [is-date-mode]
+Make sure the 'persist' option is enabled.
 
 Make sure "Remember Last GUI" in iViewer settings is enabled. Otherwise after loading the updated GUI, the next time the app is launched it might be loading the old GUI project (if the URLs you used to initially load the project is different to the URL used in the update process).
 
