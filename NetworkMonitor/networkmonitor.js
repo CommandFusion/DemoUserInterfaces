@@ -86,7 +86,7 @@ CF.userMain = function () {
 	monitor = new NetworkMonitor({
 		ssid: "linksys",
 		systemName: "my system",
-		remoteIP: "my.dynddns.org",
+		remoteIP: "my.dyndns.org",
 		remotePort: 1234,
 		networkChangeCallback: function(hasNetwork) {
 			// Network status changed, run your own code
