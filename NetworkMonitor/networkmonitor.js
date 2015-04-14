@@ -11,6 +11,12 @@ var NetworkMonitor = function(params) {
 	};
 
 	self.init = function () {
+
+		if (!ssid) {
+			CF.log("Network Monitor: SSID param is undefined or invalid.");
+			return;
+		}
+
 		// First get the initial system state, this will be stored as the local state
 		if (!systemName) {
 			CF.log("Network Monitor: systemName param is undefined.");
@@ -20,6 +26,10 @@ var NetworkMonitor = function(params) {
 		if (!CF.systems.hasOwnProperty(self.systemName)) {
 			CF.log("Network Monitor: System could not be found in project: " + self.systemName);
 			return;
+		}
+
+		if (!self.ssid.constructor === Array) {
+			self.ssid = self.ssid.split(",");
 		}
 
 		// Check if using specifically defined local connection details or automatically get them from the initial system state
@@ -38,7 +48,14 @@ var NetworkMonitor = function(params) {
 			}
 
 			// Check if the current SSID matches the ssid module parameter
-			var wifiMatch = CF.networkSSID.toLowerCase() == self.ssid.toLowerCase();
+			var wifiMatch = false;
+			for (var i = 0; i < self.ssid.length; i++) {
+				if (CF.networkSSID.toLowerCase().trim() == self.ssid[i].toLowerCase().trim()) {
+					wifiMatch = true;
+					continue;
+				}
+			}
+
 			CF.log("Network Monitor: Wi-Fi Match = " + (wifiMatch ? "YES" : "NO"));
 
 			if (wifiMatch) {
@@ -56,7 +73,14 @@ var NetworkMonitor = function(params) {
 // Example usage:
 var monitor;
 CF.userMain = function () {
-	monitor = new NetworkMonitor({ssid: "linksys", systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
+	// Single SSID
+	//monitor = new NetworkMonitor({ssid: "linksys", systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
+
+	// Multiple SSIDs as string
+	//monitor = new NetworkMonitor({ssid: "linksys, home, home2", systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
+
+	// Multiple SSIDs as array
+	//monitor = new NetworkMonitor({ssid: ["linksys", "home", "home2"], systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
 
 	// Or with a function to call dynamic code when network is unavailable:
 	monitor = new NetworkMonitor({
