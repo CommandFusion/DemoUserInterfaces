@@ -56,9 +56,9 @@ var NetworkMonitor = function(params) {
 // Example usage:
 var monitor;
 CF.userMain = function () {
-	monitor = new NetworkMonitor({ssid: "linksys", systemName: "my system", remoteIP: "my.dynddns.org", remotePort: 1234});
-	// Or with a function to call dynamic code when network is unavailable:
+	monitor = new NetworkMonitor({ssid: "linksys", systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
 
+	// Or with a function to call dynamic code when network is unavailable:
 	monitor = new NetworkMonitor({
 		ssid: "linksys",
 		systemName: "my system",
