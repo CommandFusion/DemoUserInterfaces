@@ -6,19 +6,19 @@ var NetworkMonitor = function(params) {
 		localPort: params.localPort || null,
 		remoteIP: params.remoteIP || null,
 		remotePort: params.remotePort || null,
-		watcherID: null,
-		networkChangeCallback: params.networkChangeCallback || null
+		networkChangeCallback: params.networkChangeCallback || null,
+		statusJoin: params.statusJoin || null
 	};
 
 	self.init = function () {
 
-		if (!ssid) {
+		if (!self.ssid) {
 			CF.log("Network Monitor: SSID param is undefined or invalid.");
 			return;
 		}
 
 		// First get the initial system state, this will be stored as the local state
-		if (!systemName) {
+		if (!self.systemName) {
 			CF.log("Network Monitor: systemName param is undefined.");
 			return;
 		}
@@ -28,7 +28,7 @@ var NetworkMonitor = function(params) {
 			return;
 		}
 
-		if (!self.ssid.constructor === Array) {
+		if (!Array.isArray(self.ssid)) {
 			self.ssid = self.ssid.split(",");
 		}
 
@@ -40,10 +40,11 @@ var NetworkMonitor = function(params) {
 		}
 
 		// Setup network connection listener
-		self.watcherID = CF.watch(CF.NetworkStatusChangeEvent, "", function(networkStatus) {
+		CF.watch(CF.NetworkStatusChangeEvent, "", function(networkStatus) {
 			if (!networkStatus.hasNetwork) {
 				CF.log("Network is unavailable!");
-				if (typeof self.networkChangeCallback === 'function' && self.networkChangeCallback(networkStatus.hasNetwork))
+				CF.setJoin(self.statusJoin, "Network is unavailable!");
+				(self.networkChangeCallback || Function)(networkStatus);
 				return false;
 			}
 
@@ -60,39 +61,15 @@ var NetworkMonitor = function(params) {
 
 			if (wifiMatch) {
 				CF.setSystemProperties(self.systemName, {address: self.localIP, port: self.localPort});
+				CF.setJoin(self.statusJoin, CF.networkSSID + ", " + self.localIP + ":" + self.localPort);
 			} else {
 				CF.setSystemProperties(self.systemName, {address: self.remoteIP, port: self.remotePort});
+				CF.setJoin(self.statusJoin, (CF.networkSSID ? CF.networkSSID : networkStatus.networkType) + ", " + self.remoteIP + ":" + self.remotePort);
 			}
+			
+			(self.networkChangeCallback || Function)(networkStatus);
 		}, true);
 	};
 
 	return self;
-};
-
-
-// Example usage:
-var monitor;
-CF.userMain = function () {
-	// Single SSID
-	//monitor = new NetworkMonitor({ssid: "linksys", systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
-
-	// Multiple SSIDs as string
-	//monitor = new NetworkMonitor({ssid: "linksys, home, home2", systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
-
-	// Multiple SSIDs as array
-	//monitor = new NetworkMonitor({ssid: ["linksys", "home", "home2"], systemName: "my system", remoteIP: "my.dyndns.org", remotePort: 1234});
-
-	// Or with a function to call dynamic code when network is unavailable:
-	monitor = new NetworkMonitor({
-		ssid: "linksys",
-		systemName: "my system",
-		remoteIP: "my.dyndns.org",
-		remotePort: 1234,
-		networkChangeCallback: function(hasNetwork) {
-			// Network status changed, run your own code
-
-			// Show or hide a subpage assigned to a tag 'networkUnavailable' based on network state.
-			CF.setJoin("networkUnavailable", !hasNetwork);
-		}
-	});
 };

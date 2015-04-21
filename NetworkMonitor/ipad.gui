@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Network Monitor Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="CommandFusion iPad Mini White 16GB iOS7">3EF2CC982D292940DA4B4CD023B8892B</device>
+    </devices>
+  </properties>
+  <systems>
+    <system name="My System" protocol="tcp" accept="0" ip="192.168.0.10" port="10207" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0" />
+  </systems>
+  <themes>
+    <theme type="background" name=".bg_grey"><![CDATA[background-color: #585858;]]></theme>
+    <theme type="text" name=".body"><![CDATA[ color: White; font-size: 16px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: left; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".title"><![CDATA[ color: White; font-size: 16px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".body_c"><![CDATA[ color: White; font-size: 16px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="networkmonitor.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait />
+    <landscape t="bg_grey">
+      <txt j="0" x="238" y="199" w="107" h="38" t="title" wrap="False" l="0" tags="">Status:</txt>
+      <txt j="0" x="358" y="199" w="427" h="38" t="body" wrap="False" l="0" tags="monitor_tag">Loading...</txt>
+      <txt j="0" x="156" y="250" w="712" h="304" t="body_c" wrap="True" l="0" tags="">Whilst NOT running in debug mode, try enabling/disabling Airplane Mode on your iPad.
+
+You should see the GUI update to show the status.
+
+If you device has 3G access, or is connected to a different SSID, then the connection should swap over to the remote IP.</txt>
+      <subpage name="NetworkUnavailable" x="0" y="0" j="1" transition1="None" subtype1="None" time1="0" ease1="" transition2="None" subtype2="None" time2="0" ease2="" clickthrough="0" topmost="0" v="1" l="0" tags="networkUnavailable" />
+    </landscape>
+  </page>
+  <subpage name="NetworkUnavailable" w="200" h="200" clip="1">
+    <txt j="0" x="0" y="0" w="200" h="200" t="body_c" wrap="True" l="0" tags="">NETWORK UNAVAILABLE!</txt>
+  </subpage>
+</gui>
