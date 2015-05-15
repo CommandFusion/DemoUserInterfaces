@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Stream Toggle Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".bg"><![CDATA[background-color: #585858;]]></theme>
+    <theme type="text" name=".body"><![CDATA[ color: White; font-size: 16px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="streamtoggle.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait />
+    <landscape t="bg">
+      <txt j="0" x="302" y="47" w="420" h="74" t="body" wrap="False" l="0" tags="">Tap a stream to toggle fullscreen</txt>
+      <img x="15" y="150" w="320" h="180" j="1" clickthrough="0" refresh="400" l="0" noCache="1" downloadIndicator="1" clearOnURLChange="0" tags="">http://194.248.190.92/jpg/image.jpg<gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="toggleFullscreen(join);" /></gesture></img>
+      <img x="352" y="150" w="320" h="180" j="2" clickthrough="0" refresh="400" l="0" noCache="1" downloadIndicator="1" clearOnURLChange="0" tags="">http://webcam.datainstituttet.no/axis-cgi/jpg/image.cgi<gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="toggleFullscreen(join);" /></gesture></img>
+      <img x="688" y="150" w="320" h="180" j="3" clickthrough="0" refresh="400" l="0" noCache="1" downloadIndicator="1" clearOnURLChange="0" tags="">http://79.141.146.217/axis-cgi/jpg/image.cgi<gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="toggleFullscreen(join);" /></gesture></img>
+      <img x="15" y="350" w="320" h="180" j="4" clickthrough="0" refresh="400" l="0" noCache="1" downloadIndicator="1" clearOnURLChange="0" tags="">http://206.140.121.226/jpg/image.jpg<gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="toggleFullscreen(join);" /></gesture></img>
+      <img x="352" y="350" w="320" h="180" j="5" clickthrough="0" refresh="400" l="0" noCache="1" downloadIndicator="1" clearOnURLChange="0" tags="">http://webcam1.comune.ra.it/record/current.jpg<gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="toggleFullscreen(join);" /></gesture></img>
+      <img x="688" y="350" w="320" h="180" j="6" clickthrough="0" refresh="400" l="0" noCache="1" downloadIndicator="1" clearOnURLChange="0" tags="">http://194.218.96.90/jpg/image.jpg<gesture name="New Gesture" type="tap" taps="1" touches="1"><action phase="begin" js="toggleFullscreen(join);" /></gesture></img>
+    </landscape>
+  </page>
+</gui>
