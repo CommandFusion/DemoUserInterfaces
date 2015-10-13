@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>imageresize</project>
+    <designer>
+    </designer>
+    <size autoposition="scale">
+      <portrait width="768" height="1024" />
+      <landscape width="1024" height="768" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="HTTP Server" protocol="tcp" accept="1" alwayson="1" ip="0.0.0.0" origin="10210" maxconnections="0" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" port="10210" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" eom="" js="" textEncoding="">
+      <fb name="HTTP Request" regex="(?msi).*\r\n\r\n" />
+    </system>
+  </systems>
+  <themes>
+    <theme type="text" name=".text"><![CDATA[ color: White; font-size: 30px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #454545; color: White; font-size: 16px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080FF; color: White; font-size: 16px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="httpserver.js" />
+    <script name="ImageManipulation.js" />
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait />
+    <landscape>
+      <img x="27" y="57" w="466" h="690" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="original">cover.jpg</img>
+      <img x="627" y="91" w="350" h="350" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="1" clearOnURLChange="1" tags="cropped">cover.jpg</img>
+      <btn j="0" x="727" y="517" w="150" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="CF.setJoin(&quot;s2&quot;, &quot;http://localhost:10210/cover.jpg?method=crop&amp;width=350&amp;height=350&quot;);">
+        <inactive s="0">CROP TO FIT</inactive>
+        <active s="0">CROP TO FIT</active>
+      </btn>
+      <btn j="0" x="727" y="657" w="150" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="CF.setJoin(&quot;s2&quot;, &quot;cover.jpg&quot;);">
+        <inactive s="0">RESET</inactive>
+        <active s="0">RESET</active>
+      </btn>
+      <btn j="0" x="727" y="587" w="150" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="CF.setJoin(&quot;s2&quot;, &quot;http://localhost:10210/cover.jpg?method=box&amp;width=350&amp;height=350&quot;);">
+        <inactive s="0">SCALE TO FIT</inactive>
+        <active s="0">SCALE TO FIT</active>
+      </btn>
+      <txt j="0" x="84" y="3" w="352" h="50" t="text" wrap="False" l="0" tags="">Original Image</txt>
+      <txt j="0" x="626" y="19" w="352" h="50" t="text" wrap="False" l="0" tags="">Square Image</txt>
+    </landscape>
+  </page>
+</gui>
