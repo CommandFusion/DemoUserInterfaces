@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Attitude Sensor JS Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[background-color: #000000;]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ color: #FFFFFF; font-size: 16px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #808080; color: #FFFFFF; font-size: 14px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080FF; color: #FFFFFF; font-size: 14px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".indicator_red"><![CDATA[ color: #FF0000; font-size: 16px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".indicator_green"><![CDATA[ color: #00FF00; font-size: 16px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+  </themes>
+  <scripts>
+    <script name="main.js" />
+  </scripts>
+  <page name="Startup" folder="" j="0" tags="" transition="None" subtype="None" time="0" ease="">
+    <portrait t="portrait">
+      <txt j="0" x="20" y="50" w="279" h="100" t="text_c" wrap="True" l="0" tags="">Detect Portrait Orientation Using Attitude Sensor</txt>
+      <txt j="1" x="20" y="180" w="279" h="121" t="text_c" wrap="False" l="0" tags="">WAITING...</txt>
+      <btn j="0" x="91" y="353" w="138" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="startMonitoring();">
+        <inactive s="0">Start Monitoring</inactive>
+        <active s="0">Start Monitoring</active>
+      </btn>
+      <btn j="0" x="91" y="413" w="138" h="50" t="btn" flip="None" sim="1" l="0" s="1" tags="" js="stopMonitoring();">
+        <inactive s="0">Stop Monitoring</inactive>
+        <active s="0">Stop Monitoring</active>
+      </btn>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
