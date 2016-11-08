@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Image Level Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="568" />
+      <landscape width="568" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="Loopback" protocol="tcp" accept="0" ip="127.0.0.1" port="10207" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="\x0d" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
+      <cmd name="Pos Command">Rollershutter_pos=[sliderval]\x0d</cmd>
+      <fb name="Roller Shutter" regex="Rollershutter_pos=(\d+)">
+        <group index="1" name="pos" datatype="a" target="s2" settoken="1" transform="round(value/10)*10" />
+        <onmatch target="s1" value="rollershutter_$pos$.png" />
+      </fb>
+    </system>
+  </systems>
+  <themes>
+    <theme type="text" name=".white_c"><![CDATA[ color: #FFFFFF; font-size: 16px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".white_title_c"><![CDATA[ color: #FFFFFF; font-size: 22px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".gauge_v[state='0']"><![CDATA[ background-image: url(gauge_v_off.png);]]></theme>
+    <theme type="gauge" name=".gauge_v[state='1']"><![CDATA[ background-image: url(gauge_v_on.png);]]></theme>
+    <theme type="background" name=".bg"><![CDATA[background-color: #707070;]]></theme>
+  </themes>
+  <page name="Startup" folder="" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait t="bg">
+      <txt j="0" x="47" y="22" w="226" h="40" t="white_title_c" wrap="False" l="0" tags="">Image Level Demo</txt>
+      <txt j="0" x="10" y="62" w="303" h="157" t="white_c" wrap="True" l="0" tags="">Display an image based on incoming level data, such as a rollershutter position.
+
+Drag the slider up and down and watch the image change to reflect the level.</txt>
+      <slider j="0" d="0" x="49" y="297" w="21" h="175" min="0" max="100" decimals="0" pressCmd="Pos Command" dragCmd="Pos Command" releaseCmd="Pos Command" unit="decimal" t="gauge_v" invert="1" sim="1" l="0" tags="" />
+      <img x="111" y="308" w="161" h="152" j="1" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_0.png</img>
+      <txt j="0" x="0" y="473" w="120" h="37" t="white_c" wrap="True" l="0" tags="">CLOSED</txt>
+      <txt j="0" x="0" y="258" w="120" h="37" t="white_c" wrap="True" l="0" tags="">OPEN</txt>
+    </portrait>
+    <landscape />
+  </page>
+  <subpage name="CachePage" folder="" w="320" h="568" clip="1">
+    <img x="159" y="82" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_0.png</img>
+    <img x="159" y="408" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_10.png</img>
+    <img x="0" y="412" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_20.png</img>
+    <img x="159" y="326" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_30.png</img>
+    <img x="0" y="309" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_40.png</img>
+    <img x="159" y="245" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_50.png</img>
+    <img x="0" y="206" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_60.png</img>
+    <img x="159" y="163" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_70.png</img>
+    <img x="0" y="103" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_80.png</img>
+    <img x="159" y="0" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_90.png</img>
+    <img x="0" y="0" w="161" h="152" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">rollershutter_100.png</img>
+  </subpage>
+</gui>
