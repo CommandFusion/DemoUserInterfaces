@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>iphone5</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="568" />
+      <landscape width="568" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="HTTP_SERVER" protocol="tcp" accept="1" alwayson="1" ip="0.0.0.0" origin="8899" maxconnections="0" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" port="8899" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" eom="" js="" textEncoding="">
+      <fb name="HTTP_REQUEST" regex="(?msi).*\r\n\r\n" />
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".PaleBlue"><![CDATA[background-color: #E1F2F2;]]></theme>
+    <theme type="button" name=".btn_group_left[state='0']"><![CDATA[padding: 0px 1px 0px 20px; -webkit-border-image: url(btn_group_left_off.png) 0 1 0 20; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_left[state='1']"><![CDATA[padding: 0px 1px 0px 20px; -webkit-border-image: url(btn_group_left_on.png) 0 1 0 20; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_right[state='0']"><![CDATA[padding: 0px 20px 0px 1px; -webkit-border-image: url(btn_group_right_off.png) 0 20 0 1; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_group_right[state='1']"><![CDATA[padding: 0px 20px 0px 1px; -webkit-border-image: url(btn_group_right_on.png) 0 20 0 1; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait-568h.png); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".btn_single[state='0']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_off.png) 0 20 0 20; text-shadow: rgba(0,0,0,1) 0px 1px 1px; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn_single[state='1']"><![CDATA[padding: 0px 20px 0px 20px; -webkit-border-image: url(btn_single_on.png) 0 20 0 20; text-shadow: rgba(53,202,244,1) 0px 0px 3px; color: #9DCEFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <scripts>
+    <script name="scripts/colorpicker.js" />
+    <script name="scripts/httpserver.js" />
+    <script name="scripts/main.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="None" subtype="None" time="0" ease="" start="1">
+    <portrait t="portrait">
+      <img x="0" y="98" w="320" h="313" j="2" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">iphone\iphone-picker.png<gesture name="Panning" type="pan" taps="1" touches="1"><action phase="change" js="myColorPicker.getColorAt(gesture.x, gesture.y, true, true);" /></gesture><gesture name="Tapping" type="tap" taps="1" touches="1"><action phase="begin" js="myColorPicker.getColorAt(gesture.x, gesture.y, true, false);" /></gesture></img>
+      <web x="1" y="495" w="319" h="73" j="1" title="0" back="0" forward="0" refresh="1" stop="0" url="http://127.0.0.1:8899/0-0-0" tags="" />
+      <img x="0" y="493" w="320" h="75" j="0" clickthrough="0" refresh="0" l="0" noCache="0" downloadIndicator="0" clearOnURLChange="0" tags="">iphone\cflogo-cutout.png</img>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
