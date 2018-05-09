@@ -12,7 +12,7 @@
  Custom parameters:
  ------------------
  var newDial = new Dial("s1", callbackFunction, {srcJoin: "s2", maxTime: 0.5, minTime: 0.3, angleOffset: -45, maxAngle: 260});
- 
+
  Default parameters - just need to supply join number for the object to rotate and the callback function to be notified
  when the dial rotates:
  ----------------------
@@ -41,7 +41,7 @@ var Dial = function(join, callback, params) {
 		ROTATING : false,
 		NEXT_POS : -1,
 		callback: callback
-	};	
+	};
 
 	self.setRotation = function(pos, relative) {
 		// Rotate the object to a new position, absolute or relative.
@@ -65,7 +65,7 @@ var Dial = function(join, callback, params) {
 			var duration = (self.MAX_TIME > 0) ? Math.max(self.MIN_TIME, (self.MAX_TIME / self.MAX_ANGLE) * absDistance) : 0;
 
 			//CF.log("from " + fromAngle + " to " + toAngle + ": distance=" + distance + ", rotationTime=" + duration);
-			
+
 			if (absDistance > 179) {
 				// rotation will go the shortest route possible
 				// so have make sure to set a midpoint if we want to rotate larger than 179 degrees
@@ -96,7 +96,7 @@ var Dial = function(join, callback, params) {
 			}
 
 			if (self.callback !== undefined) {
-				self.callback(toAngle);
+				self.callback(toAngle, self.MAX_ANGLE, self.srcJoin);
 			}
 
 		});
