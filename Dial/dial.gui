@@ -13,30 +13,30 @@
     <debug loaderrors="0" connectionerrors="0" />
   </properties>
   <systems>
-    <system name="Loopback" protocol="tcp" accept="0" ip="127.0.0.1" port="10210" origin="0" alwayson="1" inactivityTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="0" ssl="0">
+    <system name="Loopback" protocol="tcp" accept="0" ip="127.0.0.1" port="10210" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="0" ssl="0">
       <cmd name="SliderCommand" js="myDial.setRotation(data);" jsSendsCommand="False">[sliderval]</cmd>
     </system>
   </systems>
+  <themes>
+    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
+    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: #C0C0C0; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: #80FFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".text_r"><![CDATA[ color: #FFFFFF; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="input" name=".white"><![CDATA[ background-color: #FFFFFF; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".text_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: #C0C0C0; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".indicator"><![CDATA[ color: #000000; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".horizontal_lrg[state='0']"><![CDATA[ background-image: url(gauge_h_lrg_off.png);]]></theme>
+    <theme type="gauge" name=".horizontal_lrg[state='1']"><![CDATA[]]></theme>
+  </themes>
   <scripts>
     <script name="dial.js" />
     <script name="main.js" />
   </scripts>
-  <themes>
-    <theme type="background" name=".portrait"><![CDATA[ background-image: url(bg_portrait.png); background-repeat: no-repeat;]]></theme>
-    <theme type="text" name=".text_c"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
-    <theme type="button" name=".top_btn_single[state='0']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_off.png) 0 21 0 21; color: White; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
-    <theme type="button" name=".top_btn_single[state='1']"><![CDATA[padding: 0px 21px 0px 21px; -webkit-border-image: url(top_btn_single_on.png) 0 21 0 21; color: #80FFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
-    <theme type="text" name=".text_r"><![CDATA[ color: White; font-size: 16px; font-family: 'Arial'; text-align: right; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
-    <theme type="input" name=".white"><![CDATA[ background-color: White; border-width: 0px; color: Black; font-size: 12px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
-    <theme type="text" name=".text_l"><![CDATA[ text-shadow: rgba(0,0,0,1) 0px -1px 0px; color: Silver; font-size: 16px; font-family: 'Arial'; text-align: left; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
-    <theme type="text" name=".indicator"><![CDATA[ color: Black; font-size: 16px; font-family: 'Arial'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
-    <theme type="gauge" name=".horizontal_lrg[state='0']"><![CDATA[ background-image: url(gauge_h_lrg_off.png);]]></theme>
-    <theme type="gauge" name=".horizontal_lrg[state='1']"><![CDATA[]]></theme>
-  </themes>
-  <page name="Startup" j="0" tags="" transition="None" subtype="None" time="0" ease="">
+  <page name="Startup" folder="" j="0" tags="" transition="None" subtype="None" time="0" ease="">
     <portrait t="portrait">
       <slider j="1" d="1" x="73" y="423" w="174" h="21" min="0" max="260" decimals="0" pressCmd="SliderCommand" dragCmd="SliderCommand" releaseCmd="SliderCommand" unit="decimal" t="horizontal_lrg" sim="1" l="0" tags="">
-        <indicator state="0" offsetX="0" offsetY="0" x="0" y="0" w="0" h="0" t="">indicator_off.png</indicator>
+        <indicator state="0" offsetX="0" offsetY="0" x="0" y="0" w="0" h="0" imgW="0" imgH="0" t="">indicator_off.png</indicator>
         <indicator state="1" offsetX="0" offsetY="0" zoom="100" />
       </slider>
       <btn j="2" x="128" y="47" w="65" h="43" t="top_btn_single" flip="None" sim="2" l="0" s="0" tags="" js="CF.getJoin(join, function(j,v){myDial.setRotation(v*270);});">
