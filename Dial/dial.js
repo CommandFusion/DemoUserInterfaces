@@ -43,7 +43,7 @@ var Dial = function(join, callback, params) {
 		callback: callback
 	};
 
-	self.setRotation = function(pos, relative) {
+	self.setRotation = function(pos, relative, ignoreCallback) {
 		// Rotate the object to a new position, absolute or relative.
 		// If an animation is in-flight, don't kill it otherwise we may get
 		// incorrect animation for large angles. Instead, stage the next
@@ -95,7 +95,7 @@ var Dial = function(join, callback, params) {
 				});
 			}
 
-			if (self.callback !== undefined) {
+			if (self.callback !== undefined && !ignoreCallback) {
 				self.callback(toAngle, self.MAX_ANGLE, self.srcJoin);
 			}
 
