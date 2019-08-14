@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Email Sender Demo</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="568" />
+      <landscape width="568" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="CF">853A3142B4AC8AF03B5375EB9A0C0961</device>
+    </devices>
+  </properties>
+  <themes>
+    <theme type="background" name=".landscape"><![CDATA[ background-image: url(bg-landscape.png); background-repeat: repeat;]]></theme>
+    <theme type="text" name=".title"><![CDATA[ color: #FFFFFF; font-size: 24px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".green[state='0']"><![CDATA[padding: 0px 14px 0px 14px; -webkit-border-image: url(btn-green-off.png) 0 14 0 14; color: #2D2D2D; font-size: 24px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".green[state='1']"><![CDATA[padding: 0px 14px 0px 14px; -webkit-border-image: url(btn-green-on.png) 0 14 0 14; color: #2D2D2D; font-size: 24px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".dialog_title"><![CDATA[ color: #000000; font-size: 17px; font-name: 'AvenirNext-Medium'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="text" name=".dialog_body"><![CDATA[ color: #000000; font-size: 13px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".grey[state='0']"><![CDATA[padding: 0px 14px 0px 14px; -webkit-border-image: url(btn-grey-off.png) 0 14 0 14; color: #2D2D2D; font-size: 24px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".grey[state='1']"><![CDATA[padding: 0px 14px 0px 14px; -webkit-border-image: url(btn-grey-on.png) 0 14 0 14; color: #2D2D2D; font-size: 24px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".red[state='0']"><![CDATA[padding: 0px 14px 0px 14px; -webkit-border-image: url(btn-red-off.png) 0 14 0 14; color: #FFFFFF; font-size: 24px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".red[state='1']"><![CDATA[padding: 0px 14px 0px 14px; -webkit-border-image: url(btn-red-on.png) 0 14 0 14; color: #FFFFFF; font-size: 24px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <tokens>
+    <token name="[last-modified]" value="0" persist="1" />
+  </tokens>
+  <scripts>
+    <script name="email.js" />
+  </scripts>
+  <page name="Startup" folder="" j="0" tags="" transition="None" subtype="None" time="0" ease="" start="1">
+    <portrait t="landscape">
+      <txt j="0" x="0" y="0" w="320" h="63" t="title" wrap="False" l="0" tags="">Emailer Example</txt>
+      <btn j="0" x="28" y="427" w="263" h="57" t="green" overrideFontAlignmentH="center" overrideFontAlignmentV="center" flip="None" sim="1" l="0" s="1" tags="" js="sendMail();">
+        <inactive s="0">Send Email</inactive>
+        <active s="0">Send Email</active>
+      </btn>
+      <txt j="0" x="2" y="117" w="315" h="227" t="dialog_body" wrap="True" l="0" tags="">Edit the email.js script to adjust any settings.
+
+Read the script comments for more instructions.</txt>
+    </portrait>
+    <landscape />
+  </page>
+</gui>
