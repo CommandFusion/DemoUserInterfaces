@@ -78,7 +78,7 @@ var AutoUpdate = function (params) {
 			CF.log("AUTO UPDATE ERROR: URL and callback function are required.");
 			callback(null);
 		}
-		CF.request(fileURL, self.requestMethod, null, function(status, headers) {
+		CF.request(fileURL, self.requestMethod, self.requestMethod == "GET" ? {"Range": "bytes=0-0"} : null, function(status, headers) {
 			if (status == "405") {
 				// Try again, using GET method instead, and use GET for all future checks
 				CF.log(self.requestMethod + " mode not supported by server hosting the GUI.");
