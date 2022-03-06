@@ -14,7 +14,8 @@ var AutoUpdater = new AutoUpdate({
 	fileURL: "https://dl.dropboxusercontent.com/u/8790585/AutoUpdateDemo/autoupdate.zip",
 	updateAvailable: updateAvailable,
 	alreadyUpdated: alreadyUpdated,
-	checkingForUpdate: checkingForUpdate
+	checkingForUpdate: checkingForUpdate,
+	requestMethod: "GET",
 });
 
 // Remember to only have a single CF.userMain function defined in your entire project.
