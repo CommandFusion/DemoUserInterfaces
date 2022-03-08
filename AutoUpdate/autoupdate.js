@@ -86,7 +86,7 @@ var AutoUpdate = function (params) {
 					self.requestMethod = "GET";
 					self.getLastModInfo(fileURL, callback);
 				}
-			} else if (status != "200") {
+			} else if (status < 200 || status > 299) {
 				CF.log("AUTO UPDATE ERROR: GUI File URL returned HTTP Code " + status);
 				callback(null);
 			} else {
